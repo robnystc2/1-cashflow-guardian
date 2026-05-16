@@ -1,0 +1,1 @@
+-- Solo como referencia, las tablas ya existen en Supabase
