@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Shield } from 'lucide-react'
+import { Shield, ArrowRight } from 'lucide-react'
 export default function Comunidad() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
@@ -10,9 +10,9 @@ export default function Comunidad() {
         </div>
       </nav>
       <section className="py-16 px-4 max-w-4xl mx-auto text-center">
-        <div className="w-20 h-20 bg-emerald-500/10 rounded-3xl flex items-center justify-center mx-auto mb-4"><Shield className="w-10 h-10 text-emerald-400" /></div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">Comunidad <span className="text-emerald-400">Blindada</span></h1>
-        <p className="text-xl text-zinc-300 mb-8">El foro privado donde los freelancers comparten qué clientes pagan y cuáles no. Juntos somos más fuertes contra los impagos.</p>
+        <div className="w-20 h-20 bg-red-500/10 rounded-3xl flex items-center justify-center mx-auto mb-4"><Shield className="w-10 h-10 text-red-400" /></div>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">Blacklist de <span className="text-red-400">clientes</span></h1>
+        <p className="text-xl text-zinc-300 mb-8">La red privada donde freelancers reportan clientes que no pagan. Acceso exclusivo para usuarios CFG Pro.</p>
         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 mb-8">
           <p className="text-zinc-400 mb-4">Próximamente. Déjanos tu email y te avisaremos cuando abra.</p>
           <div className="flex gap-2 max-w-sm mx-auto">

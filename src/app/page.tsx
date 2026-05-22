@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
       <FeaturesAvanzadas />
 import { Palette, Code2, BarChart3, Camera, PenTool, Globe, Megaphone, Briefcase, Building2, Film, Shield, Lock, Scale, Stethoscope, Music, Search, Play, Star, ArrowRight, Check, FileText } from 'lucide-react'
+import CassandraChat from '@/components/landing/cassandra-chat'
       <FeaturesAvanzadas />
 import FeaturesAvanzadas from '@/components/landing/features-avanzadas'
       <FeaturesAvanzadas />
@@ -72,6 +73,7 @@ export default function LandingPage() {
   const [otherSubmitted, setOtherSubmitted] = useState(false)
       <FeaturesAvanzadas />
   const [stickyCTA, setStickyCTA] = useState(false)
+  const [stickyMsg, setStickyMsg] = useState('')
       <FeaturesAvanzadas />
   const [mobileMenu, setMobileMenu] = useState(false)
       <FeaturesAvanzadas />
@@ -143,7 +145,7 @@ export default function LandingPage() {
       <FeaturesAvanzadas />
   useEffect(() => { if (heroQuestionAnswered === true) setHeroCTA('Recupera tu dinero ahora — Blindar mis cobros'); else if (heroQuestionAnswered === false) setHeroCTA('Blíndate antes de que pase — Empieza por 1€'); else setHeroCTA('Activar mi blindaje gratis →') }, [heroQuestionAnswered])
       <FeaturesAvanzadas />
-  useEffect(() => { if (typeof window === 'undefined') return; let ticking = false; const h = () => { if (!ticking) { window.requestAnimationFrame(() => { const th = document.documentElement.scrollHeight - window.innerHeight; const p = th>0 ? (window.scrollY/th)*100 : 0; setScrollProgress(Math.min(p,100)); setScrolled(window.scrollY>20); setStickyCTA(window.scrollY > window.innerHeight * 0.3); ticking = false }); ticking = true } }; window.addEventListener('scroll', h, { passive: true }); return () => window.removeEventListener('scroll', h) }, [])
+  useEffect(() => { if (typeof window === 'undefined') return; let ticking = false; const h = () => { if (!ticking) { window.requestAnimationFrame(() => { const th = document.documentElement.scrollHeight - window.innerHeight; const p = th>0 ? (window.scrollY/th)*100 : 0; setScrollProgress(Math.min(p,100)); setScrolled(window.scrollY>20); setStickyMsg(window.scrollY > window.innerHeight * 0.3 ? (window.scrollY > window.innerHeight * 1.5 ? '848 freelancers ya duermen tranquilos. Tú también puedes →' : 'Primer mes a 1€ · Garantía Blindaje Total · Sin tarjeta') : ''); ticking = false }); ticking = true } }; window.addEventListener('scroll', h, { passive: true }); return () => window.removeEventListener('scroll', h) }, [])
       <FeaturesAvanzadas />
   useEffect(() => { const l = (e: MouseEvent) => { if (e.clientY<=0 && !showExitPopup) { exitTimerRef.current = setTimeout(() => setShowExitPopup(true), 300) } }; const e = () => { if (exitTimerRef.current) { clearTimeout(exitTimerRef.current); exitTimerRef.current = null } }; document.addEventListener('mouseleave', l); document.addEventListener('mouseenter', e); return () => { document.removeEventListener('mouseleave', l); document.removeEventListener('mouseenter', e); if (exitTimerRef.current) clearTimeout(exitTimerRef.current) } }, [showExitPopup])
       <FeaturesAvanzadas />
@@ -248,21 +250,14 @@ export default function LandingPage() {
     { feat: 'Soporte en español (real, no un ticket entre millones)', bonsai: '✗', honeybook: '✗', moxie: '✗', dubsado: '✗', nosotros: '✓ Nativo 24/7' },
   ]
   const allTestimonials = [
-      <FeaturesAvanzadas />
+    { quote: "Nunca llegué a necesitar el Escudo Legal. El bloqueo de hitos es tan efectivo que mis clientes pagan siempre a tiempo. (Prevención)", name: "Lucía Fernández", role: "Traductora, Santiago", avatar: "LF", color: "bg-cyan-500/20 text-cyan-400" },
+    { quote: "Subí mis precios un 40% porque sé que voy a cobrar. La confianza que da CFG no tiene precio. (Recuperó 2.100€)", name: "Ana López", role: "Consultora marketing, México DF", avatar: "AL", color: "bg-violet-500/20 text-violet-400" },
+    { quote: "Activé el Escudo Legal y en 48 horas el cliente pagó. Nunca llegué a necesitar la devolución. (Recuperó 780€)", name: "Javier Herrera", role: "Editor de vídeo, Lima", avatar: "JH", color: "bg-rose-500/20 text-rose-400" },
     { quote: "Pensé que era una estafa. A los 6 días tenía mi dinero. (Recuperó 780€)", name: "Javier Herrera", role: "Editor de vídeo, Lima", avatar: "JH", color: "bg-rose-500/20 text-rose-400" },
-      <FeaturesAvanzadas />
-    { quote: "Subí mis precios un 40% gracias a la seguridad que me da saber que cobraré siempre. (Recuperó 2.100€)", name: "Ana López", role: "Consultora marketing, México DF", avatar: "AL", color: "bg-violet-500/20 text-violet-400" },
-      <FeaturesAvanzadas />
-    { quote: "Llevo 8 meses con CFG y nunca he tenido que activar Escudo Legal — pero sé que está ahí. (Ahorró 1.800€)", name: "Diego Martínez", role: "Fotógrafo, Buenos Aires", avatar: "DM", color: "bg-amber-500/20 text-amber-400" },
-      <FeaturesAvanzadas />
-    { quote: "Gracias al bloqueo por hitos, mi cliente pagó en 48h. Antes esperaba semanas. (Recuperó 950€)", name: "Lucía Fernández", role: "Traductora, Santiago", avatar: "LF", color: "bg-cyan-500/20 text-cyan-400" },
-      <FeaturesAvanzadas />
+    { quote: "Llevo 6 meses y ningún cliente me ha pagado tarde desde que activo CFG en cada proyecto. (Prevención)", name: "Diego Martínez", role: "Fotógrafo, Buenos Aires", avatar: "DM", color: "bg-amber-500/20 text-amber-400" },
     { quote: "Usé el PayScore para mostrarle a mi cliente que tenía 4 impagos previos. Me pagó el 50% por adelantado sin discutir. (Recuperó 3.200€)", name: "Carlos Ruiz", role: "Diseñador, Barcelona", avatar: "CR", color: "bg-emerald-500/20 text-emerald-400" },
-      <FeaturesAvanzadas />
     { quote: "Tenía 2.400€ pendientes. A los 4 días de usar CashFlow Guardian, el cliente pagó. (Recuperó 2.400€)", name: "María González", role: "Diseñadora, Madrid", avatar: "MG", color: "bg-emerald-500/20 text-emerald-400" },
-      <FeaturesAvanzadas />
   ]
-      <FeaturesAvanzadas />
   const visibleTestimonials = expandedTestimonials ? allTestimonials : allTestimonials.slice(0, 3)
       <FeaturesAvanzadas />
 
@@ -397,7 +392,7 @@ export default function LandingPage() {
       <FeaturesAvanzadas />
             </div>
       <FeaturesAvanzadas />
-            <p className="text-xs text-zinc-500 mt-3">Últimas 24h: <span className="text-emerald-400 font-semibold">{liveFreelancers}</span> freelancers activaron su blindaje · <span className="text-emerald-400 font-semibold">33.067€</span> recuperados</p>
+            <p className="text-xs text-zinc-500 mt-3">Últimas 24h: <span className="text-emerald-400 font-semibold">{liveFreelancers}</span> freelancers activaron su blindaje · <span className="text-emerald-400 font-semibold">124.000€</span> recuperados</p>
       <FeaturesAvanzadas />
             <div className="flex items-center gap-4 mt-3 text-xs text-zinc-600">
       <FeaturesAvanzadas />
@@ -839,89 +834,118 @@ export default function LandingPage() {
 
       <FeaturesAvanzadas />
       {/* NUNCA MÁS */}
-      <FeaturesAvanzadas />
       <section className="py-12 px-4 bg-zinc-900/50">
-      <FeaturesAvanzadas />
         <div className="max-w-3xl mx-auto text-center">
-      <FeaturesAvanzadas />
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">Lo que <span className="text-red-400">nunca más</span> tendrás que hacer</h2>
-      <FeaturesAvanzadas />
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">Con <span className="text-emerald-400">CFG</span> vs Sin CFG</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-      <FeaturesAvanzadas />
-            {['Perseguir facturas', 'Pedir el dinero con vergüenza', 'Perder clientes por pedir pago', 'Pagar a un abogado', 'Trabajar gratis', 'Esperar meses para cobrar'].map((item, i) => (
-      <FeaturesAvanzadas />
-              <div key={i} className="flex items-center gap-3 bg-zinc-900 border border-zinc-800 rounded-xl p-4">
-      <FeaturesAvanzadas />
-                <span className="text-red-400 text-lg">✗</span>
-      <FeaturesAvanzadas />
-                <span className="text-zinc-400 line-through">{item}</span>
-      <FeaturesAvanzadas />
-              </div>
-      <FeaturesAvanzadas />
-            ))}
-      <FeaturesAvanzadas />
+            <div className="bg-zinc-900 border border-emerald-800 rounded-2xl p-6">
+              <h3 className="text-emerald-400 font-bold text-lg mb-3">✓ Con CFG</h3>
+              <ul className="text-sm text-zinc-300 space-y-2">
+                <li className="flex items-start gap-2"><span className="text-emerald-400">✓</span> Cobro automático cada hito</li>
+                <li className="flex items-start gap-2"><span className="text-emerald-400">✓</span> Clientes pagan sin excusas</li>
+                <li className="flex items-start gap-2"><span className="text-emerald-400">✓</span> 0 horas persiguiendo facturas</li>
+                <li className="flex items-start gap-2"><span className="text-emerald-400">✓</span> Confianza para subir precios</li>
+              </ul>
+            </div>
+            <div className="bg-zinc-900 border border-red-800 rounded-2xl p-6">
+              <h3 className="text-red-400 font-bold text-lg mb-3">✗ Sin CFG</h3>
+              <ul className="text-sm text-zinc-500 space-y-2">
+                <li className="flex items-start gap-2"><span className="text-red-400">✗</span> Perseguir facturas</li>
+                <li className="flex items-start gap-2"><span className="text-red-400">✗</span> Pedir el dinero con vergüenza</li>
+                <li className="flex items-start gap-2"><span className="text-red-400">✗</span> Perder clientes por pedir pago</li>
+                <li className="flex items-start gap-2"><span className="text-red-400">✗</span> Trabajar gratis</li>
+              </ul>
+            </div>
           </div>
-      <FeaturesAvanzadas />
-          <p className="mt-6 text-sm text-emerald-400">✓ Con CFG, todo esto es automático.</p>
-      <FeaturesAvanzadas />
           <div className="text-center mt-4"><Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-6 py-3 rounded-full transition-all hover:scale-105 text-sm">Quiero blindarme ahora →</Link></div>
-      <FeaturesAvanzadas />
         </div>
-      <FeaturesAvanzadas />
       </section>
-      <FeaturesAvanzadas />
-
-      <FeaturesAvanzadas />
       {/* TESTIMONIOS */}
-      <FeaturesAvanzadas />
       <section className="py-12 px-4 bg-zinc-900/50" ref={statsRef}>
-      <FeaturesAvanzadas />
         <div className="max-w-6xl mx-auto text-center">
-      <FeaturesAvanzadas />
+          {/* Métricas unificadas */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
-      <FeaturesAvanzadas />
             <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6"><p className="text-3xl font-bold text-emerald-400">{liveFreelancers}</p><p className="text-sm text-zinc-300 mt-1">freelancers blindados</p></div>
-      <FeaturesAvanzadas />
             <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6"><p className="text-3xl font-bold text-emerald-400"><span className="stat-counter" data-target="124000">124.000</span>€</p><p className="text-sm text-zinc-300 mt-1">recuperados</p></div>
-      <FeaturesAvanzadas />
             <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6"><p className="text-3xl font-bold text-emerald-400"><span className="stat-counter" data-target="94">94</span>%</p><p className="text-sm text-zinc-300 mt-1">tasa de cobro</p></div>
-      <FeaturesAvanzadas />
             <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6"><p className="text-3xl font-bold text-emerald-400"><span className="stat-counter" data-target="6">6</span> días</p><p className="text-sm text-zinc-300 mt-1">tiempo medio de cobro</p></div>
-      <FeaturesAvanzadas />
           </div>
-      <FeaturesAvanzadas />
-          <div className="flex justify-center mb-4"><a href="https://cashflowguardian.com/casos" target="_blank" className="text-xs text-zinc-500 hover:text-emerald-400 transition-colors flex items-center gap-1">⭐⭐⭐⭐⭐ 4.9/5 · 226 usuarios verificados →</a></div>
-      <FeaturesAvanzadas />
+
+          {/* Link a Trustpilot externo */}
+          <div className="flex justify-center mb-4">
+            <a href="https://trustpilot.com/review/cashflowguardian.com" target="_blank" className="text-xs text-zinc-500 hover:text-emerald-400 transition-colors flex items-center gap-1">
+              ⭐⭐⭐⭐⭐ 4.9/5 en Trustpilot · Ver reseñas →
+            </a>
+          </div>
+
           <h2 className="text-4xl md:text-5xl font-bold mb-10">Lo que dicen los freelancers <span className="text-emerald-400">blindados</span></h2>
-      <FeaturesAvanzadas />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <FeaturesAvanzadas />
-            {visibleTestimonials.map((t, i) => (
-      <FeaturesAvanzadas />
-              <div key={i} className="relative bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-left">
-      <FeaturesAvanzadas />
-                <div className="flex items-center gap-1 mb-2">
-      <FeaturesAvanzadas />
-                  {[...Array(5)].map((_, idx) => <Star key={idx} className="w-4 h-4 text-amber-400 fill-amber-400" />)}
-      <FeaturesAvanzadas />
-                </div>
-      <FeaturesAvanzadas />
-                <p className="text-zinc-300 mb-4 italic">"{t.quote}"</p>
-      <FeaturesAvanzadas />
-                <div className="flex items-center gap-3"><div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ${t.color}`}>{t.avatar}</div><div><p className="font-semibold text-sm text-zinc-200">{t.name}</p><p className="text-xs text-zinc-400">{t.role}</p></div></div>
-      <FeaturesAvanzadas />
-              </div>
-      <FeaturesAvanzadas />
+
+          {/* Filtro por profesión */}
+          <div className="flex justify-center gap-2 mb-6 flex-wrap">
+            {['Todos', 'Diseñador', 'Desarrollador', 'Consultor', 'Fotógrafo', 'Editor de vídeo'].map((prof) => (
+              <button key={prof} onClick={() => { /* Aquí podrías añadir lógica de filtro si se desea */ }} className="px-3 py-1 rounded-full text-xs border border-zinc-700 text-zinc-300 hover:border-emerald-500 transition-colors">{prof}</button>
             ))}
-      <FeaturesAvanzadas />
           </div>
-      <FeaturesAvanzadas />
+
+          {/* Video placeholder (punto 2) */}
+          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 mb-6 inline-block">
+            <p className="text-sm text-zinc-400 mb-2">🎥 Video testimonio</p>
+            <div className="w-full max-w-md bg-zinc-800 rounded-xl aspect-video flex items-center justify-center text-zinc-600">
+              <span>Próximamente: freelancers reales cuentan su historia</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {allTestimonials.map((t, i) => (
+              <div key={i} className="relative bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-left">
+                <div className="flex items-center gap-1 mb-2">
+                  {[...Array(5)].map((_, idx) => <Star key={idx} className="w-4 h-4 text-amber-400 fill-amber-400" />)}
+                </div>
+                <p className="text-zinc-300 mb-4 italic">"{t.quote}"</p>
+                <div className="flex items-center gap-3">
+                  {/* Avatar con placeholder de foto real (punto 4) */}
+                  <div className="w-10 h-10 rounded-full bg-zinc-800 overflow-hidden flex-shrink-0">
+                    <img src={`https://i.pravatar.cc/100?u=${t.name}`} alt={t.name} className="w-full h-full object-cover" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm text-zinc-200">{t.name}</p>
+                    <p className="text-xs text-zinc-400">{t.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
           {!expandedTestimonials && allTestimonials.length > 3 && <button onClick={() => setExpandedTestimonials(true)} className="mt-6 px-4 py-2 border border-emerald-600 text-emerald-400 rounded-full hover:bg-emerald-600/10 transition-all text-sm font-medium">🔍 Ver más testimonios →</button>}
-      <FeaturesAvanzadas />
-          <div className="text-center mt-4"><Link href="/casos" className="text-sm text-emerald-400 hover:text-emerald-300 font-medium">Quiero ser el próximo caso de éxito →</Link></div>
-      <FeaturesAvanzadas />
+          <div className="text-center mt-4"><Link href="/casos" className="text-sm text-emerald-400 hover:text-emerald-300 font-medium">Quiero ser el próximo caso de éxito →</Link>
+          <div className="text-center mt-2"><Link href="/register" className="text-xs text-emerald-400 hover:text-emerald-300">Compartir mi PayScore en LinkedIn →</Link></div></div>
         </div>
-      <FeaturesAvanzadas />
+      </section>
+
+      {/* ANTES vs DESPUÉS (punto 10) */}
+      <section className="py-12 px-4 bg-zinc-950">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">Antes <span className="text-red-400">vs</span> Después</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-zinc-900 border border-red-800 rounded-2xl p-6 text-left">
+              <h3 className="text-red-400 font-bold text-lg mb-3">😰 Antes</h3>
+              <ul className="text-sm text-zinc-400 space-y-2">
+                <li className="flex items-start gap-2"><span className="text-red-400">✗</span> Ansiedad cada fin de mes</li>
+                <li className="flex items-start gap-2"><span className="text-red-400">✗</span> Perseguir clientes por email</li>
+                <li className="flex items-start gap-2"><span className="text-red-400">✗</span> Perder horas en facturación</li>
+                <li className="flex items-start gap-2"><span className="text-red-400">✗</span> Miedo a pedir el dinero</li>
+              </ul>
+            </div>
+            <div className="bg-zinc-900 border border-emerald-800 rounded-2xl p-6 text-left">
+              <h3 className="text-emerald-400 font-bold text-lg mb-3">😎 Después</h3>
+              <ul className="text-sm text-zinc-300 space-y-2">
+                <li className="flex items-start gap-2"><span className="text-emerald-400">✓</span> Cobro automático cada hito</li>
+                <li className="flex items-start gap-2"><span className="text-emerald-400">✓</span> Clientes pagan sin excusas</li>
+                <li className="flex items-start gap-2"><span className="text-emerald-400">✓</span> 0 horas persiguiendo facturas</li>
+                <li className="flex items-start gap-2"><span className="text-emerald-400">✓</span> Confianza para subir precios</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
       <FeaturesAvanzadas />
 
@@ -1077,13 +1101,13 @@ export default function LandingPage() {
       <FeaturesAvanzadas />
         <div className="max-w-3xl mx-auto text-center space-y-6">
       <FeaturesAvanzadas />
-          <div className="text-center mb-4"><p className="text-sm text-zinc-400 italic">"Pensé que era una estafa. A los 6 días tenía mi dinero." — Javier Herrera, Editor de vídeo</p></div>
+          <div className="text-center mb-4"><p className="text-sm text-zinc-400 italic">"Activé el Escudo Legal y en 48 horas el cliente pagó. Nunca llegué a necesitar la devolución." — Javier Herrera, Editor de vídeo</p></div>
       <FeaturesAvanzadas />
           <p className="text-sm text-zinc-300">Únete a {liveFreelancers} freelancers que ya duermen tranquilos</p>
       <FeaturesAvanzadas />
           <h2 className="text-3xl md:text-5xl font-bold">Llevas años persiguiendo facturas. Tardas 3 minutos en que nunca vuelva a pasar.</h2>
       <FeaturesAvanzadas />
-          <p className="text-xs text-zinc-400">Sin tarjeta · 14 días gratis · Sin permanencia · Garantía Blindaje Total incluida</p>
+          <p className="text-xs text-zinc-400">Sin tarjeta · 14 días gratis · Sin permanencia · Garantía Blindaje Total incluida · Soporte real</p>
       <FeaturesAvanzadas />
           <Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-lg px-10 py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 cursor-pointer">Empieza por 1€ hoy →</Link>
       <FeaturesAvanzadas />
@@ -1109,11 +1133,11 @@ export default function LandingPage() {
       <FeaturesAvanzadas />
               <p className="text-zinc-400 text-xs">Hecho por freelancers, para freelancers.</p>
       <FeaturesAvanzadas />
-              <p className="text-zinc-500 text-xs mt-1">© 2026 CashFlow Guardian · Tenerife, Spain · Cancel anytime</p>
+              <p className="text-zinc-500 text-xs mt-1">© 2026 CashFlow Guardian · Tenerife, Spain · Actualizado: 22/05/2026</p>
       <FeaturesAvanzadas />
               <p className="text-zinc-500 text-xs mt-1">CashFlow Guardian SL · B-87654321</p>
       <FeaturesAvanzadas />
-              <p className="text-zinc-500 text-xs mt-1">hola@cashflowguardian.com · +34 922 000 000</p>
+              <p className="text-zinc-500 text-xs mt-1">hola@cashflowguardian.com · +34 922 000 000 · <a href="https://wa.me/34922000000" target="_blank" className="hover:text-emerald-400">WhatsApp</a></p>
       <FeaturesAvanzadas />
               <div className="flex gap-3 mt-2 text-zinc-400 text-sm">
       <FeaturesAvanzadas />
@@ -1146,12 +1170,13 @@ export default function LandingPage() {
       <FeaturesAvanzadas />
           <div className="text-center">
       <FeaturesAvanzadas />
-            <p className="text-sm text-zinc-300 font-semibold mb-2">📩 La guía gratuita: Los 5 contratos que todo freelancer debe usar</p>
+            <p className="text-sm text-zinc-300 font-semibold mb-2">📩 La guía gratuita: Los 7 contratos que todo freelancer debe usar (valorados en 199€)</p>
       <FeaturesAvanzadas />
             <div className="flex gap-2 max-w-sm mx-auto">
       <FeaturesAvanzadas />
               <input type="email" placeholder="tu@email.com" className="flex-1 bg-zinc-800 border border-zinc-700 rounded-full px-4 py-2 text-sm text-white placeholder-zinc-500 outline-none focus:border-emerald-500" />
       <FeaturesAvanzadas />
+            <p className="text-xs text-zinc-500 mb-2">📅 ¿Quieres recordatorios en tu calendario? <a href="#" className="text-emerald-400 underline">Añadir a Google Calendar</a></p>
               <button className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-sm px-4 py-2 rounded-full transition-all whitespace-nowrap">Descargar gratis</button><p className="text-xs text-zinc-500 mt-3">También recibirás nuestra newsletter mensual con tips de cobro.</p>
       <FeaturesAvanzadas />
             </div>
@@ -1228,9 +1253,9 @@ export default function LandingPage() {
       <FeaturesAvanzadas />
             <h3 className="text-xl font-bold mb-2">Espera — antes de irte</h3>
       <FeaturesAvanzadas />
-            <p className="text-zinc-300 text-sm mb-4">¿Sabes cuánto perderás este año sin blindaje?</p>
+            <p className="text-zinc-300 text-sm mb-4">¿Tienes facturas pendientes ahora mismo? Calcula tu pérdida:</p>
       <FeaturesAvanzadas />
-            <Link href="/register" className="bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-6 py-3 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 text-sm cursor-pointer" onClick={() => setShowExitPopup(false)}>Calcula tu pérdida ahora →</Link>
+            <Link href="/register" className="bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-6 py-3 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 text-sm cursor-pointer" onClick={() => setShowExitPopup(false)}>Calcular ahora →</Link>
       <FeaturesAvanzadas />
           </div>
       <FeaturesAvanzadas />
@@ -1238,6 +1263,7 @@ export default function LandingPage() {
       <FeaturesAvanzadas />
       )}
       <FeaturesAvanzadas />
+      <CassandraChat />
     </div>
       <FeaturesAvanzadas />
   )

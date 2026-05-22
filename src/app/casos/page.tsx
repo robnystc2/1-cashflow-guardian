@@ -5,8 +5,8 @@ const casos = [
   { nombre: 'Ana López', rol: 'Consultora de marketing, México DF', monto: '2.100€', dias: 6, cita: 'Subí mis precios un 40% porque ahora sé que cobraré siempre. El PayScore me dice con quién trabajo y con quién no.', avatar: 'AL', color: 'bg-violet-500/20 text-violet-400' },
   { nombre: 'Diego Martínez', rol: 'Fotógrafo, Buenos Aires', monto: '1.800€', dias: 2, cita: 'El cliente pagó en 48h. Antes esperaba semanas. Nunca más perseguí una factura.', avatar: 'DM', color: 'bg-amber-500/20 text-amber-400' },
   { nombre: 'Javier Herrera', rol: 'Editor de vídeo, Lima', monto: '780€', dias: 6, cita: 'Pensé que era una estafa. A los 6 días tenía mi dinero. CFG es real y funciona.', avatar: 'JH', color: 'bg-rose-500/20 text-rose-400' },
-  { nombre: 'María González', rol: 'Diseñadora, Madrid', monto: '2.400€', dias: 4, cita: 'Tenía 2.400€ atascados. Con el Escudo Legal, el cliente pagó sin rechistar. CFG me devolvió la tranquilidad.', avatar: 'MG', color: 'bg-emerald-500/20 text-emerald-400' },
-  { nombre: 'Roberto Vega', rol: 'Editor de vídeo, Santiago', monto: '1.500€', dias: 3, cita: 'Entregaba en baja resolución hasta cobrar. Ahora el sistema lo hace solo. He recuperado 4.500€ este año.', avatar: 'RV', color: 'bg-cyan-500/20 text-cyan-400' },
+  { nombre: 'María González', rol: 'Diseñadora, Madrid', monto: '2.400€', dias: 4, cita: 'Tenía 2.400€ atascados. Con el Escudo Legal, el cliente pagó sin rechistar.', avatar: 'MG', color: 'bg-emerald-500/20 text-emerald-400' },
+  { nombre: 'Roberto Vega', rol: 'Editor de vídeo, Santiago', monto: '1.500€', dias: 3, cita: 'Entregaba en baja resolución hasta cobrar. Ahora el sistema lo hace solo.', avatar: 'RV', color: 'bg-cyan-500/20 text-cyan-400' },
 ]
 export default function Casos() {
   return (

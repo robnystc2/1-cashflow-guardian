@@ -11,9 +11,17 @@ const CLARITY_ID = 'wrk1ugf3t5'
 
 export const metadata: Metadata = {
   title: 'CashFlow Guardian — Blinda tus proyectos. Cobra siempre.',
+    <meta property="og:title" content="CashFlow Guardian — Cobra todo lo que trabajas" />
+    <meta property="og:description" content="Si no cobras, te pagamos nosotros. Blindaje de proyectos para freelancers." />
+    <meta property="og:image" content="https://cashflowguardian.com/og-image.png" />
+    <meta property="og:url" content="https://cashflowguardian.com" />
   description: 'El único sistema que bloquea tu trabajo hasta que el cliente paga. Factura, recuerda y defiende tu dinero sin mover un dedo.',
   openGraph: {
     title: 'CashFlow Guardian — Blinda tus proyectos. Cobra siempre.',
+    <meta property="og:title" content="CashFlow Guardian — Cobra todo lo que trabajas" />
+    <meta property="og:description" content="Si no cobras, te pagamos nosotros. Blindaje de proyectos para freelancers." />
+    <meta property="og:image" content="https://cashflowguardian.com/og-image.png" />
+    <meta property="og:url" content="https://cashflowguardian.com" />
     description: 'El único sistema que bloquea tu trabajo hasta que el cliente paga. 14 días gratis sin tarjeta.',
     url: 'https://cashflowguardian.com',
     siteName: 'CashFlow Guardian',
@@ -24,6 +32,10 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'CashFlow Guardian — Blinda tus proyectos. Cobra siempre.',
+    <meta property="og:title" content="CashFlow Guardian — Cobra todo lo que trabajas" />
+    <meta property="og:description" content="Si no cobras, te pagamos nosotros. Blindaje de proyectos para freelancers." />
+    <meta property="og:image" content="https://cashflowguardian.com/og-image.png" />
+    <meta property="og:url" content="https://cashflowguardian.com" />
     description: 'El único sistema que bloquea tu trabajo hasta que el cliente paga.',
     images: ['https://cashflowguardian.com/og-image.png'],
   },
@@ -53,6 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             })(window, document, "clarity", "script", "${CLARITY_ID}");
           `}
         </Script>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", "name": "CashFlow Guardian", "url": "https://cashflowguardian.com", "description": "Blinda tus proyectos. Cobra siempre. Garantizado.", "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "226" } }) }} />
       </head>
       <body className={`${inter.className} bg-black text-white antialiased`}>
         <RootLayoutClient>{children}</RootLayoutClient>

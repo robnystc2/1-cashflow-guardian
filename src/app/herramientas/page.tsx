@@ -7,6 +7,7 @@ export default function Herramientas() {
   const [ingresoDeseado, setIngresoDeseado] = useState(3000)
   const [gastos, setGastos] = useState(500)
   const tarifaHora = Math.round((ingresoDeseado + gastos) / horas)
+  const tarifaProtegida = Math.round(tarifaHora * 1.30)
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
       <nav className="border-b border-zinc-800 bg-[#050505]/80 backdrop-blur-xl py-4 px-4">
@@ -26,7 +27,7 @@ export default function Herramientas() {
               <div><label className="text-xs text-zinc-400">Horas facturables al mes</label><input type="range" min="20" max="200" value={horas} onChange={e => setHoras(Number(e.target.value))} className="w-full accent-emerald-500" /><span className="text-sm">{horas}h</span></div>
               <div><label className="text-xs text-zinc-400">Ingreso deseado (€/mes)</label><input type="range" min="500" max="10000" step="100" value={ingresoDeseado} onChange={e => setIngresoDeseado(Number(e.target.value))} className="w-full accent-emerald-500" /><span className="text-sm">{ingresoDeseado}€</span></div>
               <div><label className="text-xs text-zinc-400">Gastos fijos (€/mes)</label><input type="range" min="0" max="3000" step="50" value={gastos} onChange={e => setGastos(Number(e.target.value))} className="w-full accent-emerald-500" /><span className="text-sm">{gastos}€</span></div>
-              <div className="bg-zinc-800 rounded-xl p-4 text-center mt-4"><p className="text-xs text-zinc-400">Tu tarifa mínima por hora</p><p className="text-3xl font-bold text-emerald-400">{tarifaHora}€/h</p></div>
+              <div className="bg-zinc-800 rounded-xl p-4 text-center mt-4"><p className="text-xs text-zinc-400">Tu tarifa mínima por hora</p><p className="text-3xl font-bold text-emerald-400">{tarifaHora}€/h</p><p className="text-xs text-zinc-500 mt-1">Con el riesgo de impago (71%), deberías cobrar al menos <span className="text-amber-400 font-semibold">{tarifaProtegida}€/h</span> para mantener ese ingreso real.</p></div>
             </div>
           </div>
           <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
@@ -39,7 +40,6 @@ export default function Herramientas() {
               <li className="flex items-center gap-2"><span className="text-emerald-400">✓</span> Jurisdicción configurable</li>
             </ul>
             <button className="bg-zinc-800 hover:bg-zinc-700 text-white px-4 py-2 rounded-full text-sm transition-colors w-full">Descargar PDF (gratis)</button>
-            <p className="text-[10px] text-zinc-500 mt-2 text-center">Al descargar, aceptas recibir tips de cobro por email.</p>
           </div>
         </div>
         <div className="text-center"><Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-lg px-10 py-4 rounded-full transition-all hover:scale-105">Blindarme con CFG <ArrowRight className="w-5 h-5" /></Link></div>

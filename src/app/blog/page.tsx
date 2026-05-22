@@ -1,11 +1,11 @@
 import Link from 'next/link'
 const posts = [
-  { title: 'Cómo cobrar a un cliente que no paga en España (guía 2026)', slug: '/blog/como-cobrar-cliente-moroso', date: 'Mayo 2026', tag: 'Cobro', excerpt: 'Guía paso a paso con legislación española actualizada.' },
-  { title: 'Modelo de contrato freelance descargable (España y México)', slug: '/herramientas', date: 'Mayo 2026', tag: 'Legal', excerpt: 'Plantilla gratuita con cláusulas de protección por hitos.' },
-  { title: 'Carta de reclamación de deuda para freelancers', slug: '/escudo-legal', date: 'Junio 2026', tag: 'Escudo Legal', excerpt: 'Modelo listo para enviar a clientes morosos.' },
-  { title: 'Cómo protegerte del impago como autónomo', slug: '/guia-impago', date: 'Junio 2026', tag: 'Autónomos', excerpt: 'Todo lo que necesitas saber antes de facturar.' },
-  { title: 'PayScore: el historial de crédito de tus clientes', slug: '/#como-funciona', date: 'Julio 2026', tag: 'Producto', excerpt: 'Cómo funciona y por qué es tu mejor defensa.' },
-  { title: 'CFG vs Bonsai: ¿merece la pena cambiarse?', slug: '/vs-bonsai', date: 'Julio 2026', tag: 'Comparativas', excerpt: 'Análisis detallado después de la compra por Zoom.' },
+  { title: 'Cómo cobrar a un cliente que no paga en España (guía 2026)', slug: '/blog/como-cobrar-cliente-moroso', date: 'Mayo 2026', tag: 'Cobro', excerpt: 'Guía paso a paso con legislación española actualizada: desde el recordatorio amable hasta la reclamación judicial.' },
+  { title: 'Cómo subir precios como freelancer sin perder clientes', slug: '/blog/subir-precios-freelance', date: 'Mayo 2026', tag: 'Negocio', excerpt: 'Estrategias para aumentar tus tarifas un 20-40% manteniendo a tus mejores clientes.' },
+  { title: 'Contrato freelance: cláusulas obligatorias para 2026', slug: '/blog/contrato-freelance-clausulas', date: 'Junio 2026', tag: 'Legal', excerpt: 'Las 7 cláusulas que todo contrato freelance debe tener para protegerte de impagos.' },
+  { title: 'Cómo protegerte del impago como autónomo', slug: '/guia-impago', date: 'Junio 2026', tag: 'Autónomos', excerpt: 'Todo lo que necesitas saber antes de facturar: prevención, detección y acción.' },
+  { title: 'CFG vs Bonsai: ¿merece la pena cambiarse?', slug: '/vs-bonsai', date: 'Julio 2026', tag: 'Comparativas', excerpt: 'Análisis detallado después de la compra por Zoom: precios, funcionalidades y protección.' },
+  { title: 'Mejores plataformas para encontrar clientes freelance en España', slug: '/blog/plataformas-clientes-freelance', date: 'Julio 2026', tag: 'Negocio', excerpt: 'Domestika, Malt, LinkedIn, Workana... ¿cuál es la mejor para tu perfil?' },
 ]
 export default function Blog() {
   return (
@@ -28,13 +28,6 @@ export default function Blog() {
               </div>
             </Link>
           ))}
-        </div>
-        <div className="mt-10 text-center">
-          <p className="text-zinc-400 text-sm">Más artículos próximamente. Suscríbete para recibirlos.</p>
-          <div className="flex gap-2 max-w-sm mx-auto mt-4">
-            <input type="email" placeholder="tu@email.com" className="flex-1 bg-zinc-800 border border-zinc-700 rounded-full px-4 py-2 text-sm text-white placeholder-zinc-500 outline-none focus:border-emerald-500" />
-            <button className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-sm px-4 py-2 rounded-full transition-all whitespace-nowrap">Suscribirme</button>
-          </div>
         </div>
       </section>
     </div>

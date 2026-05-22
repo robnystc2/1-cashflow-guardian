@@ -14,16 +14,19 @@ export default function Afiliados() {
         <p className="text-xl text-zinc-300 mb-8">Gana un 30% recurrente recomendando la herramienta que todo freelancer necesita.</p>
         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 mb-8 text-left">
           <h2 className="text-2xl font-bold mb-4">💰 Comisión del 30% durante 12 meses</h2>
-          <p className="text-zinc-300 mb-4">Por cada freelancer que se registre con tu enlace y se quede en CFG Pro, ganas el 30% de su suscripción cada mes durante un año. Si recomiendas 10 freelancers que se quedan en Pro, ganas 87€/mes pasivos.</p>
-          <ul className="space-y-2 text-sm text-zinc-300">
-            <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Enlace único de afiliado</li>
-            <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Panel de ganancias en tiempo real</li>
-            <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Material de marketing listo (banners, posts)</li>
-            <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Pago mensual por transferencia o PayPal</li>
-          </ul>
+          <p className="text-zinc-300 mb-4">Por cada freelancer que se registre con tu enlace y se quede en CFG Pro, ganas el 30% de su suscripción cada mes durante un año.</p>
+          <div className="overflow-x-auto mt-4">
+            <table className="w-full text-left text-sm">
+              <thead><tr className="border-b border-zinc-800"><th className="py-2">Freelancers referidos</th><th className="py-2">Ganancia mensual</th><th className="py-2">Ganancia anual</th></tr></thead>
+              <tbody>
+                <tr className="border-b border-zinc-800"><td className="py-2">10</td><td className="py-2 text-emerald-400">87€/mes</td><td className="py-2 text-emerald-400">1.044€/año</td></tr>
+                <tr className="border-b border-zinc-800"><td className="py-2">20</td><td className="py-2 text-emerald-400">174€/mes</td><td className="py-2 text-emerald-400">2.088€/año</td></tr>
+                <tr><td className="py-2">50</td><td className="py-2 text-emerald-400">435€/mes</td><td className="py-2 text-emerald-400">5.220€/año</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-lg px-10 py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20">Quiero ser afiliado <ArrowRight className="w-5 h-5" /></Link>
-        <p className="text-xs text-zinc-500 mt-3">Al registrarte tendrás acceso a tu panel de afiliado.</p>
       </section>
     </div>
   )
