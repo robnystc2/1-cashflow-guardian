@@ -14,7 +14,7 @@ export default function BadgePage() {
         <p className="text-xl text-zinc-300 mb-8">Añade este badge a tu web, propuestas o firma de email. Disponible en variante oscura, clara, horizontal para email y pie de propuesta PDF.</p>
         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 mb-8">
           <div className="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-700 px-4 py-2 rounded-full text-sm text-emerald-400 font-semibold">🔒 Proyecto protegido con CashFlow Guardian</div>
-          <p className="text-xs text-zinc-500 mt-4">Copia el código HTML y pégalo en tu web, Notion, Google Docs o LinkedIn.</p>
+          <p className="text-xs text-zinc-500 mt-4">Copia el código HTML y pégalo en tu web, propuestas, firma de email o LinkedIn. Disponible para usuarios Pro, Élite y Agencia.</p>
         </div>
         <Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-lg px-10 py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20">Activar mi blindaje <ArrowRight className="w-5 h-5" /></Link>
       </section>

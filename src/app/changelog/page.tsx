@@ -30,7 +30,7 @@ export default function Changelog() {
             </div>
           ))}
         </div>
-        <p className="text-center text-xs text-zinc-500 mt-12">Última actualización: 21 de mayo de 2026</p>
+        <p className="text-center text-xs text-zinc-500 mt-12">Última actualización: 23 de mayo de 2026</p>
       </section>
     </div>
   )

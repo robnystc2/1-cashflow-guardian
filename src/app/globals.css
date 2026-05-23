@@ -244,3 +244,44 @@ body { font-size: 1rem; line-height: 1.6; }
     padding: 8px;
   }
 }
+
+/* Animaciones de entrada al hacer scroll */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-section.animate-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Counter animation */
+.stat-counter {
+  display: inline-block;
+  animation: countUp 1.5s ease-out;
+}
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Mejora de contraste para legibilidad */
+.text-zinc-400 { color: #a1a1aa !important; }
+.text-zinc-500 { color: #71717a !important; }
+
+/* Optimización mobile */
+@media (max-width: 768px) {
+  .hero-mockup {
+    display: none;
+  }
+  .hero-content {
+    text-align: center;
+    padding: 0 1rem;
+  }
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  .comparison-table {
+    font-size: 0.75rem;
+  }
+}

@@ -15,13 +15,14 @@ export default function Register() {
           <form className="space-y-4">
             <div><label className="text-sm text-zinc-400">Email</label><input type="email" className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white outline-none focus:border-emerald-500" /></div>
             <div><label className="text-sm text-zinc-400">Contraseña</label><input type="password" className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white outline-none focus:border-emerald-500" /></div>
-            <button className="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-3 rounded-full transition-all">Continuar →</button>
+            <button className="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-3 rounded-full transition-all">Activar mi blindaje gratuito →</button>
           </form>
           <div className="mt-6 text-center">
             <p className="text-sm text-zinc-400 mb-4">O continúa con</p>
             <div className="flex gap-4 justify-center">
               <button className="bg-zinc-800 hover:bg-zinc-700 text-white px-6 py-3 rounded-full text-sm transition-all">Google</button>
               <button className="bg-zinc-800 hover:bg-zinc-700 text-white px-6 py-3 rounded-full text-sm transition-all">LinkedIn</button>
+              <button className="bg-zinc-800 hover:bg-zinc-700 text-white px-6 py-3 rounded-full text-sm transition-all">Apple</button>
             </div>
           </div>
           <p className="text-xs text-zinc-500 mt-4">Al registrarte aceptas nuestros <Link href="/terms" className="text-emerald-400">Términos</Link> y <Link href="/privacy" className="text-emerald-400">Privacidad</Link>.</p>
@@ -31,8 +32,8 @@ export default function Register() {
       <div className="hidden lg:flex flex-1 bg-zinc-900 items-center justify-center p-8">
         <div className="max-w-sm text-center">
           <Shield className="w-16 h-16 text-emerald-400 mx-auto mb-4" />
-          <p className="text-xl font-bold">Garantía Blindaje Total</p>
-          <p className="text-zinc-400 text-sm mt-2">Si no cobras en 14 días, te devolvemos 3 meses. Sin preguntas.</p>
+          <p className="text-xl font-bold">Tu primer proyecto estará protegido en 3 minutos</p>
+          <p className="text-zinc-400 text-sm mt-2">Paso 1: Creas tu cuenta. Paso 2: Defines tu proyecto. Paso 3: ¡Blindaje activo!</p>
           <div className="mt-6 text-left space-y-2">
             <p className="text-xs text-zinc-500">✓ Sin tarjeta de crédito</p>
             <p className="text-xs text-zinc-500">✓ Activo en 3 minutos</p>
