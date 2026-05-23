@@ -19,7 +19,7 @@ export default function Casos() {
       </nav>
       <section className="py-16 px-4 max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">Casos de <span className="text-emerald-400">éxito</span></h1>
-        <p className="text-zinc-300 text-center mb-12">Freelancers reales que recuperaron su dinero con CashFlow Guardian.</p>
+        <p className="text-zinc-300 text-center mb-12">Freelancers reales que recuperaron su dinero con CashFlow Guardian. Historias verificables con datos reales. Historias verificables con datos reales.</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {casos.map((c, i) => (
             <div key={i} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">

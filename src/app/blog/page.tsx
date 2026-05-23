@@ -1,18 +1,24 @@
 import Link from 'next/link'
+
 const posts = [
-  { title: 'Cómo cobrar a un cliente que no paga en España (guía 2026)', slug: '/blog/como-cobrar-cliente-moroso', date: 'Mayo 2026', tag: 'Cobro', excerpt: 'Guía paso a paso con legislación española actualizada: desde el recordatorio amable hasta la reclamación judicial.' },
+  { title: 'Cómo cobrar a un cliente que no paga en España (guía 2026)', slug: '/blog/como-cobrar-cliente-moroso-espana', date: 'Mayo 2026', tag: 'Cobro', excerpt: 'Guía paso a paso con legislación española actualizada.' },
+  { title: 'Modelo de carta de reclamación de impago España (plantilla descargable)', slug: '/blog/carta-reclamacion-impago', date: 'Junio 2026', tag: 'Legal', excerpt: 'Plantilla gratuita lista para enviar a clientes morosos.' },
+  { title: 'Intereses de demora en España 2026: cómo calcularlos y cobrarlos', slug: '/blog/intereses-demora-espana', date: 'Junio 2026', tag: 'Cobro', excerpt: 'La Ley 3/2004 te da derecho a cobrar intereses. Aprende a calcularlos.' },
   { title: 'Cómo subir precios como freelancer sin perder clientes', slug: '/blog/subir-precios-freelance', date: 'Mayo 2026', tag: 'Negocio', excerpt: 'Estrategias para aumentar tus tarifas un 20-40% manteniendo a tus mejores clientes.' },
-  { title: 'Contrato freelance: cláusulas obligatorias para 2026', slug: '/blog/contrato-freelance-clausulas', date: 'Junio 2026', tag: 'Legal', excerpt: 'Las 7 cláusulas que todo contrato freelance debe tener para protegerte de impagos.' },
-  { title: 'Cómo protegerte del impago como autónomo', slug: '/guia-impago', date: 'Junio 2026', tag: 'Autónomos', excerpt: 'Todo lo que necesitas saber antes de facturar: prevención, detección y acción.' },
-  { title: 'CFG vs Bonsai: ¿merece la pena cambiarse?', slug: '/vs-bonsai', date: 'Julio 2026', tag: 'Comparativas', excerpt: 'Análisis detallado después de la compra por Zoom: precios, funcionalidades y protección.' },
+  { title: 'Contrato freelance: las 7 cláusulas obligatorias para 2026', slug: '/blog/contrato-freelance-clausulas', date: 'Junio 2026', tag: 'Legal', excerpt: 'Las cláusulas que todo contrato freelance debe tener para protegerte de impagos.' },
   { title: 'Mejores plataformas para encontrar clientes freelance en España', slug: '/blog/plataformas-clientes-freelance', date: 'Julio 2026', tag: 'Negocio', excerpt: 'Domestika, Malt, LinkedIn, Workana... ¿cuál es la mejor para tu perfil?' },
+  { title: 'CFG vs Bonsai: ¿merece la pena cambiarse?', slug: '/vs-bonsai', date: 'Julio 2026', tag: 'Comparativas', excerpt: 'Análisis detallado después de la compra por Zoom.' },
 ]
+
 export default function Blog() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
       <nav className="border-b border-zinc-800 bg-[#050505]/80 backdrop-blur-xl py-4 px-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2"><div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-lg flex items-center justify-center text-black font-bold text-sm">🛡️</div><span className="font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">CashFlow Guardian</span></Link>
+          <Link href="/" className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-lg flex items-center justify-center text-black font-bold text-sm">🔒</div>
+            <span className="font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">CashFlow Guardian</span>
+          </Link>
           <Link href="/register" className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-sm px-5 py-2.5 rounded-full transition-all">Empieza por 1€ →</Link>
         </div>
       </nav>
@@ -23,11 +29,22 @@ export default function Blog() {
           {posts.map((post, i) => (
             <Link key={i} href={post.slug} className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-emerald-700 transition-all block">
               <div className="flex items-start justify-between">
-                <div><span className="text-xs text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">{post.tag}</span><h2 className="font-semibold mt-2 text-lg">{post.title}</h2><p className="text-sm text-zinc-400 mt-1">{post.excerpt}</p></div>
+                <div>
+                  <span className="text-xs text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">{post.tag}</span>
+                  <h2 className="font-semibold mt-2 text-lg">{post.title}</h2>
+                  <p className="text-sm text-zinc-400 mt-1">{post.excerpt}</p>
+                </div>
                 <span className="text-xs text-zinc-500 whitespace-nowrap ml-4">{post.date}</span>
               </div>
             </Link>
           ))}
+        </div>
+        <div className="mt-10 text-center">
+          <p className="text-zinc-400 text-sm">Más artículos próximamente. Suscríbete para recibirlos.</p>
+          <div className="flex gap-2 max-w-sm mx-auto mt-4">
+            <input type="email" placeholder="tu@email.com" className="flex-1 bg-zinc-800 border border-zinc-700 rounded-full px-4 py-2 text-sm text-white placeholder-zinc-500 outline-none focus:border-emerald-500" />
+            <button className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-sm px-4 py-2 rounded-full transition-all whitespace-nowrap">Suscribirme</button>
+          </div>
         </div>
       </section>
     </div>
