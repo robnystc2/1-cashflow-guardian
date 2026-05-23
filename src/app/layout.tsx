@@ -11,20 +11,20 @@ const GA_ID = 'G-EV4B742RBC'
 const CLARITY_ID = 'wrk1ugf3t5'
 
 export const metadata: Metadata = {
-  title: 'CashFlow Guardian — Cobra todo lo que trabajas',
+  title: 'CFG — Cobra todo lo que trabajas',
   description: 'Si no cobras, te pagamos nosotros. Blindaje de proyectos para freelancers.',
   openGraph: {
-    title: 'CashFlow Guardian — Cobra todo lo que trabajas',
+    title: 'CFG — Cobra todo lo que trabajas',
     description: 'Si no cobras, te pagamos nosotros. Blindaje de proyectos para freelancers.',
     url: 'https://cashflowguardian.com',
-    siteName: 'CashFlow Guardian',
+    siteName: 'CFG',
     images: [{ url: 'https://cashflowguardian.com/og-image.png', width: 1200, height: 630 }],
     locale: 'es_ES',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CashFlow Guardian — Cobra todo lo que trabajas',
+    title: 'CFG — Cobra todo lo que trabajas',
     description: 'Si no cobras, te pagamos nosotros.',
     images: ['https://cashflowguardian.com/og-image.png'],
   },

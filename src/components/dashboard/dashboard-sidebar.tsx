@@ -40,7 +40,7 @@ export default function DashboardSidebar() {
     <aside className="w-64 bg-zinc-900 border-r border-zinc-800 p-4 flex flex-col">
       <div className="mb-8">
         <h2 className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-          CashFlow Guardian
+          CFG
         </h2>
         <p className="text-xs text-zinc-600 mt-1">Plan Pro · Activo</p>
         {trialDaysLeft !== null && trialDaysLeft > 0 && (

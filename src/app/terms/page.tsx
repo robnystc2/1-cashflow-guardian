@@ -5,7 +5,7 @@ export default function TermsOfService() {
     <div className="min-h-screen bg-[#0a0a0a] text-white">
       <nav className="border-b border-zinc-800 bg-[#050505]/80 backdrop-blur-xl py-4 px-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2"><div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-lg flex items-center justify-center text-black font-bold text-sm">🔒</div><span className="font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">CashFlow Guardian</span></Link>
+          <Link href="/" className="flex items-center gap-2"><div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-lg flex items-center justify-center text-black font-bold text-sm">🔒</div><span className="font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">CFG</span></Link>
           <Link href="/register" className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-sm px-5 py-2.5 rounded-full transition-all">Empieza por 1€ →</Link>
         </div>
       </nav>
@@ -15,7 +15,7 @@ export default function TermsOfService() {
           <p><strong>Última actualización:</strong> 21 de mayo de 2026</p>
           
           <h2 className="text-xl font-bold mt-6">1. Aceptación de los términos</h2>
-          <p>Al registrarte y usar CashFlow Guardian, aceptas estos Términos y Condiciones. Si no estás de acuerdo, no debes usar el servicio.</p>
+          <p>Al registrarte y usar CFG, aceptas estos Términos y Condiciones. Si no estás de acuerdo, no debes usar el servicio.</p>
           
           <h2 className="text-xl font-bold mt-6">2. Descripción del servicio</h2>
           <p>CFG es una plataforma SaaS que permite a freelancers y autónomos blindar sus proyectos mediante un sistema de hitos, bloqueo de entregas, recordatorios automáticos y Escudo Legal.</p>
@@ -30,7 +30,7 @@ export default function TermsOfService() {
           <p>Puedes cancelar tu suscripción en cualquier momento desde el panel de control. La cancelación será efectiva al final del período de facturación actual. No hay permanencia ni penalización.</p>
           
           <h2 className="text-xl font-bold mt-6">6. Propiedad intelectual</h2>
-          <p>Todo el contenido y código de la plataforma es propiedad de CashFlow Guardian SL. Los datos introducidos por los usuarios les pertenecen exclusivamente a ellos.</p>
+          <p>Todo el contenido y código de la plataforma es propiedad de CFG SL. Los datos introducidos por los usuarios les pertenecen exclusivamente a ellos.</p>
           
           <h2 className="text-xl font-bold mt-6">7. Limitación de responsabilidad</h2>
           <p>CFG es una herramienta de gestión de cobros. No sustituye el asesoramiento legal profesional. Las cartas legales generadas tienen carácter extrajudicial y no constituyen un servicio jurídico.</p>

@@ -90,7 +90,7 @@ export default function LandingPage() {
     { q: "¿Funciona en mi país?", a: "Sí. Soportamos 47 países, multi-moneda y adaptación legal." },
     { q: "¿Es legal bloquear el trabajo?", a: "Sí, está pactado en el contrato. Si el cliente firmó, está legalmente obligado." },
     { q: "¿Funciona si soy autónomo en España con cliente extranjero?", a: "Sí. Facturación transfronteriza con multi-moneda. Escudo Legal se adapta al país del cliente." },
-    { q: "¿Puedo usarlo si soy autónomo con modelo 303 en España?", a: "Sí, CashFlow Guardian se integra con tu facturación y puedes exportar los datos para tu gestoría." },
+    { q: "¿Puedo usarlo si soy autónomo con modelo 303 en España?", a: "Sí, CFG se integra con tu facturación y puedes exportar los datos para tu gestoría." },
     { q: "¿El PayScore es legal? ¿No viola el RGPD?", a: "Completamente legal. Los datos de PayScore provienen del historial de pagos dentro de nuestra red de freelancers, con consentimiento explícito y cumpliendo RGPD." },
     { q: "¿Cuánto tiempo tarda en activarse desde que me registro?", a: "3 minutos. Creas tu proyecto, defines los hitos, y el sistema empieza a protegerte al instante." },
     { q: "¿Qué pasa exactamente si el cliente dice que el trabajo está mal para no pagar?", a: "El sistema registra todas las entregas y aprobaciones. Si el cliente aprobó el hito, no puede alegar desconformidad." },
@@ -155,7 +155,7 @@ export default function LandingPage() {
     { quote: "Subí mis precios un 40% porque sé que voy a cobrar. La confianza que da CFG no tiene precio. (Recuperó 2.100€)", name: "Ana López", role: "Consultora marketing, México DF", avatar: "AL", color: "bg-violet-500/20 text-violet-400" },
     { quote: "Activé el Escudo Legal y en 48 horas el cliente pagó. Nunca llegué a necesitar la devolución. (Recuperó 780€)", name: "Javier Herrera", role: "Editor de vídeo, Lima", avatar: "JH", color: "bg-rose-500/20 text-rose-400" },
     { quote: "Usé el PayScore para mostrarle a mi cliente que tenía 4 impagos previos. Me pagó el 50% por adelantado sin discutir. (Recuperó 3.200€)", name: "Carlos Ruiz", role: "Diseñador, Barcelona", avatar: "CR", color: "bg-emerald-500/20 text-emerald-400" },
-    { quote: "Tenía 2.400€ pendientes. A los 4 días de usar CashFlow Guardian, el cliente pagó. (Recuperó 2.400€)", name: "María González", role: "Diseñadora, Madrid", avatar: "MG", color: "bg-emerald-500/20 text-emerald-400" },
+    { quote: "Tenía 2.400€ pendientes. A los 4 días de usar CFG, el cliente pagó. (Recuperó 2.400€)", name: "María González", role: "Diseñadora, Madrid", avatar: "MG", color: "bg-emerald-500/20 text-emerald-400" },
     { quote: "Llevo 6 meses y ningún cliente me ha pagado tarde desde que activo CFG en cada proyecto. (Prevención)", name: "Diego Martínez", role: "Fotógrafo, Buenos Aires", avatar: "DM", color: "bg-amber-500/20 text-amber-400" },
   ]
   const visibleTestimonials = expandedTestimonials ? allTestimonials : allTestimonials.slice(0, 6)
@@ -282,7 +282,7 @@ export default function LandingPage() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="w-24 h-24 rounded-full bg-gradient-to-br from-emerald-400 to-cyan-500 flex items-center justify-center text-black font-extrabold text-3xl mx-auto mb-4 shadow-xl shadow-emerald-500/30 border-4 border-white/10">R</div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Construido por alguien que lo vivió</h2>
-          <p className="text-zinc-300 text-lg max-w-2xl mx-auto leading-relaxed">Era octubre de 2024. Tenía 16 años y acababa de entregar un proyecto de branding a una agencia de publicidad. El cliente recibió el trabajo, dijo que estaba perfecto, y desapareció. 3 facturas. 4.800€. Cero respuesta. Busqué una herramienta que me protegiera. <strong className="text-white">No existía.</strong> Así que construí CashFlow Guardian. Y desde entonces, 847 freelancers no han vuelto a perseguir una factura.</p>
+          <p className="text-zinc-300 text-lg max-w-2xl mx-auto leading-relaxed">Era octubre de 2024. Tenía 16 años y acababa de entregar un proyecto de branding a una agencia de publicidad. El cliente recibió el trabajo, dijo que estaba perfecto, y desapareció. 3 facturas. 4.800€. Cero respuesta. Busqué una herramienta que me protegiera. <strong className="text-white">No existía.</strong> Así que construí CFG. Y desde entonces, 847 freelancers no han vuelto a perseguir una factura.</p>
           <p className="text-emerald-400 font-bold mt-4">— Rodrigo · Fundador · Tenerife, 16 años</p>
         </div>
       </section>
@@ -319,7 +319,7 @@ export default function LandingPage() {
           <p className="text-zinc-300 mb-8">Así es como CFG protege tus proyectos desde el primer minuto.</p>
           <div className="bg-zinc-900 border-2 border-zinc-700/50 rounded-2xl overflow-hidden shadow-elevated max-w-2xl mx-auto">
             <div className="aspect-video bg-zinc-800 flex items-center justify-center">
-              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/cashflow-guardian-demo" title="Video demo de CashFlow Guardian" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="w-full h-full"></iframe>
+              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/cashflow-guardian-demo" title="Video demo de CFG" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="w-full h-full"></iframe>
             </div>
           </div>
         </div>
@@ -391,7 +391,7 @@ export default function LandingPage() {
             <div className="mt-6">
               <Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-lg px-10 py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 w-full justify-center cursor-pointer">🔒 Blindar mis {new Intl.NumberFormat('es-ES').format(roiPerdida)}€ por 1€ →</Link>
             </div>
-            <div className="flex gap-2 mt-3 justify-center text-xs text-zinc-400 font-medium"><span>Compartir:</span><a href={`https://twitter.com/intent/tweet?text=Con CashFlow Guardian puedo proteger ${new Intl.NumberFormat('es-ES').format(roiPerdida)}€ al año`} target="_blank" className="hover:text-emerald-400">Twitter</a><a href={`https://www.linkedin.com/sharing/share-offsite/?url=https://cashflowguardian.com`} target="_blank" className="hover:text-emerald-400 ml-2">LinkedIn</a><a href={`https://wa.me/?text=Con CashFlow Guardian puedo proteger ${new Intl.NumberFormat('es-ES').format(roiPerdida)}€ al año. Mira: https://cashflowguardian.com`} target="_blank" className="hover:text-emerald-400 ml-2">WhatsApp</a><a href={`https://www.facebook.com/sharer/sharer.php?u=https://cashflowguardian.com`} target="_blank" className="hover:text-emerald-400 ml-2">Facebook</a></div>
+            <div className="flex gap-2 mt-3 justify-center text-xs text-zinc-400 font-medium"><span>Compartir:</span><a href={`https://twitter.com/intent/tweet?text=Con CFG puedo proteger ${new Intl.NumberFormat('es-ES').format(roiPerdida)}€ al año`} target="_blank" className="hover:text-emerald-400">Twitter</a><a href={`https://www.linkedin.com/sharing/share-offsite/?url=https://cashflowguardian.com`} target="_blank" className="hover:text-emerald-400 ml-2">LinkedIn</a><a href={`https://wa.me/?text=Con CFG puedo proteger ${new Intl.NumberFormat('es-ES').format(roiPerdida)}€ al año. Mira: https://cashflowguardian.com`} target="_blank" className="hover:text-emerald-400 ml-2">WhatsApp</a><a href={`https://www.facebook.com/sharer/sharer.php?u=https://cashflowguardian.com`} target="_blank" className="hover:text-emerald-400 ml-2">Facebook</a></div>
             <p className="text-[10px] text-zinc-600 mt-4">¿Tienes un blog? <a href="#" className="underline hover:text-zinc-400">Copia el widget de esta calculadora</a> y compártelo con otros freelancers.</p>
           </div>
         </div>
@@ -747,10 +747,10 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
             <div>
-              <Link href="/" className="flex items-center gap-2 mb-4"><div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-lg flex items-center justify-center text-black font-extrabold text-sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg></div><span className="font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">CashFlow Guardian</span></Link>
+              <Link href="/" className="flex items-center gap-2 mb-4"><div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-lg flex items-center justify-center text-black font-extrabold text-sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg></div><span className="font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">CFG</span></Link>
               <p className="text-zinc-400 text-xs">Hecho por Rodrigo, 16 años, Tenerife. Perdió 4.800€ y decidió que ningún freelancer pasaría por lo mismo.</p>
-              <p className="text-zinc-500 text-xs mt-1">© 2026 CashFlow Guardian · Tenerife, Spain · Actualizado: 23/05/2026</p>
-              <p className="text-zinc-500 text-xs mt-1">CashFlow Guardian SL · CIF registrado en España</p>
+              <p className="text-zinc-500 text-xs mt-1">© 2026 CFG · Tenerife, Spain · Actualizado: 23/05/2026</p>
+              <p className="text-zinc-500 text-xs mt-1">CFG SL · CIF registrado en España</p>
               <p className="text-zinc-500 text-xs mt-1">hola@cashflowguardian.com</p>
               <div className="flex gap-3 mt-2 text-zinc-400 text-sm">
                 <a href="https://instagram.com/cashflowguardian" target="_blank" className="hover:text-emerald-400">Instagram</a>

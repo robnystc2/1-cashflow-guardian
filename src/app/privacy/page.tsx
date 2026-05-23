@@ -5,7 +5,7 @@ export default function PrivacyPolicy() {
     <div className="min-h-screen bg-[#0a0a0a] text-white">
       <nav className="border-b border-zinc-800 bg-[#050505]/80 backdrop-blur-xl py-4 px-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2"><div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-lg flex items-center justify-center text-black font-bold text-sm">🔒</div><span className="font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">CashFlow Guardian</span></Link>
+          <Link href="/" className="flex items-center gap-2"><div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-lg flex items-center justify-center text-black font-bold text-sm">🔒</div><span className="font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">CFG</span></Link>
           <Link href="/register" className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-sm px-5 py-2.5 rounded-full transition-all">Empieza por 1€ →</Link>
         </div>
       </nav>
@@ -13,10 +13,10 @@ export default function PrivacyPolicy() {
         <h1 className="text-3xl font-bold mb-8">Política de Privacidad</h1>
         <div className="prose prose-invert max-w-none text-zinc-300 space-y-4 text-sm">
           <p><strong>Última actualización:</strong> 21 de mayo de 2026</p>
-          <p>En CashFlow Guardian (en adelante, "CFG"), nos tomamos muy en serio la privacidad de tus datos. Esta política describe qué información recopilamos, cómo la usamos y qué derechos tienes sobre ella.</p>
+          <p>En CFG (en adelante, "CFG"), nos tomamos muy en serio la privacidad de tus datos. Esta política describe qué información recopilamos, cómo la usamos y qué derechos tienes sobre ella.</p>
           
           <h2 className="text-xl font-bold mt-6">1. Responsable del tratamiento</h2>
-          <p>CashFlow Guardian SL (CIF B-XXXXXXXX)<br/>Tenerife, España<br/>hola@cashflowguardian.com</p>
+          <p>CFG SL (CIF B-XXXXXXXX)<br/>Tenerife, España<br/>hola@cashflowguardian.com</p>
           
           <h2 className="text-xl font-bold mt-6">2. Datos que recopilamos</h2>
           <ul className="list-disc pl-5 space-y-1">
