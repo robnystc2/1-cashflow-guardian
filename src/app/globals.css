@@ -14,8 +14,8 @@
   --color-zinc-800: #27272a;
   --color-zinc-900: #18181b;
   --color-zinc-950: #09090b;
-  --color-emerald-400: #34d399;
-  --color-emerald-500: #10b981;
+  --color-#10b981: #34d399;
+  --color-#059669: #10b981;
   --color-emerald-600: #059669;
   --color-emerald-900: #064e3b;
   --color-red-400: #f87171;
@@ -77,4 +77,108 @@ input:-webkit-autofill:active {
 /* Ocultar badges de entorno de desarrollo (Codespaces, etc.) */
 [class*="codespace"], [class*="badge"], [id*="codespace"], [id*="badge"] {
   display: none !important;
+}
+
+/* Jerarquía tipográfica profesional */
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05; letter-spacing: -0.02em; }
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.1; letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2; }
+body { font-size: 1rem; line-height: 1.6; }
+
+/* Animaciones de entrada al hacer scroll */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-section.animate-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover states consistentes */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Badge de notificación pulsante */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+.pulse-subtle {
+  animation: pulse-subtle 2s infinite;
+}
+
+/* Tabla responsive */
+@media (max-width: 768px) {
+  .comparison-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .comparison-table th,
+  .comparison-table td {
+    min-width: 120px;
+  }
+}
+
+/* Sombras premium */
+.shadow-premium {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+.shadow-card {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+.shadow-elevated {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover refinado */
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Botones con micro-interacciones */
+.btn-primary {
+  transition: all 0.2s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.2);
+}
+
+/* Tabla comparativa responsive */
+@media (max-width: 768px) {
+  .comparison-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .comparison-table th,
+  .comparison-table td {
+    min-width: 100px;
+    padding: 8px;
+  }
 }
