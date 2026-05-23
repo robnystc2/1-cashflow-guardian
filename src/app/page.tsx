@@ -8,6 +8,8 @@ import LiveStatsBar from '@/components/landing/live-stats-bar'
 import NavDropdown from '@/components/landing/nav-dropdown'
 import NichosSection from '@/components/landing/nichos-section'
 import CassandraChat from '@/components/landing/cassandra-chat'
+import HeroAnimation from '@/components/landing/hero-animation'
+import CalculadoraInline from '@/components/landing/calculadora-inline'
 
 export default function LandingPage() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('annual')
