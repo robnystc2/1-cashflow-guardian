@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
-import { Palette, Code2, BarChart3, Camera, PenTool, Globe, Megaphone, Briefcase, Building2, Film, Shield, Lock, Scale, Stethoscope, Music, Search, FileText } from 'lucide-react'
+import { Palette, Code2, BarChart3, Camera, PenTool, Globe, Megaphone, Briefcase, Building2, Film, Stethoscope, Music, Search } from 'lucide-react'
 
 const categorias = ['Todos', 'Creativo', 'Técnico', 'Consultor', 'Educador']
 

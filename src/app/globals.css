@@ -14,15 +14,6 @@
   --color-zinc-800: #27272a;
   --color-zinc-900: #18181b;
   --color-zinc-950: #09090b;
-  --color-#10b981: #34d399;
-  --color-#059669: #10b981;
-  --color-emerald-600: #059669;
-  --color-emerald-900: #064e3b;
-  --color-red-400: #f87171;
-  --color-red-900: #7f1d1d;
-  --color-amber-400: #fbbf24;
-  --color-cyan-400: #22d3ee;
-  --color-cyan-500: #06b6d4;
 }
 
 body {
@@ -40,212 +31,40 @@ input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-/* Animaciones de la landing page */
-@keyframes pulse-border {
-  0%, 100% { border-color: rgba(239, 68, 68, 0.5); }
-  50% { border-color: rgba(239, 68, 68, 0.8); }
-}
-@keyframes ping-slow {
-  0% { transform: scale(1); opacity: 0.3; }
-  50% { transform: scale(1.2); opacity: 0.1; }
-  100% { transform: scale(1); opacity: 0.3; }
-}
+/* ========== ANIMACIONES ========== */
 @keyframes unlock {
   0% { opacity: 0.6; transform: scale(0.95); }
   50% { opacity: 1; transform: scale(1.05); border-color: #34d399; }
   100% { opacity: 0.6; transform: scale(0.95); }
 }
-@keyframes mockup-alert {
-  0%, 20% { opacity: 0; }
-  25%, 45% { opacity: 1; }
-  50%, 100% { opacity: 0; }
-}
+.animate-unlock { animation: unlock 3s ease-in-out infinite; }
+
 @keyframes price-pulse {
   0% { transform: scale(1); }
   50% { transform: scale(1.05); }
   100% { transform: scale(1); }
 }
+.animate-price-change { animation: price-pulse 0.5s ease-out; }
+
 @keyframes node-pulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
   50% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
 }
-.animate-unlock { animation: unlock 3s ease-in-out infinite; }
-.animate-mockup-alert { animation: mockup-alert 6s ease-in-out infinite; }
-.animate-price-change { animation: price-pulse 0.5s ease-out; }
 .animate-node-pulse { animation: node-pulse 2s infinite; }
 
-/* Ocultar badges de entorno de desarrollo (Codespaces, etc.) */
-[class*="codespace"], [class*="badge"], [id*="codespace"], [id*="badge"] {
-  display: none !important;
-}
-
-/* Jerarquía tipográfica profesional */
-h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05; letter-spacing: -0.02em; }
-h2 { font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.1; letter-spacing: -0.01em; }
-h3 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2; }
-body { font-size: 1rem; line-height: 1.6; }
-
-/* Animaciones de entrada al hacer scroll */
-.reveal-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.reveal-section.animate-reveal {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Hover states consistentes */
-.hover-lift {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.hover-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-}
-
-/* Badge de notificación pulsante */
 @keyframes pulse-subtle {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.8; }
 }
-.pulse-subtle {
-  animation: pulse-subtle 2s infinite;
-}
+.pulse-subtle { animation: pulse-subtle 2s infinite; }
 
-/* Tabla responsive */
-@media (max-width: 768px) {
-  .comparison-table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-  .comparison-table th,
-  .comparison-table td {
-    min-width: 120px;
-  }
-}
-
-/* Sombras premium */
-.shadow-premium {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-}
-.shadow-card {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-}
-.shadow-elevated {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-}
-
-/* Hover refinado */
-.hover-glow:hover {
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
-  transition: box-shadow 0.3s ease;
-}
-
-/* Scroll reveal */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Botones con micro-interacciones */
-.btn-primary {
-  transition: all 0.2s ease;
-}
-.btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
-}
-.btn-primary:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.2);
-}
-
-/* Tabla comparativa responsive */
-@media (max-width: 768px) {
-  .comparison-table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-  }
-  .comparison-table th,
-  .comparison-table td {
-    min-width: 100px;
-    padding: 8px;
-  }
-}
-
-/* Jerarquía tipográfica profesional */
+/* ========== TIPOGRAFÍA ========== */
 h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05; letter-spacing: -0.02em; }
 h2 { font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.1; letter-spacing: -0.01em; }
 h3 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2; }
 body { font-size: 1rem; line-height: 1.6; }
 
-/* Animaciones de entrada */
-.reveal-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.reveal-section.animate-reveal {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Sombras premium */
-.shadow-premium {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-}
-.shadow-card {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-}
-.shadow-elevated {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-}
-
-/* Hover refinado */
-.hover-glow:hover {
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
-  transition: box-shadow 0.3s ease;
-}
-
-/* Botones con micro-interacciones */
-.btn-primary {
-  transition: all 0.2s ease;
-}
-.btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
-}
-.btn-primary:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.2);
-}
-
-/* Tabla comparativa responsive */
-@media (max-width: 768px) {
-  .comparison-table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-  }
-  .comparison-table th,
-  .comparison-table td {
-    min-width: 100px;
-    padding: 8px;
-  }
-}
-
-/* Animaciones de entrada al hacer scroll */
+/* ========== SCROLL REVEAL ========== */
 .reveal-section {
   opacity: 0;
   transform: translateY(30px);
@@ -265,69 +84,28 @@ body { font-size: 1rem; line-height: 1.6; }
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
-/* Mejora de contraste para legibilidad */
-.text-zinc-400 { color: #a1a1aa !important; }
-.text-zinc-500 { color: #71717a !important; }
 
-/* Optimización mobile */
-@media (max-width: 768px) {
-  .hero-mockup {
-    display: none;
-  }
-  .hero-content {
-    text-align: center;
-    padding: 0 1rem;
-  }
-  .pricing-grid {
-    grid-template-columns: 1fr;
-  }
-  .comparison-table {
-    font-size: 0.75rem;
-  }
+/* ========== SOMBRAS Y HOVERS ========== */
+.shadow-premium {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
-
-/* Paleta de colores CFG: verde más serio y único */
-:root {
-  --cf-green: #0a8f5c;
-  --cf-green-dark: #067a4a;
-  --cf-blue-green: #0d6e5f;
+.shadow-card {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
-.text-emerald-400 { color: var(--cf-green) !important; }
-.bg-emerald-500 { background-color: var(--cf-green) !important; }
-.border-emerald-500 { border-color: var(--cf-green) !important; }
-/* ... (aplicar a más clases si es necesario) */
-
-/* Animación del mockup del hero */
-@keyframes pulse-alert {
-  0% { opacity: 0.7; }
-  50% { opacity: 1; box-shadow: 0 0 10px rgba(10, 143, 92, 0.3); }
-  100% { opacity: 0.7; }
+.shadow-elevated {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
-.hero-mockup-alert {
-  animation: pulse-alert 2s infinite;
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+  transition: box-shadow 0.3s ease;
 }
-
-/* Ajustes píxel-perfecto */
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
-.container-smooth {
-  padding-left: max(1rem, calc((100vw - 1200px) / 2));
-  padding-right: max(1rem, calc((100vw - 1200px) / 2));
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
-
-.section-spacing {
-  padding-top: clamp(3rem, 8vw, 6rem);
-  padding-bottom: clamp(3rem, 8vw, 6rem);
-}
-
-.text-balance {
-  text-wrap: balance;
-}
-
-/* Mejoras sutiles en hover de tarjetas */
 .hover-card {
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
@@ -337,14 +115,64 @@ body { font-size: 1rem; line-height: 1.6; }
   border-color: rgba(16, 185, 129, 0.3);
 }
 
-/* Animación de carga suave para imágenes */
-img {
-  opacity: 0;
-  transition: opacity 0.3s ease;
+/* Botones con micro-interacciones */
+.btn-primary {
+  transition: all 0.2s ease;
 }
-img.loaded {
-  opacity: 1;
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
 }
-/* Mejora de contraste para accesibilidad WCAG AA */
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.2);
+}
+
+/* ========== TABLA COMPARATIVA RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .comparison-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .comparison-table th,
+  .comparison-table td {
+    min-width: 100px;
+    padding: 8px;
+  }
+}
+
+/* ========== OPTIMIZACIONES GLOBALES ========== */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.text-balance {
+  text-wrap: balance;
+}
+.container-smooth {
+  padding-left: max(1rem, calc((100vw - 1200px) / 2));
+  padding-right: max(1rem, calc((100vw - 1200px) / 2));
+}
+.section-spacing {
+  padding-top: clamp(3rem, 8vw, 6rem);
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+}
+
+/* Ocultar badges de entorno de desarrollo */
+[class*="codespace"], [class*="badge"], [id*="codespace"], [id*="badge"] {
+  display: none !important;
+}
+
+/* Mejora de contraste para legibilidad (WCAG AA) */
 .text-zinc-400 { color: #a1a1aa !important; }
 .text-zinc-500 { color: #71717a !important; }
+
+/* Optimización mobile */
+@media (max-width: 768px) {
+  .hero-mockup { display: none; }
+  .hero-content { text-align: center; padding: 0 1rem; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .comparison-table { font-size: 0.75rem; }
+}
