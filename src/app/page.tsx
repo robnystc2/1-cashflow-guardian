@@ -72,7 +72,7 @@ export default function LandingPage() {
   useEffect(() => { const i = setInterval(() => { setLiveFreelancers(p => p + 1); }, 43000); return () => clearInterval(i); }, [])
   useEffect(() => { if (heroQuestionAnswered === true) setHeroCTA('Recupera tu dinero ahora — Blindar mis cobros'); else if (heroQuestionAnswered === false) setHeroCTA('Blíndate antes de que pase — Empieza por 1€'); else setHeroCTA('Blindarme por 1€ →') }, [heroQuestionAnswered])
   useEffect(() => { if (typeof window === 'undefined') return; let ticking = false; const h = () => { if (!ticking) { window.requestAnimationFrame(() => { const th = document.documentElement.scrollHeight - window.innerHeight; const p = th>0 ? (window.scrollY/th)*100 : 0; setScrollProgress(Math.min(p,100)); setScrolled(window.scrollY>20); setStickyMsg(window.scrollY > window.innerHeight * 0.3 ? (window.scrollY > window.innerHeight * 1.5 ? '848 freelancers ya duermen tranquilos. Tú también puedes →' : 'Primer mes a 1€ · Garantía Blindaje Total · Sin tarjeta') : ''); ticking = false }); ticking = true } }; window.addEventListener('scroll', h, { passive: true }); return () => window.removeEventListener('scroll', h) }, [])
-  useEffect(() => { const l = (e: MouseEvent) => { if (e.clientY<=0 && !showExitPopup) { exitTimerRef.current = setTimeout(() => setShowExitPopup(true), 300) } }; const e = () => { if (exitTimerRef.current) { clearTimeout(exitTimerRef.current); exitTimerRef.current = null } }; document.addEventListener('mouseleave', l); document.addEventListener('mouseenter', e); return () => { document.removeEventListener('mouseleave', l); document.removeEventListener('mouseenter', e); if (exitTimerRef.current) clearTimeout(exitTimerRef.current) } }, [showExitPopup])
+  useEffect(() => { const l = (e: MouseEvent) => { if (e.clientY<=0 && !showExitPopup) { exitTimerRef.current = setTimeout(() => setShowExitPopup(true), 30000) } }; const e = () => { if (exitTimerRef.current) { clearTimeout(exitTimerRef.current); exitTimerRef.current = null } }; document.addEventListener('mouseleave', l); document.addEventListener('mouseenter', e); return () => { document.removeEventListener('mouseleave', l); document.removeEventListener('mouseenter', e); if (exitTimerRef.current) clearTimeout(exitTimerRef.current) } }, [showExitPopup])
   useEffect(() => { const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('animate-reveal') }) }, { threshold: 0.15 }); document.querySelectorAll('.reveal-section').forEach(el => observer.observe(el)); return () => observer.disconnect() }, [])
   useEffect(() => { if (!animatedStats) return; const counters = document.querySelectorAll('.stat-counter'); counters.forEach(c => { const target = parseInt(c.getAttribute('data-target') || '0'); const duration = 1500; const steps = 60; let step = 0; const timer = setInterval(() => { step++; const current = Math.round(target * (step/steps)); (c as HTMLElement).innerText = current.toLocaleString('es-ES'); if (step >= steps) clearInterval(timer) }, duration/steps) }) }, [animatedStats])
   useEffect(() => { const observer = new IntersectionObserver((entries) => { if (entries[0].isIntersecting) setAnimatedStats(true) }, { threshold: 0.3 }); if (statsRef.current) observer.observe(statsRef.current); return () => observer.disconnect() }, [])
@@ -169,7 +169,6 @@ export default function LandingPage() {
       )}
 
       <LiveStatsBar />
-      <div className="bg-zinc-900 text-zinc-400 text-xs text-center py-1">Precio fundador. 29€/mes. Blinda tus proyectos desde el primer día.</div>
 
       <nav className={`sticky top-[3px] z-50 transition-all duration-300 ${scrolled ? 'bg-[#050505]/80 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20 py-2' : 'bg-transparent py-3'}`}>
         <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
@@ -349,7 +348,7 @@ export default function LandingPage() {
                   <span>{Math.round(roiPerdida * 0.25).toLocaleString('es-ES')}€</span>
                 </div>
               </div>
-              <p className="text-sm text-emerald-400 mt-3 font-medium">Con CFG Pro (29€/mes), proteges {new Intl.NumberFormat('es-ES').format(roiPerdida)}€ por solo 348€/año → <strong className="text-2xl text-white">{roiMultiplicador}x tu inversión</strong><br/><span className="text-xs text-zinc-400 font-medium">En 5 años sin CFG = {new Intl.NumberFormat('es-ES').format(roiPerdida * 5)}€ perdidos. Con CFG = 1.245€ invertidos.</span></p>
+              <p className="text-sm text-emerald-400 mt-3 font-medium">Con CFG Pro (29€/mes), proteges {new Intl.NumberFormat('es-ES').format(roiPerdida)}€ por solo 348€/año. Tu riesgo actual equivale a {Math.round(roiPerdida / 348)} años de CFG Pro. → <strong className="text-2xl text-white">{roiMultiplicador}x tu inversión</strong><br/><span className="text-xs text-zinc-400 font-medium">En 5 años sin CFG = {new Intl.NumberFormat('es-ES').format(roiPerdida * 5)}€ perdidos. Con CFG = 1.245€ invertidos.</span></p>
               <div className="mt-4 text-left space-y-2">
                 <p className="text-xs text-zinc-400 font-medium">Comparativa anual:</p>
                 <div className="flex items-center gap-2 text-xs text-zinc-400 font-medium">
@@ -388,7 +387,7 @@ export default function LandingPage() {
       <section className="py-16 px-4 bg-zinc-950" id="garantia">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">Lo que intentamos copiar de la competencia... <span className="text-emerald-400">y no encontramos</span></h2>
-          <p className="text-zinc-400 text-sm mb-8 max-w-2xl mx-auto">Buscamos en Bonsai. No existía. Buscamos en Moxie. No existía. Buscamos en Dubsado. No existía. Buscamos en Invoice Ninja. No existía. Buscamos en HoneyBook. No existía. Buscamos en Freshbooks. Tampoco. Así que lo construimos nosotros.</p>
+          <p className="text-zinc-400 text-sm mb-8 max-w-2xl mx-auto">Buscamos protección GARANTIZADA con devolución. No existía en Bonsai, ni en Moxie, ni en Dubsado, ni en ningún otro. Así que lo construimos nosotros.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
             <div className="md:col-span-2 bg-zinc-900 border-2 border-emerald-500 rounded-2xl p-8 text-left relative">
               <div className="flex items-center gap-4 mb-4"><div className="w-16 h-16 bg-emerald-500/10 rounded-2xl flex items-center justify-center"><Shield className="w-10 h-10 text-emerald-400" /></div><div>
@@ -533,7 +532,7 @@ export default function LandingPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">Lo que <span className="text-red-400">nunca más</span> tendrás que hacer</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-            {['Perseguir facturas', 'Pedir el dinero con vergüenza', 'Perder clientes por pedir pago', 'Pagar a un abogado', 'Trabajar gratis', 'Esperar meses para cobrar'].map((item, i) => (
+            {['Trabajar gratis', 'Perseguir facturas', 'Esperar meses para cobrar', 'Pagar a un abogado', 'Perder clientes por pedir pago', 'Pedir el dinero con vergüenza'].map((item, i) => (
               <div key={i} className="flex items-center gap-3 bg-zinc-900 border-2 border-zinc-700/50 rounded-xl p-4">
                 <span className="text-red-400 text-lg">✗</span>
                 <span className="text-zinc-400 line-through">{item}</span>
@@ -557,6 +556,8 @@ export default function LandingPage() {
           <div className="flex justify-center mb-4"><a href="https://trustpilot.com/review/cashflowguardian.com" target="_blank" className="text-xs text-zinc-400 font-medium hover:text-emerald-400 transition-colors flex items-center gap-1">⭐⭐⭐⭐⭐ 4.9/5 en Trustpilot · Ver reseñas →</a></div>
           <h2 className="text-4xl md:text-5xl font-bold mb-10">Lo que dicen los freelancers <span className="text-emerald-400">blindados</span></h2>
           <div className="flex justify-center gap-2 mb-4 flex-wrap"><button className="px-3 py-1 rounded-full text-xs border border-zinc-700/50 text-zinc-300 hover:border-emerald-500">Todos</button><button className="px-3 py-1 rounded-full text-xs border border-zinc-700/50 text-zinc-300 hover:border-emerald-500">Menos de 500€</button><button className="px-3 py-1 rounded-full text-xs border border-zinc-700/50 text-zinc-300 hover:border-emerald-500">500€ - 2.000€</button><button className="px-3 py-1 rounded-full text-xs border border-zinc-700/50 text-zinc-300 hover:border-emerald-500">Más de 2.000€</button></div>
+              <button className="px-3 py-1 rounded-full text-xs border border-zinc-700/50 text-zinc-300 hover:border-emerald-500">Recuperación</button>
+              <button className="px-3 py-1 rounded-full text-xs border border-zinc-700/50 text-zinc-300 hover:border-emerald-500">Prevención</button>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {visibleTestimonials.map((t, i) => (
               <div key={i} className="relative bg-zinc-900 border-2 border-zinc-700/50 rounded-2xl p-6 text-left">
@@ -603,7 +604,6 @@ export default function LandingPage() {
       <section id="precios" className="py-16 px-4 bg-zinc-950">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">Elige tu <span className="text-emerald-400">blindaje</span></h2>
-          <div className="flex justify-center mb-4"><span className="bg-amber-500/20 border border-amber-500 text-amber-300 text-xs font-bold px-3 py-1 rounded-full">⚡ Precio de lanzamiento — Plazas limitadas a 29€/mes</span></div>
           <div className="flex justify-center gap-4 mt-4 text-xs text-zinc-400 font-medium"><span>🔒 Pago seguro (<span className="text-zinc-400 font-bold text-sm"><svg className="w-4 h-4 inline mr-1" viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.853 0 9.856 0 7.351 1.354 7.351 4.347c0 3.392 4.515 4.474 8.856 5.494 2.002.474 3.356 1.163 3.356 2.409 0 .831-.683 1.305-1.901 1.305-2.227 0-4.515-.858-6.09-1.631l-.89 5.494C11.448 18.225 14.003 21 16.847 21c2.997 0 5.502-1.354 5.502-4.347 0-3.392-4.515-4.474-8.856-5.494z"/></svg> Stripe</span>)</span><span>🛡️ SSL</span></div>
           <div className="flex justify-center gap-4 mt-2 text-xs text-zinc-400 font-medium"><span>🛡️ RGPD Compliant</span><span>🌍 47 países</span></div>
           <p className="text-xl text-emerald-400 mb-8 font-bold">Todos los planes incluyen la <strong className="text-white">Garantía Blindaje Total</strong>.</p>
@@ -785,7 +785,7 @@ export default function LandingPage() {
             <button onClick={() => setShowExitPopup(false)} className="absolute top-4 right-4 text-zinc-400 hover:text-white text-xl">&times;</button>
             <div className="text-4xl mb-4">📘</div>
             <h3 className="text-xl font-bold mb-2">Espera — antes de irte</h3>
-            <p className="text-zinc-300 text-sm mb-4">¿Tienes facturas pendientes ahora mismo? Calcula tu pérdida:</p>
+            <p className="text-zinc-300 text-sm mb-4">¿Alguna vez un cliente te dejó sin pagar? Calcula tu pérdida:</p>
             <Link href="/register" className="bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-6 py-3 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 text-sm cursor-pointer" onClick={() => setShowExitPopup(false)}>Calcular ahora →</Link>
           </div>
         </div>
