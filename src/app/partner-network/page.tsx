@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-export default function GeneradorPropuesta() {
+export default function PartnerNetwork() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
       <nav className="border-b border-zinc-800 bg-[#050505]/80 backdrop-blur-xl py-4 px-4">
@@ -9,14 +9,13 @@ export default function GeneradorPropuesta() {
           <Link href="/register" className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-sm px-5 py-2.5 rounded-full transition-all">Empieza por 1€ →</Link>
         </div>
       </nav>
-      <section className="py-16 px-4 max-w-3xl mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">Generador de <span className="text-emerald-400">propuestas comerciales</span></h1>
-        <p className="text-xl text-zinc-300 mb-8">Crea una propuesta profesional con hitos y cláusulas de protección en 2 minutos.</p>
+      <section className="py-16 px-4 max-w-4xl mx-auto text-center">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">Partner <span className="text-emerald-400">Network</span></h1>
+        <p className="text-xl text-zinc-300 mb-8">¿Tienes una escuela, bootcamp o comunidad de freelancers? Únete a nuestra red de partners y ofrece CFG a tus alumnos.</p>
         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 mb-8">
-          <p className="text-sm text-zinc-400 mb-4">Rellena los datos de tu proyecto y descarga la propuesta lista para enviar.</p>
-          <button className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-sm px-6 py-3 rounded-full transition-all">Generar propuesta (gratis)</button>
+          <p className="text-sm text-zinc-400 mb-4">Escríbenos a <a href="mailto:partners@cashflowguardian.com" className="text-emerald-400 underline">partners@cashflowguardian.com</a> y te contamos los detalles.</p>
         </div>
-        <Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-lg px-10 py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20">Blindar mis proyectos con CFG <ArrowRight className="w-5 h-5" /></Link>
+        <Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-lg px-10 py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20">Empezar con CFG <ArrowRight className="w-5 h-5" /></Link>
       </section>
     </div>
   )

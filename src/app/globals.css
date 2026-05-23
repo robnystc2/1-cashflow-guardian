@@ -285,3 +285,24 @@ body { font-size: 1rem; line-height: 1.6; }
     font-size: 0.75rem;
   }
 }
+
+/* Paleta de colores CFG: verde más serio y único */
+:root {
+  --cf-green: #0a8f5c;
+  --cf-green-dark: #067a4a;
+  --cf-blue-green: #0d6e5f;
+}
+.text-emerald-400 { color: var(--cf-green) !important; }
+.bg-emerald-500 { background-color: var(--cf-green) !important; }
+.border-emerald-500 { border-color: var(--cf-green) !important; }
+/* ... (aplicar a más clases si es necesario) */
+
+/* Animación del mockup del hero */
+@keyframes pulse-alert {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; box-shadow: 0 0 10px rgba(10, 143, 92, 0.3); }
+  100% { opacity: 0.7; }
+}
+.hero-mockup-alert {
+  animation: pulse-alert 2s infinite;
+}

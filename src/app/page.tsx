@@ -19,6 +19,9 @@ export default function LandingPage() {
   const [roiTardanza, setRoiTardanza] = useState(30)
   const [roiSector, setRoiSector] = useState('Diseño')
   const [scrolled, setScrolled] = useState(false)
+  const [demoNombre, setDemoNombre] = useState('')
+  const [demoProyecto, setDemoProyecto] = useState('')
+  const [heroProfession, setHeroProfession] = useState('Diseñador')
   const [timelineModal, setTimelineModal] = useState<string | null>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [tickerIndex, setTickerIndex] = useState(0)
@@ -194,7 +197,7 @@ export default function LandingPage() {
       <section className="relative pt-12 pb-8 px-4 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
           <div className="text-center lg:text-left">
-            <p className="text-sm text-red-400/80 font-medium mb-2">Selecciona tu profesión para ver tu riesgo real de impago este año.</p>
+            <p className="text-sm text-red-400/80 font-medium mb-2">{heroProfession === 'Diseñador' ? 'Los diseñadores pierden 1.847€/año en impagos.' : heroProfession === 'Desarrollador' ? 'Los desarrolladores pierden 2.100€/año en impagos.' : heroProfession === 'Consultor' ? 'Los consultores pierden 1.600€/año en impagos.' : heroProfession === 'Fotógrafo' ? 'Los fotógrafos pierden 1.200€/año en impagos.' : 'Selecciona tu profesión para ver tu riesgo real.'}</p>
             <h1 className="text-5xl md:text-8xl lg:text-8xl font-extrabold tracking-tight leading-[1.05] max-w-xl">
               Tu cliente dice que pagará. CFG se asegura de que lo haga.
             </h1>
@@ -208,7 +211,7 @@ export default function LandingPage() {
             </div>
             <div className="mt-4">
               <label className="text-sm text-zinc-400">Tu profesión:</label>
-              <select className="ml-2 bg-zinc-800 border border-zinc-700 rounded-full px-4 py-2 text-sm text-white outline-none focus:border-emerald-500">
+              <select value={heroProfession} onChange={e => setHeroProfession(e.target.value)} className="ml-2 bg-zinc-800 border border-zinc-700 rounded-full px-4 py-2 text-sm text-white outline-none focus:border-emerald-500">
                 <option>Diseñador</option><option>Desarrollador</option><option>Consultor</option><option>Fotógrafo</option><option>Copywriter</option><option>Traductor</option><option>Gestor de Ads</option><option>Asistente Virtual</option><option>Editor de vídeo</option><option>Agencia pequeña</option><option>Coach / Terapeuta</option><option>Productor musical</option>
               </select>
             </div>
@@ -264,7 +267,18 @@ export default function LandingPage() {
       </section>
 
       {/* FUNDADOR */}
-      <section className="py-16 px-4 bg-zinc-950">
+      
+      {/* DEMO INTERACTIVA */}
+      <section className="py-12 px-4 bg-zinc-900/50">
+        <div className="max-w-3xl mx-auto text-center">
+          <h3 className="text-2xl font-bold mb-4">Personaliza los mensajes que recibirá tu cliente</h3>
+          <div className="flex gap-4 max-w-md mx-auto mb-6">
+            <input type="text" placeholder="Nombre del cliente" value={demoNombre} onChange={e => setDemoNombre(e.target.value)} className="flex-1 bg-zinc-800 border border-zinc-700 rounded-full px-4 py-2 text-sm text-white placeholder-zinc-500 outline-none focus:border-emerald-500" />
+            <input type="text" placeholder="Nombre del proyecto" value={demoProyecto} onChange={e => setDemoProyecto(e.target.value)} className="flex-1 bg-zinc-800 border border-zinc-700 rounded-full px-4 py-2 text-sm text-white placeholder-zinc-500 outline-none focus:border-emerald-500" />
+          </div>
+        </div>
+      </section>
+<section className="py-16 px-4 bg-zinc-950">
         <div className="max-w-4xl mx-auto text-center">
           <div className="w-24 h-24 rounded-full bg-gradient-to-br from-emerald-400 to-cyan-500 flex items-center justify-center text-black font-extrabold text-3xl mx-auto mb-4 shadow-xl shadow-emerald-500/30 border-4 border-white/10">R</div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Construido por alguien que lo vivió</h2>
@@ -510,7 +524,7 @@ export default function LandingPage() {
             <div className="bg-zinc-900 border-2 border-zinc-700/50 rounded-2xl p-6">
               <span className="text-2xl">😊</span>
               <h3 className="font-bold mt-2 mb-2">Día 0: Amable</h3>
-              <p className="text-xs text-zinc-400 italic">"Hola María, aquí tienes la factura del proyecto Branding. Puedes pagar fácilmente aquí: [botón de pago]. Gracias."</p>
+              <p className="text-xs text-zinc-400 italic">{demoNombre || "María"}, aquí tienes la factura del proyecto {demoProyecto || "Branding"}. Puedes pagar fácilmente aquí: [botón de pago]. Gracias.</p>
             </div>
             <div className="bg-zinc-900 border-2 border-zinc-700/50 rounded-2xl p-6">
               <span className="text-2xl">😐</span>
@@ -579,6 +593,14 @@ export default function LandingPage() {
           </div>
           {!expandedTestimonials && allTestimonials.length > 3 && <button onClick={() => setExpandedTestimonials(true)} className="mt-6 px-4 py-2 border border-emerald-600 text-emerald-400 rounded-full hover:bg-emerald-600/10 transition-all text-sm font-medium">🔍 Ver más testimonios →</button>}
           <div className="text-center mt-4"><Link href="/casos" className="text-sm text-emerald-400 hover:text-emerald-300 font-medium">Quiero ser el próximo caso de éxito →</Link></div>
+          <div className="mt-8 bg-zinc-900 border-2 border-zinc-700/50 rounded-2xl p-6 text-center">
+            <p className="text-sm text-zinc-400 mb-4">🎥 Video testimonios reales</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="bg-zinc-800 rounded-xl aspect-video flex items-center justify-center text-zinc-600">Próximamente</div>
+              <div className="bg-zinc-800 rounded-xl aspect-video flex items-center justify-center text-zinc-600">Próximamente</div>
+              <div className="bg-zinc-800 rounded-xl aspect-video flex items-center justify-center text-zinc-600">Próximamente</div>
+            </div>
+          </div>
         </div>
       </section>
 
