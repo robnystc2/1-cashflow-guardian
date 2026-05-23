@@ -26,7 +26,7 @@ export default function LandingPage() {
   const [scrollProgress, setScrollProgress] = useState(0)
   const [tickerIndex, setTickerIndex] = useState(0)
   const [heroQuestionAnswered, setHeroQuestionAnswered] = useState<boolean | null>(null)
-  const [heroCTA, setHeroCTA] = useState('Probar 14 días gratis →')
+  const [heroCTA, setHeroCTA] = useState('Probar 14 días gratis · Luego 29€/mes · Sin compromiso →')
   const [showExitPopup, setShowExitPopup] = useState(false)
   const [selectedNiche, setSelectedNiche] = useState<number | null>(null)
   const [nicheModal, setNicheModal] = useState<number | null>(null)
@@ -209,7 +209,7 @@ export default function LandingPage() {
               Nunca más sentirás vergüenza de pedir tu dinero. El sistema lo hace por ti.
             </p>
             <div className="flex items-center gap-4 mt-3 text-sm text-zinc-400">
-              <span className="flex items-center gap-1"><span className="text-emerald-400">✓</span> Activo en 3 min (video real)</span>
+              <span className="flex items-center gap-1"><span className="text-emerald-400">✓</span> Activo en 3 min (mira el video) (video real)</span>
               <span className="flex items-center gap-1"><span className="text-emerald-400">✓</span> Sin tarjeta</span>
               <span className="flex items-center gap-1"><span className="text-emerald-400">✓</span> Cancela cuando quieras</span>
             </div>
@@ -740,7 +740,7 @@ export default function LandingPage() {
       {/* CTA FINAL */}
       <section className="py-16 px-4 bg-emerald-950/20 border-y border-emerald-900/20">
         <div className="max-w-3xl mx-auto text-center space-y-6">
-          <div className="text-center mb-4"><p className="text-sm text-zinc-400 italic">"Activé el Escudo Legal y en 48 horas el cliente pagó. Nunca llegué a necesitar la devolución." — Javier Herrera, Editor de vídeo</p></div>
+          <div className="text-center mb-4"><p className="text-sm text-zinc-400 italic">"Pensé que era una estafa. A los 6 días tenía mi dinero." — Javier Herrera</p></div>
           <p className="text-sm text-zinc-300">Únete a {liveFreelancers} freelancers que ya duermen tranquilos</p>
           <h2 className="text-3xl md:text-5xl font-extrabold">Llevas años persiguiendo facturas. Tardas 3 minutos en que nunca vuelva a pasar.</h2>
           <p className="text-xs text-zinc-400">Sin tarjeta · 14 días gratis · Sin permanencia · Garantía Blindaje Total incluida</p>

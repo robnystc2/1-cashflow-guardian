@@ -18,6 +18,8 @@ export default function Seguridad() {
             { title: 'Política de retención', desc: 'Puedes exportar o eliminar tus datos en cualquier momento.' },
             { title: 'SLA de uptime', desc: 'Garantizamos un 99.9% de disponibilidad.' },
             { title: 'Historial de incidentes', desc: 'No hemos tenido ninguna brecha de seguridad desde nuestra fundación.' },
+            { title: 'Autenticación de dos factores', desc: 'Disponible para todos los planes.' },
+            { title: 'Monitorización 24/7', desc: 'Nuestro equipo de seguridad monitoriza la plataforma continuamente.' },
           ].map((item, i) => (
             <div key={i} className="bg-zinc-900 border-2 border-zinc-700/50 rounded-2xl p-6">
               <h3 className="font-bold text-lg mb-2">{item.title}</h3>

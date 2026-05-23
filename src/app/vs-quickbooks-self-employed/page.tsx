@@ -1,5 +1,6 @@
 import Link from 'next/link'
-export default function ParaTraductores() {
+import { ArrowRight } from 'lucide-react'
+export default function VsQuickBooksSelf-Employed() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
       <nav className="border-b border-zinc-800 bg-[#050505]/80 backdrop-blur-xl py-4 px-4">
@@ -9,9 +10,9 @@ export default function ParaTraductores() {
         </div>
       </nav>
       <section className="py-16 px-4 max-w-4xl mx-auto text-center">
-        <h1 className="text-4xl font-bold mb-4">Protege tus proyectos como <span className="text-emerald-400">Traductores</span></h1>
-        <p className="text-xl text-zinc-300 mb-8">La protección anti-impago específica para tu profesión. Con casos reales de Traductores que ya cobran siempre.</p>
-        <Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-lg px-10 py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20">Blindarme por 1€ →</Link>
+        <h1 className="text-4xl font-bold mb-4">CFG vs <span className="text-zinc-400">QuickBooks Self-Employed</span></h1>
+        <p className="text-xl text-zinc-300 mb-8">Descubre por qué CFG es la mejor alternativa a QuickBooks Self-Employed para freelancers.</p>
+        <Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-lg px-10 py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20">Blindarme por 1€ <ArrowRight className="w-5 h-5" /></Link>
       </section>
     </div>
   )
