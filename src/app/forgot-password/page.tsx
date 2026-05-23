@@ -70,7 +70,7 @@ export default function ForgotPasswordPage() {
                 </div>
               )}
               <div>
-                <Label htmlFor="email">Correo ejecutivo</Label>
+                <Label htmlFor="email">Email</Label>
                 <Input 
                   id="email" 
                   type="email" 

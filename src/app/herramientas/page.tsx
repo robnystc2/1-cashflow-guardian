@@ -39,7 +39,7 @@ export default function Herramientas() {
               <li className="flex items-center gap-2"><span className="text-emerald-400">✓</span> Protección por bloqueo</li>
               <li className="flex items-center gap-2"><span className="text-emerald-400">✓</span> Jurisdicción configurable</li>
             </ul>
-            <button className="bg-zinc-800 hover:bg-zinc-700 text-white px-4 py-2 rounded-full text-sm transition-colors w-full">Descargar PDF (gratis)</button>
+            <button className="bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-4 py-2 rounded-full text-sm transition-all w-full">Descargar PDF (gratis)</button>
           </div>
         </div>
         <div className="text-center"><Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-lg px-10 py-4 rounded-full transition-all hover:scale-105">Blindarme con CFG <ArrowRight className="w-5 h-5" /></Link></div>

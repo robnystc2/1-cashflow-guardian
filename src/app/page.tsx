@@ -138,6 +138,9 @@ export default function LandingPage() {
     { feat: 'Velocidad de onboarding', bonsai: '15 min', honeybook: '20 min', moxie: '10 min', dubsado: 'semanas', nosotros: '✓ 3 min' },
     { feat: 'Soporte en español', bonsai: '✗', honeybook: '✗', moxie: '✗', dubsado: '✗', nosotros: '✓ Nativo' },
     { feat: 'Garantía de cobro', bonsai: '✗', honeybook: '✗', moxie: '✗', dubsado: '✗', nosotros: '✓ 3 meses gratis' },
+    { feat: 'Soporte en español nativo', bonsai: '✗', honeybook: '✗', moxie: '✗', dubsado: '✗', nosotros: '✓' },
+    { feat: 'Adaptado a legislación España/LatAm', bonsai: '✗', honeybook: '✗', moxie: '✗', dubsado: '✗', nosotros: '✓' },
+    { feat: 'Integraciones (Stripe, PayPal, Holded)', bonsai: '✓', honeybook: '✓', moxie: '✗', dubsado: '✗', nosotros: '✓' },
   ]
 
   const allTestimonials = [
@@ -162,7 +165,7 @@ export default function LandingPage() {
       )}
 
       <LiveStatsBar />
-      <div className="bg-zinc-900 text-zinc-400 text-xs text-center py-1">⚡ Precio de lanzamiento. Plazas limitadas a 29€/mes. Después subirá.</div>
+      <div className="bg-zinc-900 text-zinc-400 text-xs text-center py-1">Precio fundador. 29€/mes. Blinda tus proyectos desde el primer día.</div>
 
       <nav className={`sticky top-[3px] z-50 transition-all duration-300 ${scrolled ? 'bg-[#050505]/80 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20 py-2' : 'bg-transparent py-3'}`}>
         <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
@@ -201,7 +204,7 @@ export default function LandingPage() {
               <span className="flex items-center gap-1"><span className="text-emerald-400">✓</span> Cancela cuando quieras</span>
             </div>
             <div className="mt-4">
-              <label className="text-sm text-zinc-400">Soy</label>
+              <label className="text-sm text-zinc-400">Tu profesión:</label>
               <select className="ml-2 bg-zinc-800 border border-zinc-700 rounded-full px-4 py-2 text-sm text-white outline-none focus:border-emerald-500">
                 <option>Diseñador</option><option>Desarrollador</option><option>Consultor</option><option>Fotógrafo</option><option>Copywriter</option><option>Traductor</option><option>Gestor de Ads</option><option>Asistente Virtual</option><option>Editor de vídeo</option><option>Agencia pequeña</option><option>Coach / Terapeuta</option><option>Productor musical</option>
               </select>
@@ -218,7 +221,6 @@ export default function LandingPage() {
                 </div>
                 <p className="text-xs text-zinc-400">Únete a 847 freelancers que ya cobran sin perseguir</p>
               </div>
-              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" className="text-sm text-zinc-500 hover:text-emerald-400 underline">Ver cómo funciona en 90s →</a>
             </div>
             <div className="flex items-center gap-3 mt-2 text-xs text-zinc-500">
               <span>🔒 SSL</span><span>· 💳 Stripe Verified</span><span>· 🛡️ RGPD</span><span>· 🌍 47 países</span>
@@ -234,7 +236,7 @@ export default function LandingPage() {
                 <div className="bg-zinc-900 border-l-2 border-emerald-500 p-3 rounded-xl">
                   <p className="text-zinc-400 text-[10px]">CFO Cassandra</p>
                   <p className="text-zinc-500 text-[9px] mt-0.5">IA que monitorea tus cobros 24/7</p>
-                  <p className="text-red-400 font-bold mt-0.5 text-sm">Alerta: Cliente en riesgo de impago</p>
+                  <p className="text-red-400 font-bold mt-0.5 text-sm">Cliente verificado: PayScore ORO</p>
                 </div>
                 <div className="bg-zinc-900 border-l-2 border-amber-500 p-3 rounded-xl">
                   <p className="text-zinc-400 text-[10px]">PayScore</p>
@@ -639,7 +641,7 @@ export default function LandingPage() {
               <h3 className="text-2xl font-bold mb-2">Por proyecto</h3><p className="text-xs text-zinc-400 mb-4">Sin suscripción. Un proyecto a la vez.</p>
               <p className="text-4xl font-extrabold text-emerald-400 mb-2">1.5%<span className="text-xl text-zinc-400"> (mín. 19€)</span></p>
               <ul className="text-left text-zinc-300 space-y-6 mb-10 flex-grow text-sm">
-                <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> 1 proyecto (ideal para trabajos de 500€ a 3.000€)</li>
+                <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Protege un proyecto puntual sin suscripción. Calcula tu precio: 1.5% del importe (mín. 19€).</li>
                 <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Bloqueo de hitos</li>
                 <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Escudo Legal</li>
               </ul>
@@ -706,7 +708,6 @@ export default function LandingPage() {
               <p className="text-zinc-600 text-[10px] mt-2">🔒 SSL Seguro · 🛡️ RGPD Compliant · 💳 Stripe Verified Partner</p>
             </div>
             <div><h4 className="font-bold mb-3 text-zinc-200">Producto</h4><div className="space-y-2 text-zinc-400"><a href="#como-funciona" className="block hover:text-white">Cómo funciona</a><a href="#garantia" className="block hover:text-white">Garantía</a><a href="#precios" className="block hover:text-white">Precios</a><Link href="/login" className="block hover:text-white">Iniciar sesión</Link></div></div>
-            <div><h4 className="font-bold mb-3 text-zinc-200">Recursos</h4><div className="space-y-2 text-zinc-400"><Link href="/blog" className="block hover:text-white">Blog</Link><Link href="/comparar" className="block hover:text-white">CFG vs Bonsai</Link><Link href="/vs-honeybook" className="block hover:text-white">CFG vs HoneyBook</Link><Link href="/vs-freshbooks" className="block hover:text-white">CFG vs Freshbooks</Link><Link href="/vs-wave" className="block hover:text-white">CFG vs Wave</Link><Link href="/vs-copilot" className="block hover:text-white">CFG vs Copilot</Link><Link href="/vs-upwork" className="block hover:text-white">CFG vs Upwork</Link><Link href="/casos" className="block hover:text-white">Casos de éxito</Link><Link href="/afiliados" className="block hover:text-white">Afiliados</Link><Link href="/badge" className="block hover:text-white">Badge CFG</Link><Link href="/changelog" className="block hover:text-white">Changelog</Link><Link href="/generador-contratos" className="block hover:text-white">Generador de contratos</Link><Link href="/generador-propuesta" className="block hover:text-white">Generador de propuestas</Link><Link href="/calculadora-irpf" className="block hover:text-white">Calculadora IRPF</Link><Link href="/cassandra-ia" className="block hover:text-white">Cassandra IA</Link></div></div>
             <div><h4 className="font-bold mb-3 text-zinc-200">Legal</h4><div className="space-y-2 text-zinc-400"><Link href="/support" className="block hover:text-white">Soporte</Link><Link href="/privacy" className="block hover:text-white">Privacidad</Link><Link href="/terms" className="block hover:text-white">Términos</Link><Link href="/cookies" className="block hover:text-white">Cookies</Link><Link href="/changelog" className="block hover:text-white">Changelog</Link><Link href="/trabaja-con-nosotros" className="block hover:text-white">Trabaja con nosotros</Link><Link href="/comunidad" className="block hover:text-white">Comunidad</Link></div></div>
           </div>
         </div>
