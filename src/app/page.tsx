@@ -136,6 +136,8 @@ export default function LandingPage() {
   ]
 
   const comparisonRows = [
+    { feat: 'Comisiones por transacción', bonsai: '✓ (hasta 3%)', honeybook: '✓ (hasta 3%)', moxie: '✓', dubsado: '✓', nosotros: '✓ 0% (precio fijo)' },
+    { feat: 'Control del dinero', bonsai: 'Retiene pagos', honeybook: 'Retiene pagos', moxie: 'Retiene pagos', dubsado: 'Retiene pagos', nosotros: '✓ Directo a tu cuenta' },
     { feat: 'Protección impago', bonsai: '✗', honeybook: '✗', moxie: '✗', dubsado: '✗', nosotros: '✓' },
     { feat: 'Bloqueo de entrega', bonsai: '✗', honeybook: '✗', moxie: '✗', dubsado: '✗', nosotros: '✓' },
     { feat: 'Calificación de clientes', bonsai: '✗', honeybook: '✗', moxie: '✗', dubsado: '✗', nosotros: '✓ PayScore' },
@@ -202,7 +204,7 @@ export default function LandingPage() {
               Tu cliente dice que pagará. CFG se asegura de que lo haga.
             </h1>
             <p className="text-lg md:text-xl text-zinc-300 mt-4 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              847 freelancers ya no persiguen una sola factura. Tú puedes ser el siguiente.
+              Nunca más sentirás vergüenza de pedir tu dinero. El sistema lo hace por ti.
             </p>
             <div className="flex items-center gap-4 mt-3 text-sm text-zinc-400">
               <span className="flex items-center gap-1"><span className="text-emerald-400">✓</span> Activo en 3 min</span>
@@ -416,8 +418,8 @@ export default function LandingPage() {
               <p className="text-zinc-300 text-sm mb-3"><strong className="text-emerald-400">🛡️ Garantía Blindaje Total:</strong> Si usas el sistema y no cobras, <strong className="text-white">te devolvemos 3 meses de suscripción, por transferencia bancaria en 48h.</strong><br/><strong className="text-emerald-400 mt-2 block">↩️ Garantía de devolución:</strong> Si no te gusta en 30 días, te devolvemos tu dinero. Sin preguntas.</p>
               <div className="text-xs text-zinc-400 mt-3 space-y-2">
                 <p>1. Creas el proyecto en CFG (3 min)</p>
-                <p>2. El cliente recibe notificación del proyecto y los términos de entrega</p>
-                <p>3. CFG gestiona cobros automáticamente (0 min tuyos)</p>
+                <p>2. El cliente recibe los términos. Si desaparece (ghosting), el sistema actúa.</p>
+                <p>3. CFG gestiona los cobros. El cliente nunca sabrá que fuiste tú quien activó el protocolo.</p>
                 <p>4. Si en 14 días no has cobrado, te devolvemos 3 meses de suscripción, por transferencia bancaria en 48h</p>
               </div>
             </div>
@@ -565,7 +567,7 @@ export default function LandingPage() {
             <div className="bg-zinc-900 border-2 border-zinc-700/50 rounded-xl p-6"><p className="text-3xl font-extrabold text-emerald-400">{liveFreelancers}</p><p className="text-sm text-zinc-300 mt-1">freelancers blindados</p></div>
             <div className="bg-zinc-900 border-2 border-zinc-700/50 rounded-xl p-6"><p className="text-3xl font-extrabold text-emerald-400"><span className="stat-counter" data-target="124000">124.000</span>€</p><p className="text-sm text-zinc-300 mt-1">recuperados</p></div>
             <div className="bg-zinc-900 border-2 border-zinc-700/50 rounded-xl p-6"><p className="text-3xl font-extrabold text-emerald-400"><span className="stat-counter" data-target="94">94</span>%</p><p className="text-sm text-zinc-300 mt-1">tasa de cobro</p></div>
-            <div className="bg-zinc-900 border-2 border-zinc-700/50 rounded-xl p-6"><p className="text-3xl font-extrabold text-emerald-400"><span className="stat-counter" data-target="6">6</span> días</p><p className="text-sm text-zinc-300 mt-1">tiempo medio de cobro</p></div>
+            <div className="bg-zinc-900 border-2 border-zinc-700/50 rounded-xl p-6"><p className="text-3xl font-extrabold text-emerald-400"><span className="stat-counter" data-target="6">6</span> días</p><p className="text-sm text-zinc-300 mt-1">Sabes cuándo entra el dinero. Siempre.</p></div>
           </div>
           <div className="flex justify-center mb-4"><a href="https://trustpilot.com/review/cashflowguardian.com" target="_blank" className="text-xs text-zinc-400 font-medium hover:text-emerald-400 transition-colors flex items-center gap-1">⭐⭐⭐⭐⭐ 4.9/5 en Trustpilot · Ver reseñas →</a></div>
           <h2 className="text-4xl md:text-5xl font-bold mb-10">Lo que dicen los freelancers <span className="text-emerald-400">blindados</span></h2>
@@ -644,7 +646,7 @@ export default function LandingPage() {
                 <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Recordatorios email</li>
                 <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> PayScore básico (3 clientes)</li>
               </ul>
-              <Link href="/register" className="block text-center bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-3 px-6 rounded-full transition-all">Empezar gratis · Sin permanencia</Link>
+              <Link href="/register" className="block text-center bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-3 px-6 rounded-full transition-all">Blindarme por 1€ →</Link>
             </div>
             <div className="bg-zinc-900 border-2 rounded-2xl p-10 flex flex-col relative scale-105 border-emerald-500">
               <div className="flex justify-center mb-4"><span className="inline-block bg-emerald-500 text-black text-sm font-extrabold px-5 py-1.5 rounded-full">🏆 Más popular</span></div>
@@ -660,6 +662,8 @@ export default function LandingPage() {
                 <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Portal del cliente</li>
                 <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Contratos digitales</li>
                 <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Cassandra IA <span className="text-[9px] text-zinc-500">(analiza el riesgo de impago de cada cliente antes de que aceptes el proyecto)</span></li>
+                <a href="/transparencia" className="block hover:text-white">Transparencia Radical</a>
+                <a href="/manifiesto" className="block hover:text-white">Manifiesto</a>
                 <a href="/recuperar-deuda" className="block hover:text-white">Recuperar deuda antigua</a>
                 <a href="/cfg-holded" className="block hover:text-white">CFG + Holded</a>
                 <a href="/whatsapp-business" className="block hover:text-white">CFG + WhatsApp</a>
@@ -680,7 +684,7 @@ export default function LandingPage() {
                 <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Onboarding 1-a-1</li>
                 <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Soporte prioritario 1h (respuesta en menos de 60 minutos)</li>
               </ul>
-              <Link href="/register" className="block text-center bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-3 px-6 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 cursor-pointer">Empezar con Élite</Link>
+              <Link href="/register" className="block text-center bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-3 px-6 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 cursor-pointer">Blindarme por 1€ →</Link>
               <p className="text-xs text-zinc-400 mt-3 text-center">🛡️ Garantía devolución 30 días · Sin preguntas</p>
             </div>
             <div className="bg-zinc-900 border-2 border-zinc-700/50 rounded-2xl p-10 flex flex-col transition-all">
@@ -691,7 +695,7 @@ export default function LandingPage() {
                 <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Bloqueo de hitos</li>
                 <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Escudo Legal</li>
               </ul>
-              <Link href="/register" className="block text-center bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-3 px-6 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 cursor-pointer">Proteger un proyecto →</Link>
+              <Link href="/register" className="block text-center bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-3 px-6 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 cursor-pointer">Blindarme por 1€ →</Link>
             </div>
             <div className="bg-zinc-900 border-2 border-zinc-700/50 rounded-2xl p-10 flex flex-col transition-all">
               <h3 className="text-2xl font-bold mb-2">CFG Teams</h3><p className="text-xs text-zinc-400 mb-4">Para agencias y estudios pequeños.</p>
