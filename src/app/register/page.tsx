@@ -9,7 +9,7 @@ export default function Register() {
           <div className="mb-8">
             <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-xl flex items-center justify-center text-black font-bold mb-4">🔒</div>
             <h1 className="text-3xl font-bold">Crear cuenta</h1>
-            <p className="text-zinc-400 mt-2">3 pasos · 3 minutos · Sin tarjeta</p>
+            <p className="text-zinc-400 mt-2"><span className="text-emerald-400 font-bold">Paso 1 de 3:</span> Crear cuenta · Sin tarjeta</p>
             <div className="w-full bg-zinc-800 rounded-full h-2 mt-4"><div className="bg-emerald-500 h-2 rounded-full" style={{ width: '33%' }}></div></div>
           </div>
           <form className="space-y-4">

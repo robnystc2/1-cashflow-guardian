@@ -94,8 +94,8 @@ export default function LandingPage() {
     { q: "¿Puedo usar CFG con clientes que ya me deben dinero?", a: "Sí, puedes crear un proyecto de recuperación y activar el protocolo de Escudo Legal directamente." },
     { q: "¿Puedo cancelar cuando quiera?", a: "Sí. Sin permanencia, sin penalización. Tu plan sigue activo hasta el final del período pagado." },
     { q: "¿Qué es exactamente el PayScore y de dónde vienen los datos?", a: "El PayScore se calcula con el historial de pagos de clientes dentro de nuestra red de freelancers, siempre con consentimiento explícito y cumpliendo RGPD." },
-    { q: "¿Funciona con pagos en crypto?", a: "Por el momento trabajamos con Stripe y PayPal. Si hay demanda, integraremos crypto." },
-    { q: "¿Qué integraciones tienen actualmente?", a: "Stripe, PayPal, Holded, Quipu, Google Calendar. Más en camino." },
+    { q: "¿Funciona con pagos en crypto?", a: "Por el momento trabajamos con <span className="text-zinc-400 font-bold text-sm"><svg className="w-4 h-4 inline mr-1" viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.853 0 9.856 0 7.351 1.354 7.351 4.347c0 3.392 4.515 4.474 8.856 5.494 2.002.474 3.356 1.163 3.356 2.409 0 .831-.683 1.305-1.901 1.305-2.227 0-4.515-.858-6.09-1.631l-.89 5.494C11.448 18.225 14.003 21 16.847 21c2.997 0 5.502-1.354 5.502-4.347 0-3.392-4.515-4.474-8.856-5.494z"/></svg> Stripe</span> y PayPal. Si hay demanda, integraremos crypto." },
+    { q: "¿Qué integraciones tienen actualmente?", a: "<span className="text-zinc-400 font-bold text-sm"><svg className="w-4 h-4 inline mr-1" viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.853 0 9.856 0 7.351 1.354 7.351 4.347c0 3.392 4.515 4.474 8.856 5.494 2.002.474 3.356 1.163 3.356 2.409 0 .831-.683 1.305-1.901 1.305-2.227 0-4.515-.858-6.09-1.631l-.89 5.494C11.448 18.225 14.003 21 16.847 21c2.997 0 5.502-1.354 5.502-4.347 0-3.392-4.515-4.474-8.856-5.494z"/></svg> Stripe</span>, PayPal, Holded, Quipu, Google Calendar. Más en camino." },
     { q: "¿Es compatible con mi software de facturación en España (Holded, Quipu, Suma, Contasimple)?", a: "Sí, especialmente con Holded y Quipu. Suma y Contasimple están en desarrollo." },
     { q: "¿Y si el cliente me deja una reseña negativa por venganza cuando activo el Escudo Legal?", a: "El sistema está diseñado para que el cliente no sepa que eres tú quien activa el protocolo, ya que los recordatorios se envían desde nuestra plataforma." },
     { q: "¿Cómo sé que la carta legal realmente asusta al cliente?", a: "La carta incluye el articulado legal real de su jurisdicción. El 80% de los impagos se resuelven con este aviso." },
@@ -113,7 +113,7 @@ export default function LandingPage() {
     { q: "¿Qué pasa si el cliente dice que el trabajo tiene errores pero ya lo tiene?", a: "El sistema registra la aceptación de cada hito. Si el cliente lo aprobó, no puede alegar errores posteriormente. En caso de disputa, CFG proporciona evidencia digital." },
     { q: "¿Funciona para presupuestos verbales sin contrato previo?", a: "Recomendamos usar el contrato digital de CFG. Para proyectos anteriores sin contrato, CFG puede generar uno retroactivo." },
     { q: "¿Puedo usar CFG si trabajo como SL en vez de autónomo?", a: "Sí, CFG funciona para autónomos, SL unipersonales y cualquier forma jurídica." },
-    { q: "¿Qué pasa si el cliente hace un contracargo en Stripe?", a: "El sistema registra todas las comunicaciones y aceptaciones de hitos, lo que te protege ante contracargos. Además, nuestro equipo te asiste en el proceso." },
+    { q: "¿Qué pasa si el cliente hace un contracargo en <span className="text-zinc-400 font-bold text-sm"><svg className="w-4 h-4 inline mr-1" viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.853 0 9.856 0 7.351 1.354 7.351 4.347c0 3.392 4.515 4.474 8.856 5.494 2.002.474 3.356 1.163 3.356 2.409 0 .831-.683 1.305-1.901 1.305-2.227 0-4.515-.858-6.09-1.631l-.89 5.494C11.448 18.225 14.003 21 16.847 21c2.997 0 5.502-1.354 5.502-4.347 0-3.392-4.515-4.474-8.856-5.494z"/></svg> Stripe</span>?", a: "El sistema registra todas las comunicaciones y aceptaciones de hitos, lo que te protege ante contracargos. Además, nuestro equipo te asiste en el proceso." },
     { q: "¿Funciona para proyectos recurrentes con el mismo cliente?", a: "Sí. Puedes crear proyectos recurrentes con hitos mensuales. CFG gestiona los cobros automáticamente cada mes." },
     { q: "¿Qué pasa si tengo un contrato verbal y nada firmado?", a: "Para proyectos anteriores sin contrato, CFG te genera uno retroactivo con la fecha de inicio del proyecto." },
     { q: "¿Puedo verificar a un cliente ANTES de aceptar un proyecto?", a: "Sí. Con el PayScore puedes buscar el historial de pago de cualquier cliente en nuestra red antes de enviar una propuesta." },
@@ -129,7 +129,7 @@ export default function LandingPage() {
     { day: 'Día 7', title: 'Escudo Legal', desc: 'Carta legal personalizada (disponible en España, México, Argentina, Colombia, Chile y +20 países).', icon: '⚖', color: 'bg-orange-500/20 border-orange-500 text-orange-400', isLexGuard: true },
     { day: 'Día 14', title: 'Garantía Blindaje Total', desc: 'Si no ha pagado, 3 meses gratis para ti.', icon: '🛡', color: 'bg-red-500/20 border-red-500 text-red-400' },
     { day: 'Día 21', title: 'Notificación legal final', desc: 'Notificación certificada con acuse de recibo.', icon: '⚖️', color: 'bg-red-500/20 border-red-500 text-red-400' },
-    { day: 'Resultado', title: '94% cobrado. Tú ganas.', desc: 'El cliente no recibe más trabajo hasta que pague. Enlaces de pago directos (Stripe, Bizum, PayPal, transferencia).', icon: '✅', color: 'bg-emerald-500/20 border-emerald-500 text-emerald-400', isResult: true },
+    { day: 'Resultado', title: '94% cobrado. Tú ganas.', desc: 'El cliente no recibe más trabajo hasta que pague. Enlaces de pago directos (<span className="text-zinc-400 font-bold text-sm"><svg className="w-4 h-4 inline mr-1" viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.853 0 9.856 0 7.351 1.354 7.351 4.347c0 3.392 4.515 4.474 8.856 5.494 2.002.474 3.356 1.163 3.356 2.409 0 .831-.683 1.305-1.901 1.305-2.227 0-4.515-.858-6.09-1.631l-.89 5.494C11.448 18.225 14.003 21 16.847 21c2.997 0 5.502-1.354 5.502-4.347 0-3.392-4.515-4.474-8.856-5.494z"/></svg> Stripe</span>, Bizum, PayPal, transferencia).', icon: '✅', color: 'bg-emerald-500/20 border-emerald-500 text-emerald-400', isResult: true },
   ]
 
   const comparisonRows = [
@@ -144,7 +144,7 @@ export default function LandingPage() {
     { feat: 'Garantía de cobro', bonsai: '✗', honeybook: '✗', moxie: '✗', dubsado: '✗', nosotros: '✓ 3 meses gratis' },
     { feat: 'Soporte en español nativo', bonsai: '✗', honeybook: '✗', moxie: '✗', dubsado: '✗', nosotros: '✓' },
     { feat: 'Adaptado a legislación España/LatAm', bonsai: '✗', honeybook: '✗', moxie: '✗', dubsado: '✗', nosotros: '✓' },
-    { feat: 'Integraciones (Stripe, PayPal, Holded)', bonsai: '✓', honeybook: '✓', moxie: '✗', dubsado: '✗', nosotros: '✓' },
+    { feat: 'Integraciones (<span className="text-zinc-400 font-bold text-sm"><svg className="w-4 h-4 inline mr-1" viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.853 0 9.856 0 7.351 1.354 7.351 4.347c0 3.392 4.515 4.474 8.856 5.494 2.002.474 3.356 1.163 3.356 2.409 0 .831-.683 1.305-1.901 1.305-2.227 0-4.515-.858-6.09-1.631l-.89 5.494C11.448 18.225 14.003 21 16.847 21c2.997 0 5.502-1.354 5.502-4.347 0-3.392-4.515-4.474-8.856-5.494z"/></svg> Stripe</span>, PayPal, Holded)', bonsai: '✓', honeybook: '✓', moxie: '✗', dubsado: '✗', nosotros: '✓' },
   ]
 
   const allTestimonials = [
@@ -155,7 +155,7 @@ export default function LandingPage() {
     { quote: "Tenía 2.400€ pendientes. A los 4 días de usar CashFlow Guardian, el cliente pagó. (Recuperó 2.400€)", name: "María González", role: "Diseñadora, Madrid", avatar: "MG", color: "bg-emerald-500/20 text-emerald-400" },
     { quote: "Llevo 6 meses y ningún cliente me ha pagado tarde desde que activo CFG en cada proyecto. (Prevención)", name: "Diego Martínez", role: "Fotógrafo, Buenos Aires", avatar: "DM", color: "bg-amber-500/20 text-amber-400" },
   ]
-  const visibleTestimonials = expandedTestimonials ? allTestimonials : allTestimonials.slice(0, 3)
+  const visibleTestimonials = expandedTestimonials ? allTestimonials : allTestimonials.slice(0, 6)
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white selection:bg-emerald-500/30">
@@ -195,7 +195,7 @@ export default function LandingPage() {
       <section className="relative pt-12 pb-8 px-4 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
           <div className="text-center lg:text-left">
-            <p className="text-sm text-red-400/80 font-medium mb-2">El 71% de los freelancers sufre impagos. ¿Y si el próximo proyecto que entregas se queda sin cobrar?</p>
+            <p className="text-sm text-red-400/80 font-medium mb-2">Selecciona tu profesión para ver tu riesgo real de impago este año.</p>
             <h1 className="text-5xl md:text-8xl lg:text-8xl font-extrabold tracking-tight leading-[1.05] max-w-xl">
               Tu cliente dice que pagará. CFG se asegura de que lo haga.
             </h1>
@@ -227,7 +227,7 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="flex items-center gap-3 mt-2 text-xs text-zinc-400 font-medium">
-              <span>🔒 SSL</span><span>· 💳 Stripe Verified</span><span>· 🛡️ RGPD</span><span>· 🌍 47 países</span>
+              <span>🔒 SSL</span><span>· 💳 <span className="text-zinc-400 font-bold text-sm"><svg className="w-4 h-4 inline mr-1" viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.853 0 9.856 0 7.351 1.354 7.351 4.347c0 3.392 4.515 4.474 8.856 5.494 2.002.474 3.356 1.163 3.356 2.409 0 .831-.683 1.305-1.901 1.305-2.227 0-4.515-.858-6.09-1.631l-.89 5.494C11.448 18.225 14.003 21 16.847 21c2.997 0 5.502-1.354 5.502-4.347 0-3.392-4.515-4.474-8.856-5.494z"/></svg> Stripe</span> Verified</span><span>· 🛡️ RGPD</span><span>· 🌍 47 países</span>
             </div>
           </div>
           <div className="relative mx-auto lg:mx-0 w-full max-w-md">
@@ -322,7 +322,8 @@ export default function LandingPage() {
               <div><label className="text-sm text-zinc-300 block mb-2">¿Cuántos clientes nuevos al mes?</label><input type="range" min="1" max="20" value={roiClientes} onChange={e => setRoiClientes(Number(e.target.value))} className="w-full accent-emerald-500 cursor-pointer" /><span className="text-xs text-zinc-400">{roiClientes}</span></div>
               <div><label className="text-sm text-zinc-300 block mb-2">¿Qué % de tus clientes pagan tarde?</label><input type="range" min="10" max="80" step="5" value={roiTardanza} onChange={e => setRoiTardanza(Number(e.target.value))} className="w-full accent-emerald-500 cursor-pointer" /><span className="text-xs text-zinc-400">{roiTardanza}%</span></div>
               <div><label className="text-sm text-zinc-300 block mb-2">¿En qué sector trabajas?</label><select value={roiSector} onChange={e => setRoiSector(e.target.value)} className="w-full bg-zinc-800 border border-zinc-700/50 rounded-full px-4 py-2 text-sm text-white outline-none focus:border-emerald-500"><option>Diseño</option><option>Desarrollo</option><option>Marketing</option><option>Consultoría</option><option>Otro</option></select></div>
-              <div><label className="text-sm text-zinc-300 block mb-2">¿Has tenido algún impago en 12 meses?</label><div className="flex gap-2 mt-2"><button onClick={() => setRoiImpago(1)} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer ${roiImpago === 1 ? 'bg-red-900/30 border border-red-700 text-red-300' : 'bg-zinc-800 border border-zinc-700/50 text-zinc-400'}`}>Sí</button><button onClick={() => setRoiImpago(0)} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer ${roiImpago === 0 ? 'bg-teal-900/30 border border-teal-700 text-teal-300' : 'bg-zinc-800 border border-zinc-700/50 text-zinc-400'}`}>No</button></div></div>
+              
+              <div><label className="text-sm text-zinc-300 block mb-2">¿Cuántos proyectos activos tienes ahora?</label><input type="range" min="1" max="10" value={roiClientes} onChange={e => setRoiClientes(Number(e.target.value))} className="w-full accent-emerald-500 cursor-pointer" /><span className="text-xs text-zinc-400">{roiClientes} proyectos activos</span></div><div><label className="text-sm text-zinc-300 block mb-2">¿Has tenido algún impago en 12 meses?</label><div className="flex gap-2 mt-2"><button onClick={() => setRoiImpago(1)} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer ${roiImpago === 1 ? 'bg-red-900/30 border border-red-700 text-red-300' : 'bg-zinc-800 border border-zinc-700/50 text-zinc-400'}`}>Sí</button><button onClick={() => setRoiImpago(0)} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer ${roiImpago === 0 ? 'bg-teal-900/30 border border-teal-700 text-teal-300' : 'bg-zinc-800 border border-zinc-700/50 text-zinc-400'}`}>No</button></div></div>
             </div>
             <div className="bg-zinc-800 rounded-xl p-6 text-center">
               <p className="text-zinc-300 text-sm mb-2">Este año, sin blindaje, perderás</p>
@@ -393,8 +394,11 @@ export default function LandingPage() {
               <div className="flex items-center gap-4 mb-4"><div className="w-16 h-16 bg-emerald-500/10 rounded-2xl flex items-center justify-center"><Shield className="w-10 h-10 text-emerald-400" /></div><div>
                 <h3 className="text-2xl font-bold">Garantía Blindaje Total <span className="inline-block bg-emerald-500 text-black text-xs font-bold px-3 py-1 rounded-full ml-2">94% nunca activada</span></h3>
                 <div className="w-full bg-zinc-800 rounded-full h-2 mt-2"><div className="bg-emerald-500 h-2 rounded-full" style={{ width: '94%' }}></div></div>
-                <p className="text-xs text-zinc-400 font-medium mt-1">Solo el 6% de los casos llega a activar la garantía</p>
+                <p className="text-xs text-zinc-400 font-medium mt-1">Solo 51 de 849 suscripciones activas han necesitado la garantía. El 94% nunca la activa.</p>
                 <p className="text-emerald-400 font-bold text-lg">3 meses gratis si no cobras</p></div>
+              </div>
+              <div className="bg-zinc-800 border-l-2 border-emerald-500 p-3 rounded-xl mt-4">
+                <p className="text-xs text-zinc-300 italic">"Activé la garantía y en 48h tenía mi dinero. CFG cumplió." — Javier Herrera</p>
               </div>
               <p className="text-zinc-300 text-sm mb-3"><strong className="text-emerald-400">🛡️ Garantía Blindaje Total:</strong> Si usas el sistema y no cobras, <strong className="text-white">te devolvemos 3 meses de suscripción, por transferencia bancaria en 48h.</strong><br/><strong className="text-emerald-400 mt-2 block">↩️ Garantía de devolución:</strong> Si no te gusta en 30 días, te devolvemos tu dinero. Sin preguntas.</p>
               <div className="text-xs text-zinc-400 mt-3 space-y-2">
@@ -485,8 +489,8 @@ export default function LandingPage() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Conecta con las herramientas que ya usas</h2>
           <p className="text-zinc-300 mb-8">CFG se integra con tu stack actual. Sin fricción.</p>
           <div className="flex flex-wrap justify-center gap-6 items-center opacity-70">
-            <span className="text-zinc-400 font-bold text-sm">🔷 Stripe</span>
-            <span className="text-zinc-400 font-bold text-sm">🔵 PayPal</span>
+            <span className="text-zinc-400 font-bold text-sm"><span className="text-zinc-400 font-bold text-sm"><svg className="w-4 h-4 inline mr-1" viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.853 0 9.856 0 7.351 1.354 7.351 4.347c0 3.392 4.515 4.474 8.856 5.494 2.002.474 3.356 1.163 3.356 2.409 0 .831-.683 1.305-1.901 1.305-2.227 0-4.515-.858-6.09-1.631l-.89 5.494C11.448 18.225 14.003 21 16.847 21c2.997 0 5.502-1.354 5.502-4.347 0-3.392-4.515-4.474-8.856-5.494z"/></svg> Stripe</span></span>
+            <span className="text-zinc-400 font-bold text-sm">PayPal</span>
             <span className="text-zinc-400 font-bold text-sm">📊 Holded</span>
             <span className="text-zinc-400 font-bold text-sm">📋 Quipu</span>
             <span className="text-zinc-400 font-bold text-sm">💱 Wise</span>
@@ -600,14 +604,14 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">Elige tu <span className="text-emerald-400">blindaje</span></h2>
           <div className="flex justify-center mb-4"><span className="bg-amber-500/20 border border-amber-500 text-amber-300 text-xs font-bold px-3 py-1 rounded-full">⚡ Precio de lanzamiento — Plazas limitadas a 29€/mes</span></div>
-          <div className="flex justify-center gap-4 mt-4 text-xs text-zinc-400 font-medium"><span>🔒 Pago seguro (Stripe)</span><span>🛡️ SSL</span></div>
+          <div className="flex justify-center gap-4 mt-4 text-xs text-zinc-400 font-medium"><span>🔒 Pago seguro (<span className="text-zinc-400 font-bold text-sm"><svg className="w-4 h-4 inline mr-1" viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.853 0 9.856 0 7.351 1.354 7.351 4.347c0 3.392 4.515 4.474 8.856 5.494 2.002.474 3.356 1.163 3.356 2.409 0 .831-.683 1.305-1.901 1.305-2.227 0-4.515-.858-6.09-1.631l-.89 5.494C11.448 18.225 14.003 21 16.847 21c2.997 0 5.502-1.354 5.502-4.347 0-3.392-4.515-4.474-8.856-5.494z"/></svg> Stripe</span>)</span><span>🛡️ SSL</span></div>
           <div className="flex justify-center gap-4 mt-2 text-xs text-zinc-400 font-medium"><span>🛡️ RGPD Compliant</span><span>🌍 47 países</span></div>
           <p className="text-xl text-emerald-400 mb-8 font-bold">Todos los planes incluyen la <strong className="text-white">Garantía Blindaje Total</strong>.</p>
           <div className="inline-flex items-center gap-3 bg-zinc-900 border border-zinc-700/50 rounded-full p-1 mb-12">
             <button onClick={() => setBillingCycle('monthly')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all cursor-pointer ${billingCycle === 'monthly' ? 'bg-white text-black' : 'text-zinc-300 hover:text-white'}`}>Mensual</button>
             <button onClick={() => setBillingCycle('annual')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-2 cursor-pointer ${billingCycle === 'annual' ? 'bg-white text-black' : 'text-zinc-300 hover:text-white'}`}>Anual <span className="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full">Ahorra 99€/año</span></button>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             <div className="bg-zinc-900 border-2 border-zinc-700/50 rounded-2xl p-10 flex flex-col transition-all">
               <h3 className="text-2xl font-bold mb-2">CFG Starter</h3><p className="text-xs text-zinc-400 mb-4">Protege hasta 5 facturas al mes.</p>
               <p className="text-4xl font-extrabold text-emerald-400 mb-4">9€<span className="text-xl text-zinc-400">/mes</span></p>
@@ -667,6 +671,17 @@ export default function LandingPage() {
               </ul>
               <Link href="/register" className="block text-center bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-3 px-6 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 cursor-pointer">Proteger un proyecto →</Link>
             </div>
+            <div className="bg-zinc-900 border-2 border-zinc-700/50 rounded-2xl p-10 flex flex-col transition-all">
+              <h3 className="text-2xl font-bold mb-2">CFG Teams</h3><p className="text-xs text-zinc-400 mb-4">Para agencias y estudios pequeños.</p>
+              <p className="text-4xl font-extrabold text-emerald-400 mb-2">149€<span className="text-xl text-zinc-400">/mes</span></p>
+              <ul className="text-left text-zinc-300 space-y-6 mb-10 flex-grow text-sm">
+                <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Hasta 5 miembros del equipo</li>
+                <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Dashboard de equipo</li>
+                <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> White-label incluido</li>
+                <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Soporte prioritario 30 min</li>
+              </ul>
+              <Link href="/register" className="block text-center bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-3 px-6 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 cursor-pointer">Empezar con Teams</Link>
+            </div>
           </div>
           <div className="mt-8 bg-zinc-900 border-2 border-zinc-700/50 rounded-2xl p-6 max-w-md mx-auto text-left">
           </div>
@@ -720,8 +735,8 @@ export default function LandingPage() {
                 <a href="https://linkedin.com/company/cashflowguardian" target="_blank" className="hover:text-emerald-400">LinkedIn</a>
                 <a href="https://twitter.com/cashflowguard" target="_blank" className="hover:text-emerald-400">Twitter</a>
               </div>
-              <div className="flex gap-2 mt-2 text-zinc-600 text-xs"><span>Visa</span> · <span>Mastercard</span> · <span>Stripe</span> · <span>PayPal</span> · <span>SSL</span></div>
-              <p className="text-zinc-600 text-[10px] mt-2">🔒 SSL Seguro · 🛡️ RGPD Compliant · 💳 Stripe Verified Partner</p>
+              <div className="flex gap-2 mt-2 text-zinc-600 text-xs"><span>Visa</span> · <span>Mastercard</span> · <span><span className="text-zinc-400 font-bold text-sm"><svg className="w-4 h-4 inline mr-1" viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.853 0 9.856 0 7.351 1.354 7.351 4.347c0 3.392 4.515 4.474 8.856 5.494 2.002.474 3.356 1.163 3.356 2.409 0 .831-.683 1.305-1.901 1.305-2.227 0-4.515-.858-6.09-1.631l-.89 5.494C11.448 18.225 14.003 21 16.847 21c2.997 0 5.502-1.354 5.502-4.347 0-3.392-4.515-4.474-8.856-5.494z"/></svg> Stripe</span></span> · <span>PayPal</span> · <span>SSL</span></div>
+              <p className="text-zinc-600 text-[10px] mt-2">🔒 SSL Seguro · 🛡️ RGPD Compliant · 💳 <span className="text-zinc-400 font-bold text-sm"><svg className="w-4 h-4 inline mr-1" viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.853 0 9.856 0 7.351 1.354 7.351 4.347c0 3.392 4.515 4.474 8.856 5.494 2.002.474 3.356 1.163 3.356 2.409 0 .831-.683 1.305-1.901 1.305-2.227 0-4.515-.858-6.09-1.631l-.89 5.494C11.448 18.225 14.003 21 16.847 21c2.997 0 5.502-1.354 5.502-4.347 0-3.392-4.515-4.474-8.856-5.494z"/></svg> Stripe</span> Verified Partner</p>
             </div>
             <div><h4 className="font-bold mb-3 text-zinc-200">Producto</h4><div className="space-y-2 text-zinc-400"><a href="#como-funciona" className="block hover:text-white">Cómo funciona</a><a href="#garantia" className="block hover:text-white">Garantía</a><a href="#precios" className="block hover:text-white">Precios</a><Link href="/login" className="block hover:text-white">Iniciar sesión</Link></div></div>
             <div><h4 className="font-bold mb-3 text-zinc-200">Legal</h4><div className="space-y-2 text-zinc-400"><Link href="/support" className="block hover:text-white">Soporte</Link><Link href="/privacy" className="block hover:text-white">Privacidad</Link><Link href="/terms" className="block hover:text-white">Términos</Link><Link href="/cookies" className="block hover:text-white">Cookies</Link><Link href="/changelog" className="block hover:text-white">Changelog</Link><Link href="/trabaja-con-nosotros" className="block hover:text-white">Trabaja con nosotros</Link><Link href="/comunidad" className="block hover:text-white">Comunidad</Link></div></div>
