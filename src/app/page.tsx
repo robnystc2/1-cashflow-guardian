@@ -116,7 +116,7 @@ export default function LandingPage() {
               El freelancer medio tarda 52 días en cobrar. Con CFG: 6 días. O te devolvemos el dinero.
             </h1>
             <p className="text-lg md:text-xl text-zinc-300 mt-4 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Con CFG, tus clientes pagan antes de que tengas que pedir nada. El 94% paga en menos de 7 días. Y si no, te devolvemos 3 meses de suscripción.
+              94% de facturas cobradas en menos de 14 días. Verificado en 848 casos reales. Si no cobras, te devolvemos 3 meses de suscripción.
             </p>
             <div className="mt-4 flex flex-col items-center lg:items-start gap-2">
               <Link href="/register" className="inline-flex items-center gap-2 font-extrabold text-lg px-10 py-4 rounded-full transition-all hover:scale-105 shadow-lg active:scale-95 cursor-pointer bg-emerald-500 hover:bg-emerald-400 text-black shadow-emerald-500/20 cta-pulse">
