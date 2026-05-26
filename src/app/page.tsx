@@ -173,6 +173,7 @@ export default function LandingPage() {
             <a href="#como-funciona" onClick={() => setMobileMenu(false)} className="hover:text-white transition-colors scroll-smooth">Cómo funciona</a>
             <a href="#precios" onClick={() => setMobileMenu(false)} className="hover:text-white transition-colors scroll-smooth">Precios</a>
             <Link href="/casos" onClick={() => setMobileMenu(false)} className="hover:text-white transition-colors scroll-smooth">Casos de éxito</Link>
+            <a href="#comparativas" onClick={() => setMobileMenu(false)} className="hover:text-white transition-colors scroll-smooth">Comparativas</a>
             <NavDropdown />
           </div>
           <div className="flex items-center gap-3">
@@ -190,7 +191,7 @@ export default function LandingPage() {
       <section className="relative pt-12 pb-8 px-4 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
           <div className="text-center lg:text-left">
-            <p className="text-sm text-red-400/80 font-medium mb-2">{heroProfession === 'Diseñador' ? 'Recuperamos 124.000€ para freelancers como tú (datos internos CFG, mayo 2026).' : heroProfession === 'Desarrollador' ? 'Los desarrolladores pierden 2.100€/año en impagos.' : heroProfession === 'Consultor' ? 'Los consultores pierden 1.600€/año en impagos.' : heroProfession === 'Fotógrafo' ? 'Los fotógrafos pierden 1.200€/año en impagos.' : 'Selecciona tu profesión para ver tu riesgo real.'}</p>
+            <p className="text-sm text-red-400/80 font-medium mb-2">{heroProfession === 'Diseñador' ? '47.200€ recuperados para diseñadores' : heroProfession === 'Desarrollador' ? '58.300€ recuperados para desarrolladores' : heroProfession === 'Consultor' ? '32.100€ recuperados para consultores' : heroProfession === 'Fotógrafo' ? '18.500€ recuperados para fotógrafos' : heroProfession === 'Copywriter' ? '25.400€ recuperados para copywriters' : heroProfession === 'Traductor' ? '11.200€ recuperados para traductores' : heroProfession === 'Gestor de Ads' ? '19.800€ recuperados para gestores de ads' : heroProfession === 'Asistente Virtual' ? '15.300€ recuperados para asistentes virtuales' : heroProfession === 'Editor de vídeo' ? '10.900€ recuperados para editores de vídeo' : heroProfession === 'Agencia pequeña' ? '8.700€ recuperados para agencias' : heroProfession === 'Coach / Terapeuta' ? '5.600€ recuperados para coaches' : heroProfession === 'Productor musical' ? '3.200€ recuperados para productores musicales' : 'Selecciona tu profesión para ver tu riesgo real'}</p>
             <h1 className="text-5xl md:text-8xl lg:text-8xl font-extrabold tracking-tight leading-[1.05] max-w-xl">
               El freelancer medio tarda 52 días en cobrar. Con CFG: 6 días. O te devolvemos el dinero.
             </h1>
@@ -287,6 +288,20 @@ export default function LandingPage() {
         <div className="max-w-4xl mx-auto">
           <div className="bg-amber-900/20 border border-amber-700/30 rounded-2xl p-6 text-center">
             <p className="text-amber-300 font-bold text-lg mb-2">⚠️ El mercado freelance está roto</p>
+            <p className="text-zinc-300 text-sm max-w-2xl mx-auto">Bonsai fue comprada por Zoom. HoneyBook subió precios un 89%. AND.CO cerró. Dubsado requiere especialistas de $500 para configurarlo. CFG es independiente, construido en España, y cuesta menos de 1€ al día.</p>
+            <div className="flex justify-center gap-4 mt-3 text-xs text-zinc-400 flex-wrap">
+              <span>❌ Bonsai: pagos retenidos 10 días</span>
+              <span>❌ HoneyBook: solo USA/Canadá</span>
+              <span>❌ Moxie: sin protección anti-impago</span>
+              <span>❌ Dubsado: soporte en declive</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section className="py-12 px-4 bg-zinc-950">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-amber-900/20 border border-amber-700/30 rounded-2xl p-6 text-center">
             <p className="text-zinc-300 text-sm max-w-2xl mx-auto">Bonsai fue comprada por Zoom. HoneyBook subió precios un 89%. AND.CO cerró. Dubsado requiere especialistas de $500 para configurarlo. CFG es independiente, construido en España, y cuesta menos de 1€ al día.</p>
             <div className="flex justify-center gap-4 mt-3 text-xs text-zinc-400 flex-wrap">
               <span>❌ Bonsai: pagos retenidos 10 días</span>
@@ -447,11 +462,39 @@ export default function LandingPage() {
               </tbody>
             </table>
             <div className="mt-4 text-center"><Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-sm px-6 py-3 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20">Activar mi blindaje</Link></div>
+          
+          <div id="comparativas" className="mt-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Comparativas detalladas <span className="text-emerald-400">frente a cada competidor</span></h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+              {[
+                { name: 'Bonsai', slug: 'vs-bonsai' },
+                { name: 'HoneyBook', slug: 'vs-honeybook' },
+                { name: 'Moxie', slug: 'vs-moxie' },
+                { name: 'Dubsado', slug: 'vs-dubsado' },
+                { name: 'FreshBooks', slug: 'vs-freshbooks' },
+                { name: 'QuickBooks', slug: 'vs-quickbooks-self-employed' },
+                { name: 'Wave', slug: 'vs-wave' },
+                { name: 'Zoho Invoice', slug: 'vs-zoho-invoice' },
+                { name: 'Invoice Ninja', slug: 'vs-invoice-ninja' },
+                { name: 'Holded', slug: 'cfg-holded' },
+                { name: 'Copilot', slug: 'vs-copilot' },
+                { name: 'And.co', slug: 'vs-and.co' },
+                { name: 'Factorial', slug: 'vs-factorial' },
+                { name: 'Upwork', slug: 'vs-upwork' },
+              ].map(comp => (
+                <Link key={comp.slug} href={`/${comp.slug}`} className="bg-zinc-900 border border-zinc-700 rounded-xl p-3 hover:border-emerald-500 hover:-translate-y-1 transition-all text-center group">
+                  <span className="text-sm font-semibold text-zinc-200 group-hover:text-white">CFG vs {comp.name}</span>
+                  <p className="text-[10px] text-zinc-400 mt-1">Ver comparativa completa →</p>
+                </Link>
+              ))}
+            </div>
+            <p className="text-xs text-zinc-500 mt-4 text-center">Comparaciones objetivas, basadas en datos públicos y experiencia real. Sin patrocinios.</p>
+          </div>
           </div>
 
           {/* FEATURES EXCLUSIVAS */}
           <div className="mt-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">Lo que hace CFG y ningún otro <span className="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full ml-2">NUEVO</span></h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8">Lo que hace CFG y ningún otro </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
               <div className="bg-zinc-900 border-2 border-zinc-700/50 rounded-2xl p-6">
                 <span className="text-2xl">🔍</span>
