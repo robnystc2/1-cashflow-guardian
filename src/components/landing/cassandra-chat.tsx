@@ -48,7 +48,7 @@ export default function CassandraChat() {
       {!open && (
         <button onClick={() => setOpen(true)} className="bg-emerald-500 hover:bg-emerald-400 text-black font-bold p-3 rounded-full shadow-lg shadow-emerald-500/20 transition-all hover:scale-105 flex items-center gap-2 animate-pulse">
           <span>💬</span>
-          <span className="hidden md:inline text-sm">¿Alguna vez un cliente te dejó sin pagar?</span>
+          <span className="hidden md:inline text-sm">Blindar mi próximo proyecto →</span>
         </button>
       )}
       {open && (
