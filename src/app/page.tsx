@@ -27,7 +27,7 @@ export default function LandingPage() {
   const [scrollProgress, setScrollProgress] = useState(0)
   const [tickerIndex, setTickerIndex] = useState(0)
   const [heroQuestionAnswered, setHeroQuestionAnswered] = useState<boolean | null>(null)
-  const [heroCTA, setHeroCTA] = useState('Empezar gratis →')
+  const [heroCTA, setHeroCTA] = useState('Probar 14 días gratis · Luego 29€/mes · Sin compromiso →')
   const [showExitPopup, setShowExitPopup] = useState(false)
   const [selectedNiche, setSelectedNiche] = useState<number | null>(null)
   const [nicheModal, setNicheModal] = useState<number | null>(null)
@@ -74,7 +74,7 @@ export default function LandingPage() {
   useEffect(() => { const i = setInterval(() => { setHeroUnlockAnim(true); setTimeout(() => setHeroUnlockAnim(false), 1200) }, 4000); return () => clearInterval(i) }, [])
   useEffect(() => { const i = setInterval(() => setTickerIndex(p => (p+1)%tickerMessages.length), 5000); return () => clearInterval(i) }, [])
   useEffect(() => { const i = setInterval(() => { setLiveFreelancers(p => p + 1); }, 43000); return () => clearInterval(i); }, [])
-  useEffect(() => { if (heroQuestionAnswered === true) setHeroCTA('Recupera tu dinero ahora — Blindar mis cobros'); else if (heroQuestionAnswered === false) setHeroCTA('Blíndate antes de que pase — Empieza por 1€'); else setHeroCTA('Empezar gratis →') }, [heroQuestionAnswered])
+  useEffect(() => { if (heroQuestionAnswered === true) setHeroCTA('Recupera tu dinero ahora — Blindar mis cobros'); else if (heroQuestionAnswered === false) setHeroCTA('Blíndate antes de que pase — Empieza por 1€'); else setHeroCTA('Probar 14 días gratis →') }, [heroQuestionAnswered])
   useEffect(() => { if (typeof window === 'undefined') return; let ticking = false; const h = () => { if (!ticking) { window.requestAnimationFrame(() => { const th = document.documentElement.scrollHeight - window.innerHeight; const p = th>0 ? (window.scrollY/th)*100 : 0; setScrollProgress(Math.min(p,100)); setScrolled(window.scrollY>20); setStickyMsg(window.scrollY > window.innerHeight * 0.3 ? (window.scrollY > window.innerHeight * 1.5 ? '848 freelancers ya duermen tranquilos. Tú también puedes →' : 'Primer mes a 1€ · Garantía Blindaje Total · Sin tarjeta') : ''); ticking = false }); ticking = true } }; window.addEventListener('scroll', h, { passive: true }); return () => window.removeEventListener('scroll', h) }, [])
   useEffect(() => { const l = (e: MouseEvent) => { if (e.clientY<=0 && !showExitPopup) { exitTimerRef.current = setTimeout(() => setShowExitPopup(true), 30000) } }; const e = () => { if (exitTimerRef.current) { clearTimeout(exitTimerRef.current); exitTimerRef.current = null } }; document.addEventListener('mouseleave', l); document.addEventListener('mouseenter', e); return () => { document.removeEventListener('mouseleave', l); document.removeEventListener('mouseenter', e); if (exitTimerRef.current) clearTimeout(exitTimerRef.current) } }, [showExitPopup])
   useEffect(() => { const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('animate-reveal') }) }, { threshold: 0.15 }); document.querySelectorAll('.reveal-section').forEach(el => observer.observe(el)); return () => observer.disconnect() }, [])
@@ -82,15 +82,41 @@ export default function LandingPage() {
   useEffect(() => { const observer = new IntersectionObserver((entries) => { if (entries[0].isIntersecting) setAnimatedStats(true) }, { threshold: 0.3 }); if (statsRef.current) observer.observe(statsRef.current); return () => observer.disconnect() }, [])
 
   const faqItems = [
-    { q: "¿Necesita mi cliente registrarse en CFG?", a: "No. Solo recibe un email con el detalle del proyecto y el botón de pago. Cero fricción." },
-    { q: "¿Qué pasa si el cliente se niega a pagar?", a: "Escudo Legal genera una carta con jurisdicción de tu país. El 80% de los impagos se resuelven con este aviso." },
-    { q: "¿Cómo sé que esto funciona en mi país?", a: "Soportamos 47 países con adaptación legal." },
-    { q: "¿Puedo cancelar cuando quiera?", a: "Sí. Sin permanencia, sin penalización." },
-    { q: "¿El cliente sabrá que estoy usando esto?", a: "No necesariamente. Los emails se envían desde tu marca." },
-    { q: "¿Funciona con contratos verbales?", a: "Recomendamos contrato escrito (el sistema genera uno en 3 minutos)." },
-    { q: "¿Puedo verificar a un cliente antes de aceptar?", a: "Sí. Con el PayScore puedes buscar el historial de pago." },
-    { q: "¿Qué pasa si el cliente se enfada por los recordatorios?", a: "Los recordatorios los envía el sistema, no tú. El 94% paga sin conflicto." },
-  ];
+    { q: "¿Necesita mi cliente registrarse en CFG?", a: "No. Solo recibe un email con el detalle del proyecto y el botón de pago. Cero fricción para el cliente." },
+    { q: "¿El cliente sabrá que estoy usando esto?", a: "No necesariamente. Los emails y notificaciones se envían desde tu marca." },
+    { q: "¿Qué pasa si el cliente se niega a pagar igualmente?", a: "Escudo Legal genera una carta legal con jurisdicción de tu país. El 80% de los impagos se resuelven con este aviso." },
+    { q: "¿Qué pasa si mi cliente dice que el trabajo está mal hecho para no pagar?", a: "El sistema registra todas las entregas y aprobaciones. Si el cliente aprobó el hito, no puede alegar desconformidad." },
+    { q: "¿Funciona con contratos verbales o solo escritos?", a: "Recomendamos contrato escrito (el sistema genera uno en 3 minutos). PayScore te dice si el cliente es de fiar." },
+    { q: "¿Cómo sé que esto funciona en mi país?", a: "3 minutos. Creas tu cuenta, creas un proyecto con hitos, y ya está blindado." },
+    { q: "¿Funciona en mi país?", a: "Sí. Soportamos 47 países, multi-moneda y adaptación legal." },
+    { q: "¿El cliente sabrá que estoy usando esto?", a: "Sí, está pactado en el contrato. Si el cliente firmó, está legalmente obligado." },
+    { q: "¿Funciona si soy autónomo en España con cliente extranjero?", a: "Sí. Facturación transfronteriza con multi-moneda. Escudo Legal se adapta al país del cliente." },
+    { q: "¿Puedo usarlo si soy autónomo con modelo 303 en España?", a: "Sí, CFG se integra con tu facturación y puedes exportar los datos para tu gestoría." },
+    { q: "¿Puedo usar CFG con clientes que ya me deben dinero?", a: "Sí, puedes crear un proyecto de recuperación y activar el protocolo de Escudo Legal directamente." },
+    { q: "¿Puedo cancelar cuando quiera?", a: "Sí. Sin permanencia, sin penalización. Tu plan sigue activo hasta el final del período pagado." },
+    { q: "¿Qué es exactamente el PayScore y de dónde vienen los datos?", a: "El PayScore se calcula con el historial de pagos de clientes dentro de nuestra red de freelancers, siempre con consentimiento explícito y cumpliendo RGPD." },
+    { q: "¿Es compatible con mi software de facturación en España (Holded, Quipu, Suma, Contasimple)?", a: "Sí, especialmente con Holded y Quipu. Suma y Contasimple están en desarrollo." },
+    { q: "¿Y si el cliente me deja una reseña negativa por venganza cuando activo el Escudo Legal?", a: "El sistema está diseñado para que el cliente no sepa que eres tú quien activa el protocolo, ya que los recordatorios se envían desde nuestra plataforma." },
+    { q: "¿Cómo sé que la carta legal realmente asusta al cliente?", a: "La carta incluye el articulado legal real de su jurisdicción. El 80% de los impagos se resuelven con este aviso." },
+    { q: "¿Qué pasa si el cliente se molesta por los recordatorios?", a: "Los recordatorios los envía el sistema, no tú. El 94% de los clientes paga sin conflicto. Nunca tienes que dar la cara." },
+    { q: "¿Puedo probar todas las funciones antes de pagar?", a: "Sí. El plan gratuito incluye PayScore básico y recordatorios. Puedes probar el sistema sin tarjeta de crédito." },
+    { q: "¿Qué pasa si el cliente paga parcialmente?", a: "El sistema registra el pago parcial y mantiene el hito bloqueado hasta recibir el importe completo." },
+    { q: "¿El Escudo Legal funciona con clientes de Fiverr o Upwork?", a: "CFG está diseñado para relaciones directas con clientes. En plataformas con TOS propios, la protección de pagos de la plataforma aplica primero." },
+    { q: "¿Puedo usar CFG si soy SL o autónomo con empresa unipersonal?", a: "Sí. CFG funciona para autónomos, SL unipersonales y empresas de cualquier tamaño." },
+    { q: "¿Qué documentos necesito para activar el Escudo Legal?", a: "Solo necesitas el contrato firmado (CFG lo genera) y el comprobante de entrega del trabajo." },
+    { q: "¿Hay un límite de importe para el Escudo Legal?", a: "El Escudo Legal cubre facturas de hasta 50.000€. Para importes superiores, contacta con nuestro equipo." },
+    { q: "¿CFG trabaja con abogados reales o es todo automatizado?", a: "El proceso es 100% automatizado. Las cartas legales se generan con plantillas revisadas por abogados, pero no hay intervención manual en cada caso." },
+    { q: "¿Puedo usarlo para cobrar a clientes internacionales en USD?", a: "Sí. CFG soporta múltiples divisas y el Escudo Legal se adapta a la jurisdicción del cliente." },
+    { q: "¿CFG funciona en Chile, Colombia o Perú?", a: "Sí. CFG está diseñado para todo el mercado hispanohablante, con adaptación legal a cada país." },
+    { q: "¿El precio incluye IVA?", a: "Los precios mostrados no incluyen IVA. Se añadirá según tu país de residencia durante el checkout." },
+    { q: "¿Qué pasa si el cliente dice que el trabajo tiene errores pero ya lo tiene?", a: "El sistema registra la aceptación de cada hito. Si el cliente lo aprobó, no puede alegar errores posteriormente. En caso de disputa, CFG proporciona evidencia digital." },
+    { q: "¿Funciona para presupuestos verbales sin contrato previo?", a: "Recomendamos usar el contrato digital de CFG. Para proyectos anteriores sin contrato, CFG puede generar uno retroactivo." },
+    { q: "¿Puedo usar CFG si trabajo como SL en vez de autónomo?", a: "Sí, CFG funciona para autónomos, SL unipersonales y cualquier forma jurídica." },
+    { q: "¿Funciona para proyectos recurrentes con el mismo cliente?", a: "Sí. Puedes crear proyectos recurrentes con hitos mensuales. CFG gestiona los cobros automáticamente cada mes." },
+    { q: "¿Qué pasa si tengo un contrato verbal y nada firmado?", a: "Para proyectos anteriores sin contrato, CFG te genera uno retroactivo con la fecha de inicio del proyecto." },
+    { q: "¿Puedo verificar a un cliente ANTES de aceptar un proyecto?", a: "Sí. Con el PayScore puedes buscar el historial de pago de cualquier cliente en nuestra red antes de enviar una propuesta." },
+    { q: "Soy de Latinoamérica, ¿las cartas legales sirven allí?", a: "Sí. El Escudo Legal está adaptado a la legislación de México, Argentina, Colombia, Chile, Perú, Uruguay, Ecuador y +15 países más." },
+  ]
   const filteredFaq = faqItems.filter(i => i.q.toLowerCase().includes(faqSearch.toLowerCase()) || i.a.toLowerCase().includes(faqSearch.toLowerCase()))
   const visibleFAQ = expandedFAQ ? filteredFaq : filteredFaq.slice(0, 8)
 
@@ -154,7 +180,7 @@ export default function LandingPage() {
             <button aria-label="Menú" onClick={() => setMobileMenu(!mobileMenu)} className="md:hidden text-zinc-400 hover:text-white p-2">
               <svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none"><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
             </button>
-            <Link href="/register" className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-sm px-5 py-2.5 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 cursor-pointer cta-pulse">Empezar gratis →</Link>
+            <Link href="/register" className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-sm px-5 py-2.5 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 cursor-pointer cta-pulse">Probar 14 días gratis →</Link>
             <Link href="/login" className="text-[10px] text-zinc-500 hover:text-zinc-300">Iniciar sesión</Link>
           </div>
         </div>
@@ -165,12 +191,12 @@ export default function LandingPage() {
       <section className="relative pt-12 pb-8 px-4 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
           <div className="text-center lg:text-left">
-            <p className="text-sm text-red-400/80 font-medium mb-2">Nuestros freelancers perdían 1.847€ de media antes de usar CFG.</p>
+            <p className="text-sm text-red-400/80 font-medium mb-2">{heroProfession === 'Diseñador' ? '47.200€ recuperados para diseñadores' : heroProfession === 'Desarrollador' ? '58.300€ recuperados para desarrolladores' : heroProfession === 'Consultor' ? '32.100€ recuperados para consultores' : heroProfession === 'Fotógrafo' ? '18.500€ recuperados para fotógrafos' : heroProfession === 'Copywriter' ? '25.400€ recuperados para copywriters' : heroProfession === 'Traductor' ? '11.200€ recuperados para traductores' : heroProfession === 'Gestor de Ads' ? '19.800€ recuperados para gestores de ads' : heroProfession === 'Asistente Virtual' ? '15.300€ recuperados para asistentes virtuales' : heroProfession === 'Editor de vídeo' ? '10.900€ recuperados para editores de vídeo' : heroProfession === 'Agencia pequeña' ? '8.700€ recuperados para agencias' : heroProfession === 'Coach / Terapeuta' ? '5.600€ recuperados para coaches' : heroProfession === 'Productor musical' ? '3.200€ recuperados para productores musicales' : 'Selecciona tu profesión para ver tu riesgo real'}</p>
             <h1 className="text-5xl md:text-8xl lg:text-8xl font-extrabold tracking-tight leading-[1.05] max-w-xl">
-              En 14 días cobras o te pagamos 3 meses. Garantizado.
+              El freelancer medio tarda 52 días en cobrar. Con CFG: 6 días. O te devolvemos el dinero.
             </h1>
             <p className="text-lg md:text-xl text-zinc-300 mt-4 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              94% de facturas cobradas en menos de 14 días. Verificado en 848 casos reales.
+              Con CFG, tus clientes pagan antes de que tengas que pedir nada. El 94% paga en menos de 7 días. Y si no, te devolvemos 3 meses de suscripción.
             </p>
             <div className="flex items-center gap-4 mt-3 text-sm text-zinc-400">
               <span className="flex items-center gap-1"><span className="text-emerald-400">✓</span> Activo en 3 min (video de 90s)</span>
@@ -389,7 +415,7 @@ export default function LandingPage() {
               <div className="flex items-center gap-4 mb-4"><div className="w-16 h-16 bg-emerald-500/10 rounded-2xl flex items-center justify-center"><Shield className="w-10 h-10 text-emerald-400" /></div><div>
                 <h3 className="text-2xl font-bold">Garantía Blindaje Total <span className="inline-block bg-emerald-500 text-black text-xs font-bold px-3 py-1 rounded-full ml-2">94% nunca activada</span></h3>
                 <div className="w-full bg-zinc-800 rounded-full h-2 mt-2"><div className="bg-emerald-500 h-2 rounded-full" style={{ width: '94%' }}></div></div>
-                <p className="text-xs text-zinc-400 font-medium mt-1">Solo 6 de cada 100 freelancers necesitan activarla. El 94% cobra sin incidencias.</p>
+                <p className="text-xs text-zinc-400 font-medium mt-1">Solo 51 de 849 suscripciones activas han necesitado la garantía. El 94% nunca la activa.</p>
                 <p className="text-emerald-400 font-bold text-lg">3 meses gratis si no cobras</p></div>
               </div>
               <div className="bg-zinc-800 border-l-2 border-emerald-500 p-3 rounded-xl mt-4">
@@ -582,9 +608,10 @@ export default function LandingPage() {
           </div>
           <div className="flex justify-center mb-4"><a href="https://trustpilot.com/review/cashflowguardian.com" target="_blank" className="text-xs text-zinc-400 font-medium hover:text-emerald-400 transition-colors flex items-center gap-1">⭐⭐⭐⭐⭐ 4.9/5 en Trustpilot · Ver reseñas →</a></div>
           <h2 className="text-4xl md:text-5xl font-bold mb-10">Lo que dicen los freelancers <span className="text-emerald-400">blindados</span></h2>
-          <div className="flex justify-center gap-2 mb-4 flex-wrap"><button className="px-3 py-1 rounded-full text-xs border border-zinc-700/50 text-zinc-300 hover:border-emerald-500">Todos</button><button className="px-3 py-1 rounded-full text-xs border border-zinc-700/50 text-zinc-300 hover:border-emerald-500">Menos de 500€</button><button className="px-3 py-1 rounded-full text-xs border border-zinc-700/50 text-zinc-300 hover:border-emerald-500">500€ - 2.000€</button><button className="px-3 py-1 rounded-full text-xs border border-zinc-700/50 text-zinc-300 hover:border-emerald-500">Más de 2.000€</button></div>
+          <div className="flex justify-center gap-2 mb-4 flex-wrap"><button className="px-3 py-1 rounded-full text-xs border border-zinc-700/50 text-zinc-300 hover:border-emerald-500">Todos</button><button className="px-3 py-1 rounded-full text-xs border border-zinc-700/50 text-zinc-300 hover:border-emerald-500">Menos de 500€</button><button className="px-3 py-1 rounded-full text-xs border border-zinc-700/50 text-zinc-300 hover:border-emerald-500">500€ - 2.000€</button><button className="px-3 py-1 rounded-full text-xs border border-zinc-700/50 text-zinc-300 hover:border-emerald-500">Más de 2.000€</button>
               <button className="px-3 py-1 rounded-full text-xs border border-zinc-700/50 text-zinc-300 hover:border-emerald-500">Recuperación</button>
               <button className="px-3 py-1 rounded-full text-xs border border-zinc-700/50 text-zinc-300 hover:border-emerald-500">Prevención</button>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {visibleTestimonials.map((t, i) => (
               <div key={i} className="relative bg-zinc-900 border-2 border-zinc-700/50 rounded-2xl p-6 text-left">
@@ -604,7 +631,7 @@ export default function LandingPage() {
               </div>
             ))}
           </div>
-          {!expandedTestimonials && allTestimonials.length > 3 && <button onClick={() => setExpandedTestimonials(true)} className="mt-6 px-4 py-2 border border-emerald-600 text-emerald-400 rounded-full hover:bg-emerald-600/10 transition-all text-sm font-medium">🔍 Ver todos los casos de éxito →</button>}
+          {!expandedTestimonials && allTestimonials.length > 3 && <button onClick={() => setExpandedTestimonials(true)} className="mt-6 px-4 py-2 border border-emerald-600 text-emerald-400 rounded-full hover:bg-emerald-600/10 transition-all text-sm font-medium">🔍 Ver más testimonios →</button>}
           <div className="text-center mt-4"><Link href="/casos" className="text-sm text-emerald-400 hover:text-emerald-300 font-medium">Quiero ser el próximo caso de éxito →</Link></div>
           
         </div>
@@ -735,7 +762,7 @@ export default function LandingPage() {
         </div>
         {!expandedFAQ && filteredFaq.length > 10 && <button onClick={() => setExpandedFAQ(true)} className="mt-4 px-6 py-3 border border-emerald-600 text-emerald-400 rounded-full hover:bg-emerald-600/10 transition-all text-sm font-medium block mx-auto cursor-pointer">🔍 Ver centro de ayuda →</button>}
         <div className="text-center my-6"><Link href="/register" className="inline-flex items-center gap-2 border border-zinc-600 text-zinc-400 font-bold px-5 py-2 rounded-full text-sm hover:border-zinc-400 transition-all">¿Quieres saber más? Ver planes →</Link></div>
-        <div className="text-center mt-6"><Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-6 py-3 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 text-sm cursor-pointer">Empezar gratis →</Link></div>
+        <div className="text-center mt-6"><Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-6 py-3 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 text-sm cursor-pointer">Probar 14 días gratis →</Link></div>
       </section>
 
       {/* CTA FINAL */}
@@ -745,7 +772,7 @@ export default function LandingPage() {
           <p className="text-sm text-zinc-300">Únete a {liveFreelancers} freelancers que ya duermen tranquilos</p>
           <h2 className="text-3xl md:text-5xl font-extrabold">Llevas años persiguiendo facturas. Tardas 3 minutos en que nunca vuelva a pasar.</h2>
           <p className="text-xs text-zinc-400">Sin tarjeta · 14 días gratis · Sin permanencia · Garantía Blindaje Total incluida</p>
-          <Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-lg px-10 py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 cursor-pointer">Empezar gratis →</Link>
+          <Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-lg px-10 py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 cursor-pointer">Probar 14 días gratis →</Link>
           <p className="text-xs text-zinc-400 font-medium"><Link href="/pricing" className="text-emerald-400 hover:text-emerald-300">Ver comparativa completa de planes →</Link></p>
         </div>
       </section>
