@@ -1,23 +1,47 @@
-import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Badge CFG — Muestra que proteges tus proyectos',
+  description: 'Añade el badge de CFG a tu web, propuestas y emails para mostrar a tus clientes que trabajas con protección anti-impago.',
+}
+
+const variants = [
+  { label: 'Modo oscuro (web)', bg: 'bg-[#0a0a0a]', text: 'text-emerald-400', code: '<a href="https://cashflowguardian.com" target="_blank"><img src="https://cashflowguardian.com/badge-cfg-dark.svg" alt="Proyectos blindados con CFG" style="height:40px" /></a>' },
+  { label: 'Modo claro (web)', bg: 'bg-white', text: 'text-emerald-600', code: '<a href="https://cashflowguardian.com" target="_blank"><img src="https://cashflowguardian.com/badge-cfg-light.svg" alt="Proyectos blindados con CFG" style="height:40px" /></a>' },
+  { label: 'Firma de email', bg: 'bg-zinc-900', text: 'text-emerald-400', code: '<a href="https://cashflowguardian.com" target="_blank"><img src="https://cashflowguardian.com/badge-cfg-email.png" alt="CFG" style="height:20px" /></a>' },
+  { label: 'Propuesta PDF', bg: 'bg-zinc-900', text: 'text-emerald-400', code: '<a href="https://cashflowguardian.com" target="_blank"><img src="https://cashflowguardian.com/badge-cfg-pdf.png" alt="Proyecto protegido con CFG" /></a>' },
+];
+
+const platforms = ['Notion', 'Google Docs', 'LinkedIn', 'Bento', 'Malt', 'Domestika', 'WordPress', 'Webflow'];
+
 export default function BadgePage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
-      <nav className="border-b border-zinc-800 bg-[#050505]/80 backdrop-blur-xl py-4 px-4">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2"><div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-lg flex items-center justify-center text-black font-bold text-sm">🔒</div><span className="font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">CFG</span></Link>
-          <Link href="/register" className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-sm px-5 py-2.5 rounded-full transition-all">Empieza por 1€ →</Link>
+    <main className="min-h-screen bg-[#0a0a0a] text-white py-16 px-4">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Badge CFG</h1>
+        <p className="text-zinc-300 text-lg mb-10">Añade el badge a tu web, propuestas y emails para mostrar a tus clientes que tus proyectos están protegidos.</p>
+        
+        <h2 className="text-2xl font-bold mb-6">Variantes disponibles</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          {variants.map((v, i) => (
+            <div key={i} className={`${v.bg} border border-zinc-700 rounded-2xl p-6`}>
+              <h3 className="font-bold mb-3 ${v.text}">{v.label}</h3>
+              <div className="bg-zinc-800 rounded-lg p-4 flex items-center justify-center mb-4">
+                <span className={`${v.text} text-sm font-semibold`}>🛡️ Proyecto protegido con CFG</span>
+              </div>
+              <p className="text-xs text-zinc-400 mb-2">Código:</p>
+              <pre className="bg-black/50 text-xs text-zinc-300 p-3 rounded-lg overflow-x-auto">{v.code}</pre>
+            </div>
+          ))}
         </div>
-      </nav>
-      <section className="py-16 px-4 max-w-4xl mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">Badge <span className="text-emerald-400">"Protegido con CFG"</span></h1>
-        <p className="text-xl text-zinc-300 mb-8">Añade este badge a tu web, propuestas o firma de email. Disponible en variante oscura, clara, horizontal para email y pie de propuesta PDF.</p>
-        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 mb-8">
-          <div className="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-700 px-4 py-2 rounded-full text-sm text-emerald-400 font-semibold">🔒 Proyecto protegido con CFG</div>
-          <p className="text-xs text-zinc-500 mt-4">Copia el código HTML y pégalo en tu web, propuestas, firma de email o LinkedIn. Disponible para usuarios Pro, Élite y Agencia.</p>
+
+        <h2 className="text-2xl font-bold mb-6">Compatible con</h2>
+        <div className="flex flex-wrap gap-3">
+          {platforms.map(p => (
+            <span key={p} className="px-4 py-2 bg-zinc-900 border border-zinc-700 rounded-full text-sm text-zinc-400">{p}</span>
+          ))}
         </div>
-        <Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-lg px-10 py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20">Activar mi blindaje <ArrowRight className="w-5 h-5" /></Link>
-      </section>
-    </div>
+      </div>
+    </main>
   )
 }

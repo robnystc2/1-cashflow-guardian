@@ -12,16 +12,15 @@ export default function LegalPage() {
       <div className="max-w-3xl mx-auto prose prose-invert">
         <h1>Términos y Condiciones</h1>
         <p>Estos Términos y Condiciones regulan el uso de la plataforma CashFlow Guardian (CFG), operada por CFG S.L.</p>
-        <p>Aceptación: Al registrarte y usar CFG, aceptas estos términos en su totalidad. Si no estás de acuerdo, no utilices el servicio.</p>
+        <p>Aceptación: Al registrarte y usar CFG, aceptas estos términos en su totalidad.</p>
         <p>Descripción del servicio: CFG es una herramienta de gestión de proyectos freelance que permite crear contratos con hitos, enviar recordatorios de pago automáticos y, en caso de impago, bloquear entregas futuras y generar cartas legales de reclamación.</p>
         <p>Cuentas de usuario: Eres responsable de mantener la confidencialidad de tus credenciales. No puedes compartir tu cuenta con terceros.</p>
         <p>Planes y precios: Los precios se muestran en euros (€) e incluyen IVA cuando corresponda. CFG se reserva el derecho a modificar los precios con un preaviso de 30 días.</p>
-        <p>Garantía Blindaje Total: Si utilizas CFG para un proyecto y sigues todos los pasos del sistema (contrato firmado, hitos configurados, recordatorios activados), y el cliente no paga en 14 días tras la carta legal, CFG te reembolsará 3 meses de suscripción. Esta garantía no cubre: proyectos sin contrato firmado, disputas sobre la calidad del trabajo donde no haya aceptación expresa del hito por parte del cliente, o impagos de clientes declarados en concurso de acreedores.</p>
-        <p>Cancelación: Puedes cancelar tu suscripción en cualquier momento. El acceso al servicio se mantiene hasta el final del período facturado. No se realizan reembolsos parciales, salvo lo dispuesto en la Garantía Blindaje Total.</p>
+        <p>Garantía Blindaje Total: Si utilizas CFG para un proyecto y sigues todos los pasos del sistema, y el cliente no paga en 14 días tras la carta legal, CFG te reembolsará 3 meses de suscripción. Esta garantía no cubre proyectos sin contrato firmado o impagos de clientes declarados en concurso de acreedores.</p>
+        <p>Cancelación: Puedes cancelar tu suscripción en cualquier momento. El acceso al servicio se mantiene hasta el final del período facturado.</p>
         <p>Propiedad intelectual: Todo el contenido y software de CFG es propiedad de CFG S.L. El usuario conserva todos los derechos sobre los datos y documentos que suba a la plataforma.</p>
-        <p>Limitación de responsabilidad: CFG es una herramienta de apoyo a la gestión de cobros. No sustituye el asesoramiento legal profesional. En caso de litigio, recomendamos consultar con un abogado. CFG no se hace responsable de las decisiones legales que tome el usuario basándose en la información proporcionada por la plataforma.</p>
-        <p>Legislación aplicable: Estos términos se rigen por la legislación española. Para cualquier disputa, las partes se someten a los juzgados de Santa Cruz de Tenerife, con renuncia a cualquier otro fuero.</p>
-        <p>Modificaciones: CFG puede actualizar estos términos. Se notificará a los usuarios por email con 15 días de antelación.</p>
+        <p>Limitación de responsabilidad: CFG es una herramienta de apoyo a la gestión de cobros. No sustituye el asesoramiento legal profesional.</p>
+        <p>Legislación aplicable: Estos términos se rigen por la legislación española. Para cualquier disputa, las partes se someten a los juzgados de Santa Cruz de Tenerife.</p>
         <p>Última actualización: 26 de mayo de 2026.</p>
         <div className="mt-8 text-center">
           <Link href="/" className="text-emerald-400 hover:text-emerald-300">Volver al inicio →</Link>
