@@ -2,7 +2,6 @@ export default function Changelog() {
   const cambios = [
     { fecha: '2026-05-28', tipo: 'Feature', texto: 'Lanzamiento de la nueva landing con 119 mejoras.' },
     { fecha: '2026-05-25', tipo: 'Mejora', texto: 'Calculadora de riesgo añadida.' },
-    { fecha: '2026-05-20', tipo: 'Fix', texto: 'Corrección en el envío de recordatorios automáticos.' },
     { fecha: '2026-05-15', tipo: 'Expansión', texto: 'Soporte para México y Colombia.' },
   ];
   const colores = { Feature: 'bg-emerald-500', Mejora: 'bg-blue-500', Fix: 'bg-red-500', 'Expansión': 'bg-purple-500' };
