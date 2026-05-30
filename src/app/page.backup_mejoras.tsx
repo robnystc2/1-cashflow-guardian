@@ -27,7 +27,7 @@ export default function LandingPage() {
   const [scrollProgress, setScrollProgress] = useState(0)
   const [tickerIndex, setTickerIndex] = useState(0)
   const [heroQuestionAnswered, setHeroQuestionAnswered] = useState<boolean | null>(null)
-  const [heroCTA, setHeroCTA] = useState('Blindar mi primer proyecto →')
+  const [heroCTA, setHeroCTA] = useState('Probar 14 días gratis →')
   const [showExitPopup, setShowExitPopup] = useState(false)
   const [selectedNiche, setSelectedNiche] = useState<number | null>(null)
   const [nicheModal, setNicheModal] = useState<number | null>(null)
@@ -74,7 +74,7 @@ export default function LandingPage() {
   useEffect(() => { const i = setInterval(() => { setHeroUnlockAnim(true); setTimeout(() => setHeroUnlockAnim(false), 1200) }, 4000); return () => clearInterval(i) }, [])
   useEffect(() => { const i = setInterval(() => setTickerIndex(p => (p+1)%tickerMessages.length), 5000); return () => clearInterval(i) }, [])
   useEffect(() => { const i = setInterval(() => { setLiveFreelancers(p => p + 1); }, 43000); return () => clearInterval(i); }, [])
-  useEffect(() => { if (heroQuestionAnswered === true) setHeroCTA('Recupera tu dinero ahora — Blindar mis cobros'); else if (heroQuestionAnswered === false) setHeroCTA('Blíndate antes de que pase — Empieza por 1€'); else setHeroCTA('Blindar mi primer proyecto →') }, [heroQuestionAnswered])
+  useEffect(() => { if (heroQuestionAnswered === true) setHeroCTA('Recupera tu dinero ahora — Blindar mis cobros'); else if (heroQuestionAnswered === false) setHeroCTA('Blíndate antes de que pase — Empieza por 1€'); else setHeroCTA('Probar 14 días gratis →') }, [heroQuestionAnswered])
   useEffect(() => { if (typeof window === 'undefined') return; let ticking = false; const h = () => { if (!ticking) { window.requestAnimationFrame(() => { const th = document.documentElement.scrollHeight - window.innerHeight; const p = th>0 ? (window.scrollY/th)*100 : 0; setScrollProgress(Math.min(p,100)); setScrolled(window.scrollY>20); setStickyMsg(window.scrollY > window.innerHeight * 0.3 ? (window.scrollY > window.innerHeight * 1.5 ? '848 freelancers ya duermen tranquilos. Tú también puedes →' : 'Primer mes a 1€ · Garantía Blindaje Total · Sin tarjeta') : ''); ticking = false }); ticking = true } }; window.addEventListener('scroll', h, { passive: true }); return () => window.removeEventListener('scroll', h) }, [])
   useEffect(() => { const l = (e: MouseEvent) => { if (e.clientY<=0 && !showExitPopup) { exitTimerRef.current = setTimeout(() => setShowExitPopup(true), 30000) } }; const e = () => { if (exitTimerRef.current) { clearTimeout(exitTimerRef.current); exitTimerRef.current = null } }; document.addEventListener('mouseleave', l); document.addEventListener('mouseenter', e); return () => { document.removeEventListener('mouseleave', l); document.removeEventListener('mouseenter', e); if (exitTimerRef.current) clearTimeout(exitTimerRef.current) } }, [showExitPopup])
   useEffect(() => { const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('animate-reveal') }) }, { threshold: 0.15 }); document.querySelectorAll('.reveal-section').forEach(el => observer.observe(el)); return () => observer.disconnect() }, [])
@@ -82,14 +82,6 @@ export default function LandingPage() {
   useEffect(() => { const observer = new IntersectionObserver((entries) => { if (entries[0].isIntersecting) setAnimatedStats(true) }, { threshold: 0.3 }); if (statsRef.current) observer.observe(statsRef.current); return () => observer.disconnect() }, [])
 
   const faqItems = [
-    { q: "¿Funciona para clientes internacionales?", a: "Sí. CFG soporta 47 países con adaptación legal local y multi-moneda." },
-    { q: "¿Mis clientes sabrán que uso CFG?", a: "No necesariamente. Los recordatorios se envían desde la plataforma, no a tu nombre." },
-    { q: "¿Qué pasa si el cliente paga tarde pero paga?", a: "El sistema registra el pago y libera automáticamente el hito bloqueado. Tú recibes notificación inmediata." },
-    { q: "¿Cómo funciona el proceso monitorio?", a: "CFG genera automáticamente la documentación para un proceso monitorio, incluyendo contrato, facturas, y comunicaciones." },
-    { q: "¿CFG sustituye a un abogado?", a: "No. CFG automatiza las comunicaciones y documentación, pero para procesos judiciales siempre recomendamos consultar con un abogado." },
-    { q: "¿Funciona con retainers mensuales?", a: "Sí. Puedes configurar proyectos recurrentes con hitos mensuales y CFG gestiona los cobros automáticamente." },
-    { q: "¿Qué pasa con los clientes que ya me deben dinero?", a: "Puedes crear un proyecto de recuperación y activar el protocolo de Escudo Legal para facturas pendientes." },
-    { q: "¿CFG funciona en LatAm?", a: "Sí. Soportamos México, Argentina, Colombia, Chile, Perú, Uruguay, Ecuador y +15 países más con legislación local." },
     { q: "¿Necesita mi cliente registrarse en CFG?", a: "No. Solo recibe un email con el detalle del proyecto y el botón de pago. Cero fricción para el cliente." },
     { q: "¿El cliente sabrá que estoy usando esto?", a: "No necesariamente. Los emails y notificaciones se envían desde tu marca, no desde CFG. Tú controlas la experiencia." },
     { q: "¿Qué pasa si el cliente se niega a pagar igualmente?", a: "Escudo Legal genera una carta legal con jurisdicción de tu país. El 80% de los impagos se resuelven con este aviso." },
@@ -160,7 +152,12 @@ export default function LandingPage() {
         <div className="h-full bg-emerald-500 transition-all duration-150 ease-out" style={{ width: `${scrollProgress}%` }} />
       </div>
 
-      
+      {stickyCTA && (
+        <div className="fixed bottom-0 left-0 right-0 z-40 bg-[#050505]/95 backdrop-blur-xl border-t border-emerald-500/30 p-3 flex items-center justify-center gap-4">
+          <p className="text-sm text-white font-semibold hidden md:block">{stickyMsg || 'Cobra siempre · Blindarme →'}</p>
+          <Link href="/register" className="bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-6 py-2.5 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 cursor-pointer text-sm cta-pulse">Blindarme →</Link>
+        </div>
+      )}
 
       <LiveStatsBar />
 
@@ -178,7 +175,7 @@ export default function LandingPage() {
             <button type="button" aria-label="Menú" onClick={() => setMobileMenu(!mobileMenu)} className="md:hidden text-zinc-400 hover:text-white p-2">
               <svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none"><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
             </button>
-            <Link href="/register" className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-sm px-5 py-2.5 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 cursor-pointer cta-pulse">Blindar mi primer proyecto →</Link>
+            <Link href="/register" className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-sm px-5 py-2.5 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 cursor-pointer cta-pulse">Probar 14 días gratis →</Link>
             <Link href="/login" className="text-[10px] text-zinc-500 hover:text-zinc-300">Iniciar sesión</Link>
           </div>
         </div>
@@ -192,14 +189,11 @@ export default function LandingPage() {
             <div className="text-center lg:text-left">
               <p className="text-sm text-red-400/80 font-medium mb-2">{heroProfession === 'Diseñador' ? '47.200€ recuperados para diseñadores' : heroProfession === 'Desarrollador' ? '58.300€ recuperados para desarrolladores' : heroProfession === 'Consultor' ? '32.100€ recuperados para consultores' : heroProfession === 'Fotógrafo' ? '18.500€ recuperados para fotógrafos' : heroProfession === 'Copywriter' ? '25.400€ recuperados para copywriters' : heroProfession === 'Traductor' ? '11.200€ recuperados para traductores' : heroProfession === 'Gestor de Ads' ? '19.800€ recuperados para gestores de ads' : heroProfession === 'Asistente Virtual' ? '15.300€ recuperados para asistentes virtuales' : heroProfession === 'Editor de vídeo' ? '10.900€ recuperados para editores de vídeo' : heroProfession === 'Agencia pequeña' ? '8.700€ recuperados para agencias' : heroProfession === 'Coach / Terapeuta' ? '5.600€ recuperados para coaches' : heroProfession === 'Productor musical' ? '3.200€ recuperados para productores musicales' : 'Selecciona tu profesión para ver tu riesgo real'}</p>
               <h1 className="text-5xl md:text-8xl lg:text-8xl font-extrabold tracking-tight leading-[1.05] max-w-xl">
-                En 14 días cobras o te pagamos 3 meses. Garantizado.
+                El freelancer medio tarda 52 días en cobrar. Con CFG: 6 días. O te devolvemos el dinero.
               </h1>
-            <p className="text-sm text-amber-400 mt-3 max-w-xl mx-auto lg:mx-0">¿Tienes una factura sin cobrar AHORA MISMO? Entra y activa el Escudo en 3 minutos.</p>
-            <p className="text-sm text-amber-400 mt-3 max-w-xl mx-auto lg:mx-0">En español nativo. Para España y LatAm.</p>
               <p className="text-lg md:text-xl text-zinc-300 mt-4 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                 Con CFG, tus clientes pagan antes de que tengas que pedir nada. El 94% paga en menos de 7 días. Y si no, te devolvemos 3 meses de suscripción.
               </p>
-            <p className="text-sm text-emerald-400 mt-2 font-medium">No somos facturación con recordatorios. Somos la única herramienta que garantiza tu cobro o te devuelve el dinero.</p>
               <div className="flex items-center gap-4 mt-3 text-sm text-zinc-400">
                 <span className="flex items-center gap-1"><span className="text-emerald-400">✓</span> Activo en 3 min (video de 90s)</span>
                 <span className="flex items-center gap-1"><span className="text-emerald-400">✓</span> Sin tarjeta</span>
@@ -230,7 +224,7 @@ export default function LandingPage() {
               <div className="border-2 border-zinc-700/50 rounded-2xl overflow-visible shadow-elevated bg-zinc-950">
                 <div className="bg-zinc-900/80 backdrop-blur-sm p-3 flex items-center gap-2 border-b border-zinc-700/50">
                   <div className="flex gap-1.5"><span className="w-3 h-3 rounded-full bg-red-500"/><span className="w-3 h-3 rounded-full bg-yellow-500"/><span className="w-3 h-3 rounded-full bg-emerald-500"/></div>
-                  <span className="text-xs text-zinc-400 ml-2">Tu Panel de Control Real</span>
+                  <span className="text-xs text-zinc-400 ml-2">Panel de Blindaje</span>
                 </div>
                 <div className="p-6 space-y-5">
                   <div className="bg-zinc-900 border-l-2 border-emerald-500 p-3 rounded-xl">
@@ -265,7 +259,7 @@ export default function LandingPage() {
           <div className="max-w-4xl mx-auto text-center">
             <div className="w-24 h-24 rounded-full bg-gradient-to-br from-emerald-400 to-cyan-500 flex items-center justify-center text-black font-extrabold text-3xl mx-auto mb-4 shadow-xl shadow-emerald-500/30 border-4 border-white/10" aria-hidden="true">R</div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Construido por alguien que lo vivió</h2>
-            <p className="text-zinc-300 text-lg max-w-2xl mx-auto leading-relaxed">Era octubre de 2024. Tenía 16 años y acababa de entregar un proyecto de branding a una agencia de publicidad. El cliente recibió el trabajo, dijo que estaba perfecto, y desapareció. 3 facturas. 4.800€. Cero respuesta. Pasé noches sin dormir, revisando el teléfono cada 5 minutos. Busqué una herramienta que me protegiera. <strong className="text-white">No existía.</strong> Así que construí CFG. Y desde entonces, 848 freelancers no han vuelto a perseguir una factura.</p>
+            <p className="text-zinc-300 text-lg max-w-2xl mx-auto leading-relaxed">Era octubre de 2024. Tenía 16 años y acababa de entregar un proyecto de branding a una agencia de publicidad. El cliente recibió el trabajo, dijo que estaba perfecto, y desapareció. 3 facturas. 4.800€. Cero respuesta. Busqué una herramienta que me protegiera. <strong className="text-white">No existía.</strong> Así que construí CFG. Y desde entonces, 848 freelancers no han vuelto a perseguir una factura.</p>
             <p className="text-emerald-400 font-bold mt-4">— Rodrigo · Fundador · Tenerife, 16 años</p>
           </div>
         </section>
@@ -320,6 +314,19 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* VIDEO DEMO */}
+        <section className="py-16 px-4 bg-zinc-950">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Mira cómo funciona en <span className="text-emerald-400">90 segundos</span></h2>
+            <p className="text-zinc-300 mb-8">Así es como CFG protege tus proyectos desde el primer minuto.</p>
+            <div className="bg-zinc-900 border-2 border-zinc-700/50 rounded-2xl overflow-hidden shadow-elevated max-w-2xl mx-auto">
+              <div className="aspect-video bg-zinc-800 flex items-center justify-center">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/cashflow-guardian-demo" title="Video demo de CFG" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" className="w-full h-full"></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CALCULADORA */}
         <section className="py-16 px-4 bg-zinc-900/50">
           <div className="max-w-4xl mx-auto text-center">
@@ -346,7 +353,7 @@ export default function LandingPage() {
                   <div className="flex items-center gap-2 text-xs text-zinc-400 font-medium"><span className="w-1/3">Pagos {'>'} 60 días:</span><div className="w-2/3 bg-zinc-700 rounded-full h-2"><div className="bg-amber-500 h-2 rounded-full" style={{ width: '35%' }}></div></div><span>{Math.round(roiPerdida * 0.35).toLocaleString('es-ES')}€</span></div>
                   <div className="flex items-center gap-2 text-xs text-zinc-400 font-medium"><span className="w-1/3">Tiempo perdido:</span><div className="w-2/3 bg-zinc-700 rounded-full h-2"><div className="bg-yellow-500 h-2 rounded-full" style={{ width: '25%' }}></div></div><span>{Math.round(roiPerdida * 0.25).toLocaleString('es-ES')}€</span></div>
                 </div>
-                <p className="text-sm text-emerald-400 mt-3 font-medium">Con CFG Blindaje Pro (29€/mes), proteges {new Intl.NumberFormat('es-ES').format(roiPerdida)}€ por solo 348€/año. Tu riesgo actual equivale a {Math.round(roiPerdida / 348)} años de CFG Blindaje Pro. → <strong className="text-2xl text-white">{roiMultiplicador}x tu inversión</strong><br/><span className="text-xs text-zinc-400 font-medium">En 5 años sin CFG = {new Intl.NumberFormat('es-ES').format(roiPerdida * 5)}€ perdidos. Con CFG = 1.245€ invertidos.</span></p>
+                <p className="text-sm text-emerald-400 mt-3 font-medium">Con CFG Pro (29€/mes), proteges {new Intl.NumberFormat('es-ES').format(roiPerdida)}€ por solo 348€/año. Tu riesgo actual equivale a {Math.round(roiPerdida / 348)} años de CFG Pro. → <strong className="text-2xl text-white">{roiMultiplicador}x tu inversión</strong><br/><span className="text-xs text-zinc-400 font-medium">En 5 años sin CFG = {new Intl.NumberFormat('es-ES').format(roiPerdida * 5)}€ perdidos. Con CFG = 1.245€ invertidos.</span></p>
                 <div className="mt-4 text-left space-y-2">
                   <p className="text-xs text-zinc-400 font-medium">Comparativa anual:</p>
                   <div className="flex items-center gap-2 text-xs text-zinc-400 font-medium"><span className="w-1/3">Sin blindaje:</span><div className="w-2/3 bg-zinc-700 rounded-full h-4 relative"><div className="bg-red-500 h-4 rounded-full" style={{ width: '100%' }}></div><span className="absolute right-2 top-0 text-white font-bold">{roiPerdida.toLocaleString('es-ES')}€</span></div></div>
@@ -393,7 +400,10 @@ export default function LandingPage() {
                 </div>
                 <p className="text-zinc-300 text-sm mb-3"><strong className="text-emerald-400">🛡️ Garantía Blindaje Total:</strong> Si usas el sistema y no cobras, <strong className="text-white">te devolvemos 3 meses de suscripción, por transferencia bancaria en 48h.</strong><br/><strong className="text-emerald-400 mt-2 block">↩️ Garantía de devolución:</strong> Si no te gusta en 30 días, te devolvemos tu dinero. Sin preguntas.</p>
                 <div className="text-xs text-zinc-400 mt-3 space-y-2">
-                  <p className="text-xs text-zinc-400">✅ Usas CFG en tu proyecto → ✅ El cliente no paga en 14 días → ✅ Te devolvemos 3 meses. Sin papel. Sin preguntas.</p>
+                  <p>1. Creas el proyecto en CFG (3 min)</p>
+                  <p>2. El cliente recibe los términos. Si desaparece (ghosting), el sistema actúa.</p>
+                  <p>3. CFG gestiona los cobros. El cliente nunca sabrá que fuiste tú quien activó el protocolo.</p>
+                  <p>4. Si en 14 días no has cobrado, te devolvemos 3 meses de suscripción, por transferencia bancaria en 48h</p>
                 </div>
               </div>
               <div className="bg-zinc-900 border-2 border-zinc-700/50 rounded-2xl p-8 text-left hover:border-amber-700 transition-all"><Lock className="w-12 h-12 text-amber-400 mb-4" /><h3 className="text-xl font-bold mb-2">Bloqueo de entrega</h3><p className="text-zinc-300 text-sm mb-2">El Hito 2 queda <strong className="text-amber-400">bloqueado</strong> hasta que paguen.</p><p className="text-xl font-bold text-amber-400">4.840</p><p className="text-xs text-zinc-400">hitos bloqueados</p></div>
@@ -494,7 +504,7 @@ export default function LandingPage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-8">Lo que <span className="text-red-400">nunca más</span> tendrás que hacer</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-              {['Enviar emails de recordatorio a las 3am con ansiedad', 'Escuchar "no te preocupes que esta semana te pago" por tercera vez', 'Esperar 60 días para cobrar una factura', 'Pagar 300€ a un abogado por una carta', 'Perder un cliente por pedirle educadamente que te pague', 'Sentir vergüenza al reclamar tu propio dinero'].map((item, i) => (
+              {['Trabajar gratis', 'Perseguir facturas', 'Esperar meses para cobrar', 'Pagar a un abogado', 'Perder clientes por pedir pago', 'Pedir el dinero con vergüenza'].map((item, i) => (
                 <div key={i} className="flex items-center gap-3 bg-zinc-900 border-2 border-zinc-700/50 rounded-xl p-4"><span className="text-red-400 text-lg">✗</span><span className="text-zinc-400 line-through">{item}</span></div>
               ))}
             </div>
@@ -567,8 +577,8 @@ export default function LandingPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
               <div className="bg-zinc-900 border-2 border-zinc-700/50 rounded-2xl p-10 flex flex-col transition-all">
-                <h3 className="text-2xl font-bold mb-2">CFG Escudo</h3><p className="text-xs text-zinc-400 mb-4">Protege hasta 5 facturas al mes.</p>
-                <p className="text-4xl font-extrabold text-emerald-400 mb-4">9€<span className="text-xl text-zinc-400">/mes</span> <span className="text-[10px] text-zinc-400 block">30 céntimos/día</span></p>
+                <h3 className="text-2xl font-bold mb-2">CFG Starter</h3><p className="text-xs text-zinc-400 mb-4">Protege hasta 5 facturas al mes.</p>
+                <p className="text-4xl font-extrabold text-emerald-400 mb-4">9€<span className="text-xl text-zinc-400">/mes</span></p>
                 <ul className="text-left text-zinc-300 space-y-6 mb-10 flex-grow text-sm">
                   <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> 5 facturas/mes</li>
                   <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Bloqueo de hitos</li>
@@ -576,13 +586,13 @@ export default function LandingPage() {
                   <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Recordatorios email</li>
                   <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> PayScore básico (3 clientes)</li>
                 </ul>
-                <Link href="/register" className="block text-center bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-3 px-6 rounded-full transition-all">Blindar mi primer proyecto</Link>
+                <Link href="/register" className="block text-center bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-3 px-6 rounded-full transition-all">Empezar gratis</Link>
               </div>
               <div className="bg-zinc-900 border-2 rounded-2xl p-10 flex flex-col relative scale-105 border-emerald-500">
                 <div className="flex justify-center mb-4"><span className="inline-block bg-emerald-500 text-black text-sm font-extrabold px-5 py-1.5 rounded-full">🏆 Más popular — 94% de freelancers eligen este plan</span></div>
-                <h3 className="text-2xl font-bold mb-2">CFG Blindaje Pro</h3><p className="text-xs text-zinc-400 mb-4">Para no volver a perseguir una factura.</p>
+                <h3 className="text-2xl font-bold mb-2">CFG Pro</h3><p className="text-xs text-zinc-400 mb-4">Para no volver a perseguir una factura.</p>
                 <p className="text-4xl font-extrabold text-emerald-400 mb-2">{prices.pro}€<span className="text-xl text-zinc-400">/{billingCycle === 'annual' ? 'año' : 'mes'}</span>{billingCycle === 'annual' && <span className="text-sm text-emerald-400 block">Menos de 1€ al día. Protege miles de euros por menos de lo que cuesta un café.</span>}</p>
-                <p className="text-xs text-zinc-400 font-medium mb-4">Equivale a proteger 3 proyectos de 500€. Un impago recuperado ya pagó 7 años de CFG Blindaje Pro.</p>
+                <p className="text-xs text-zinc-400 font-medium mb-4">Equivale a proteger 3 proyectos de 500€. Un impago recuperado ya pagó 7 años de CFG Pro.</p>
                 <ul className="text-left text-zinc-300 space-y-6 mb-10 flex-grow text-sm">
                   <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Facturas y clientes ilimitados</li>
                   <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Bloqueo automático de hitos</li>
@@ -598,7 +608,7 @@ export default function LandingPage() {
                 <p className="text-xs text-zinc-400 mt-3 text-center">🛡️ 14 días gratis (sin tarjeta) · Luego 29€/mes</p>
               </div>
               <div className="bg-zinc-900 border-2 border-zinc-700/50 rounded-2xl p-10 flex flex-col transition-all">
-                <h3 className="text-2xl font-bold mb-2">CFG Fortress</h3><p className="text-xs text-zinc-400 mb-4">Para freelancers que facturan +5.000€/mes.</p>
+                <h3 className="text-2xl font-bold mb-2">CFG Élite</h3><p className="text-xs text-zinc-400 mb-4">Para freelancers que facturan +5.000€/mes.</p>
                 <p className="text-3xl font-extrabold mb-4 text-zinc-300">{prices.total}€<span className="text-xl text-zinc-400">/{billingCycle === 'annual' ? 'año' : 'mes'}</span>{billingCycle === 'annual' && <span className="text-sm text-emerald-400 block">Menos de 2€/día · 58€/mes facturado anualmente</span>}</p>
                 <ul className="text-left text-zinc-300 space-y-6 mb-10 flex-grow text-sm">
                   <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Todo lo de Pro</li>
@@ -614,7 +624,7 @@ export default function LandingPage() {
               </div>
               <div className="bg-zinc-900 border-2 border-zinc-700/50 rounded-2xl p-10 flex flex-col transition-all">
                 <h3 className="text-2xl font-bold mb-2">Por proyecto</h3><p className="text-xs text-zinc-400 mb-4">Sin suscripción. Un proyecto a la vez.</p>
-                <p className="text-4xl font-extrabold text-emerald-400 mb-2">1.5%<span className="text-xl text-zinc-400"> (mín. 19€)</span> <span className="text-[10px] text-zinc-400 block">Desde 63 céntimos/día</span></p>
+                <p className="text-4xl font-extrabold text-emerald-400 mb-2">1.5%<span className="text-xl text-zinc-400"> (mín. 19€)</span></p>
                 <ul className="text-left text-zinc-300 space-y-6 mb-10 flex-grow text-sm">
                   <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Protege un proyecto puntual sin suscripción. Calcula tu precio: 1.5% del importe (mín. 19€).</li>
                   <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Bloqueo de hitos</li>
@@ -624,7 +634,7 @@ export default function LandingPage() {
               </div>
               <div className="bg-zinc-900 border-2 border-zinc-700/50 rounded-2xl p-10 flex flex-col transition-all">
                 <h3 className="text-2xl font-bold mb-2">CFG Teams</h3><p className="text-xs text-zinc-400 mb-4">Para agencias y estudios pequeños.</p>
-                <p className="text-4xl font-extrabold text-emerald-400 mb-2">149€<span className="text-xl text-zinc-400">/mes</span> <span className="text-[10px] text-zinc-400 block">4.97€/día por equipo</span></p>
+                <p className="text-4xl font-extrabold text-emerald-400 mb-2">149€<span className="text-xl text-zinc-400">/mes</span></p>
                 <ul className="text-left text-zinc-300 space-y-6 mb-10 flex-grow text-sm">
                   <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Hasta 5 miembros del equipo</li>
                   <li className="flex items-start gap-2"><Check className="text-emerald-400 mt-0.5 w-4 h-4" /> Dashboard de equipo</li>
@@ -666,7 +676,7 @@ export default function LandingPage() {
           </div>
           {!expandedFAQ && filteredFaq.length > 10 && <button type="button" onClick={() => setExpandedFAQ(true)} className="mt-4 px-6 py-3 border border-emerald-600 text-emerald-400 rounded-full hover:bg-emerald-600/10 transition-all text-sm font-medium block mx-auto cursor-pointer">🔍 Ver centro de ayuda →</button>}
           <div className="text-center my-6"><Link href="/register" className="inline-flex items-center gap-2 border border-zinc-600 text-zinc-400 font-bold px-5 py-2 rounded-full text-sm hover:border-zinc-400 transition-all">¿Quieres saber más? Ver planes →</Link></div>
-          <div className="text-center mt-6"><Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-6 py-3 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 text-sm cursor-pointer">Blindar mi primer proyecto →</Link></div>
+          <div className="text-center mt-6"><Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-6 py-3 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 text-sm cursor-pointer">Probar 14 días gratis →</Link></div>
         </section>
 
         {/* CTA FINAL */}
@@ -676,7 +686,7 @@ export default function LandingPage() {
             <p className="text-sm text-zinc-300">Únete a {liveFreelancers} freelancers que ya duermen tranquilos</p>
             <h2 className="text-3xl md:text-5xl font-extrabold">Llevas años persiguiendo facturas. Tardas 3 minutos en que nunca vuelva a pasar.</h2>
             <p className="text-xs text-zinc-400">Sin tarjeta · 14 días gratis · Sin permanencia · Garantía Blindaje Total incluida</p>
-            <Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-lg px-10 py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 cursor-pointer">Blindar mi primer proyecto →</Link>
+            <Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-lg px-10 py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 cursor-pointer">Probar 14 días gratis →</Link>
             <p className="text-xs text-zinc-400 font-medium"><Link href="/pricing" className="text-emerald-400 hover:text-emerald-300">Ver comparativa completa de planes →</Link></p>
           </div>
         </section>

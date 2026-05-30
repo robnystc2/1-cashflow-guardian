@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 
 export default function LiveStatsBar() {
-  const [stats, setStats] = useState({ freelancers: 847, recovered: 33067 })
+  const [stats, setStats] = useState({ freelancers: 848, recovered: 33067 })
   useEffect(() => {
     const interval = setInterval(() => {
       setStats(prev => ({
