@@ -1,22 +1,25 @@
-import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+'use client'
+import { useState } from 'react'
 export default function CalculadoraIRPF() {
+  const [ingresos, setIngresos] = useState(30000)
+  const retencion = ingresos <= 12450 ? 19 : ingresos <= 20200 ? 24 : ingresos <= 35200 ? 30 : ingresos <= 60000 ? 37 : 45
+  const cuota = Math.round(ingresos * retencion / 100)
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
-      <nav className="border-b border-zinc-800 bg-[#050505]/80 backdrop-blur-xl py-4 px-4">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2"><div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-lg flex items-center justify-center text-black font-bold text-sm">🔒</div><span className="font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">CFG</span></Link>
-          <Link href="/register" className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-sm px-5 py-2.5 rounded-full transition-all">Empieza por 1€ →</Link>
+    <div className="min-h-screen bg-[#0a0a0a] text-white pt-24 pb-16 px-4">
+      <div className="max-w-4xl mx-auto text-center">
+        <h1 className="text-4xl font-bold mb-4">Calculadora IRPF para autónomos</h1>
+        <div className="bg-zinc-900 border border-zinc-700 rounded-2xl p-8 max-w-xl mx-auto">
+          <label className="text-sm text-zinc-300 block mb-2">Ingresos anuales estimados (€)</label>
+          <input type="range" min="10000" max="150000" step="1000" value={ingresos} onChange={e => setIngresos(Number(e.target.value))} className="w-full accent-emerald-500" />
+          <span className="text-xs text-zinc-400">{ingresos.toLocaleString('es-ES')}€</span>
+          <div className="mt-6 bg-zinc-800 rounded-xl p-6">
+            <p className="text-zinc-300">Tipo de retención: <strong className="text-emerald-400">{retencion}%</strong></p>
+            <p className="text-2xl font-extrabold text-white mt-2">{cuota.toLocaleString('es-ES')}€</p>
+            <p className="text-xs text-zinc-400 mt-1">Cuota estimada (sin deducciones)</p>
+          </div>
+          <p className="text-xs text-zinc-500 mt-4">Esta es una estimación orientativa. Consulta con tu gestor.</p>
         </div>
-      </nav>
-      <section className="py-16 px-4 max-w-3xl mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">Calculadora de <span className="text-emerald-400">IRPF autónomo</span></h1>
-        <p className="text-xl text-zinc-300 mb-8">Calcula cuánto deberías apartar para Hacienda en función de tus ingresos.</p>
-        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 mb-8">
-          <p className="text-sm text-zinc-400 mb-4">Próximamente: herramienta interactiva para autónomos españoles.</p>
-        </div>
-        <Link href="/register" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-lg px-10 py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-emerald-500/20">Proteger mis ingresos con CFG <ArrowRight className="w-5 h-5" /></Link>
-      </section>
+      </div>
     </div>
   )
 }

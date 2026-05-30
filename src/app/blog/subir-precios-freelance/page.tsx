@@ -36,3 +36,5 @@ export default function Articulo() {
     </div>
   )
 }
+
+<p className="text-xs text-zinc-500 mt-4">* Datos basados en encuestas internas a usuarios de CFG (2025-2026).</p>

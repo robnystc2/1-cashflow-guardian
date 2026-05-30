@@ -51,7 +51,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </Script>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", "name": "CFG", "url": "https://cashflowguardian.com", "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "226" } }) }} />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [ { "@type": "Question", "name": "¿Cuánto tarda en funcionar desde que me registro?", "acceptedAnswer": { "@type": "Answer", "text": "3 minutos. Creas tu cuenta, creas un proyecto con hitos, y ya está blindado." } } ] }) }} />
-      </head>
+      
+  <script dangerouslySetInnerHTML={{ __html: `
+    // A/B testing simple: variante A (headline actual) vs variante B (anterior)
+    if (Math.random() < 0.5) {
+      document.querySelector('h1').innerText = "El freelancer medio tarda 52 días en cobrar. Con CFG: 6 días. O te devolvemos el dinero.";
+    }
+  ` }} />
+
+</head>
       <body className={`${inter.className} bg-black text-white antialiased`}>
         <RootLayoutClient>{children}</RootLayoutClient>
         <CookieBanner />
